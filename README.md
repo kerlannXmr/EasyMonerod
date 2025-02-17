@@ -2,7 +2,7 @@
 
 ## 'EASYNODE' for MONERO 
 
-<img src="picture/logo.png" width="300" height="300" alt="Monero EasyNode Logo">
+<img src="picture/logo2.png" width="300" height="300" alt="Monero EasyNode Logo">
 </div>
 
 <hr style="border-top: 3px solid orange;">
