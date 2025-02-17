@@ -1,55 +1,100 @@
-# 🚀 Monero EasyNode
+<div align="center">
 
-[![Theme](https://img.shields.io/badge/Theme-Orange-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode)
-[![Status](https://img.shields.io/badge/Status-Active-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode)
+# 🌟 MONERO EASYNODE 🌟
 
-## 📥 Téléchargement des Scripts
+<img src="logo.png" width="300" height="300" alt="Monero EasyNode Logo">
 
-### Scripts disponibles :
+[![Release](https://img.shields.io/badge/Release-v1.0-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20|%20WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode)
+</div>
 
-[![Download Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge&logo=linux)](https://github.com/kerlannXmr/Monero_EasyNode/raw/main/easynode_linux)
-[![Download WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge&logo=windows)](https://github.com/kerlannXmr/Monero_EasyNode/raw/main/easynode_wsl)
+## 📥 Téléchargements
 
-## 📋 Description
+<div align="center">
 
-Scripts pour faciliter l'installation et la configuration d'un nœud Monero.
+| Version | Lien |
+|---------|------|
+| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_linux) |
+| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_wsl) |
 
-### ▶️ Utilisation :
+</div>
 
-1. **Pour Linux :**
-   - [Voir le code](https://github.com/kerlannXmr/Monero_EasyNode/blob/main/easynode_linux)
-   - [Télécharger directement](https://github.com/kerlannXmr/Monero_EasyNode/raw/main/easynode_linux)
-   ```bash
-   chmod +x easynode_linux
-   ./easynode_linux
-   ```
+## 🖥️ Interface Linux
+<div align="center">
+<img src="linux_interface.png" alt="Linux Interface" style="max-width: 800px;">
+</div>
 
-2. **Pour Windows (WSL) :**
-   - [Voir le code](https://github.com/kerlannXmr/Monero_EasyNode/blob/main/easynode_wsl)
-   - [Télécharger directement](https://github.com/kerlannXmr/Monero_EasyNode/raw/main/easynode_wsl)
-   ```bash
-   chmod +x easynode_wsl
-   ./easynode_wsl
-   ```
+## 🪟 Interface WSL
+<div align="center">
+<img src="wsl_interface.png" alt="WSL Interface" style="max-width: 800px;">
+</div>
 
-## 🛠️ Fonctionnalités
+## 📋 Menu Principal
 
-- Installation automatisée
-- Configuration simplifiée
-- Support Linux et WSL
-- Installation sécurisée
+1. Update system
+2. Install Monero CLI
+3. Install Tor
+4. Configure bitmonero
+5. Configure anonymous DNS
+6. START
+7. STOP (ctrl+c)
+8. Blockchain on External disk
+9. Blockchain on Internal disk
+10. Change language
+11. FEATURES
+12. READ
+13. EXIT
 
-## 🔑 Sécurité
+## 🚀 Installation
 
-[![Security](https://img.shields.io/badge/Security-Verified-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode)
+### Pour Linux :
+```bash
+wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_linux
+chmod +x easynode_linux
+./easynode_linux
+```
+
+### Pour Windows (WSL) :
+```bash
+wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_wsl
+chmod +x easynode_wsl
+./easynode_wsl
+```
+
+## ⚡ Fonctionnalités
+
+- ✅ Installation automatisée
+- ✅ Configuration de Monero
+- ✅ Gestion des disques (interne/externe)
+- ✅ Support Tor intégré
+- ✅ DNS anonyme
+- ✅ Interface utilisateur intuitive
+
+## ⚠️ Important
+
+- REDIRECT port 22 and 18080 from your internet router to your 'local ip' of your PC
+- Pour arrêter la Blockchain : CTRL+C (1 fois seulement)
+
+## 🔧 Configuration
+
+### Disque Interne :
+- Suivez les étapes 1➡️2➡️3➡️4➡️5
+- Puis sélectionnez : Stape 6
+
+### Disque Externe :
+- Suivez les étapes 1➡️2➡️3➡️4➡️5
+- Puis sélectionnez : Stape 8 puis 6
 
 ## 📞 Support
 
-Pour toute question ou problème, créez une [issue](https://github.com/kerlannXmr/Monero_EasyNode/issues).
+Pour toute question ou assistance :
+- Créez une [Issue](https://github.com/kerlannXmr/Monero_EasyNode/issues)
+- Consultez la [Documentation](https://github.com/kerlannXmr/Monero_EasyNode/wiki)
 
----
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/kerlannXmr/Monero_EasyNode?style=social)](https://github.com/kerlannXmr/Monero_EasyNode)
+---
+
+Made with ❤️ by [KerlannXmr](https://github.com/kerlannXmr)
 
 </div>
