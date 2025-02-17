@@ -1334,7 +1334,7 @@ show_notes() {
     print_styled "PRIMARY" "$(get_message "    avec 'cake wallet' à:    kerlann.xmr" "    with 'cake wallet' to:   kerlann.xmr")"
     echo
     print_styled "MONERO" "$(get_message "- Code source:" "- Source Code:")"
-    print_styled "MONERO" "$(get_message "  https://github.com/kerlannXmr" "  https://github.com/kerlannXmr")"
+    print_styled "MONERO" "$(get_message "  https://github.com/kerlannXmr/Monero_EasyNode" "  https://github.com/kerlannXmr/Monero_EasyNode")"
                 
                 read -p "$(print_styled "PRIMARY" "$(get_message "Appuyez sur Entrée pour continuer..❤️." "Press Enter to continue..❤️.")")"
 }
