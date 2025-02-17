@@ -6,7 +6,8 @@
 </div>
 
 <hr style="border-top: 3px solid orange;">
-<b>'EasyNode'</b> is a program to allow you to easily install a <b>'MONERO node'</b> with all the pre-recorded parameters in less than 10 minutes.
+<b>EasyNode</b> turns installing a <b>MONERO node</b> into a quick and easy process, accomplishing everything in less than 10 minutes!
+
 Then download its blockchain...
 
 Finally, start your adventure, you are sovereign...
