@@ -13,7 +13,7 @@
 | Version | Lien |
 |---------|------|
 | 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/easynode_linux.sh) |
-| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_wsl) |
+| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)]((https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/easynode_wsl.sh)) |
 
 </div>
 
