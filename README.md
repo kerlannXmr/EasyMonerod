@@ -2,7 +2,7 @@
 
 # 🌟 MONERO EASYNODE 🌟
 
-<img src="logo.png" width="300" height="300" alt="Monero EasyNode Logo">
+<img src="picture/logo.png" width="300" height="300" alt="Monero EasyNode Logo">
 
 [![Release](https://img.shields.io/badge/Release-v1.0-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20|%20WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode)
