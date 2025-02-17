@@ -1,11 +1,9 @@
 <div align="center">
 
-# 🌟 MONERO EASYNODE 🌟
+#  MONERO EASYNODE 
 
 <img src="picture/logo.png" width="300" height="300" alt="Monero EasyNode Logo">
 
-[![Release](https://img.shields.io/badge/Release-v1.0-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases)
-[![Platform](https://img.shields.io/badge/Platform-Linux%20|%20WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode)
 </div>
 
 ## 📥 Téléchargements
@@ -21,8 +19,8 @@
 
 ## 🖥️ Interface:
 <div align="center">
-<img src="https://raw.githubusercontent.com/kerlannXmr/Monero_EasyNode/main/linux_interface.png" alt="Linux Interface" style="max-width: 800px;">
-<img src="linux_interface.png" alt="Linux Interface" style="max-width: 800px;">
+<img src="picture/wsl_interface.png" alt="Linux Interface" style="max-width: 800px;">
+<img src="picture/linux_interface.png" alt="Linux Interface" style="max-width: 800px;">
 </div>
 
 
