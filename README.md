@@ -96,7 +96,7 @@ sudo ./easynode_wsl
 ## ⚠️ Important
 
 - REDIRECT port 22 and 18080 from your internet router to your 'local ip' of your PC
-- Pour arrêter la Blockchain : CTRL+C (1 fois seulement)
+- Stop the Blockchain : CTRL+C (1 times)
 
 ## 🔧 Configuration
 
