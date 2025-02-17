@@ -1,16 +1,35 @@
 <div align="center">
 
-#  MONERO EASYNODE 
+## 'EASYNODE' for MONERO 
 
 <img src="picture/logo.png" width="300" height="300" alt="Monero EasyNode Logo">
-
 </div>
 
-## 📥 Téléchargements
+<hr style="border-top: 3px solid orange;">
+'EasyNode' is a program to allow you to easily install a 'MONERO node' with all the pre-recorded parameters in less than 10 minutes.
+Then download its blockchain...
+
+Finally, start your adventure, you are sovereign...
+
+You can use it in Linux versions or windows 10/11 in wsl version. 
+
+No knowledge required. Select step 1,2,3,4,5 and you're done. 
+After Boot to your internal drive, 6, or move the blockchain to your external disk, 8..
+
+The node is protected by Tor and an onion address allows you to connect to a mobile wallet.
+An SSH onion address is available to access the node remotely.
+Added the 'MRL' IP bann list of 'boog900'.
+
+English- French language.
+
+Enjoy.
+
+
+## 📥 Download:
 
 <div align="center">
 
-| Version | Lien |
+| Version | Links |
 |---------|------|
 | 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/easynode_linux.sh) |
 | 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/easynode_wsl.sh) |
@@ -20,13 +39,11 @@
 ## 🖥️ Interface:
 <div align="center">
 <img src="picture/linux-interface.png" width="310" alt="Linux Interface">
- 
 <img src="picture/wsl_interface.png" width="316" alt="wsl Interface">
-
 </div>
 
 
-## 📋 Menu Principal
+## 📋 Main Menu
 
 1. Update system
 2. Install Monero CLI
@@ -44,28 +61,38 @@
 
 ## 🚀 Installation
 
-### Pour Linux :
+### Linux :
 ```bash
 wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_linux
+
+or download this script here and then in a terminal do:
+
 chmod +x easynode_linux
 ./easynode_linux
 ```
 
-### Pour Windows (WSL) :
+### Windows (WSL) :
 ```bash
 wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_wsl
+
+or download this script here and then in a terminal do:
+
 chmod +x easynode_wsl
 ./easynode_wsl
 ```
 
-## ⚡ Fonctionnalités
+## ⚡ Features
 
-- ✅ Installation automatisée
-- ✅ Configuration de Monero
-- ✅ Gestion des disques (interne/externe)
-- ✅ Support Tor intégré
-- ✅ DNS anonyme
-- ✅ Interface utilisateur intuitive
+- ✅ Automated installation
+- ✅ allow firewall port
+- ✅ Monero configuration
+- ✅ Disk management (internal/external)
+- ✅ Built-in Tor (Tor/SSH onion address)
+- ✅ Anonymous DNS
+- ✅ Block IP 'ban listed' (MRL)
+- ✅ SSH remote access
+- ✅ Intuitive user interface
+- ✅ no knowledge required
 
 ## ⚠️ Important
 
@@ -74,23 +101,24 @@ chmod +x easynode_wsl
 
 ## 🔧 Configuration
 
-### Disque Interne :
-- Suivez les étapes 1➡️2➡️3➡️4➡️5
-- Puis sélectionnez : Stape 6
+### Internal disk :
+- Follow the stape 1➡️2➡️3➡️4➡️5
+- Then do : Stape 6
 
-### Disque Externe :
-- Suivez les étapes 1➡️2➡️3➡️4➡️5
-- Puis sélectionnez : Stape 8 puis 6
+### External Disk :
+- Follow the stape 1➡️2➡️3➡️4➡️5
+- Then do : Stape 8 and 6
 
 ## 📞 Support
 
-Pour toute question ou assistance :
-- Créez une [Issue](https://github.com/kerlannXmr/Monero_EasyNode/issues)
-- Consultez la [Documentation](https://github.com/kerlannXmr/Monero_EasyNode/wiki)
+For any questions or assistance :
+- Emai : lkerlann.xmr@ud.me
+- Consult the [Documentation](https://tinyurl.com/kerlann)
 
 <div align="center">
 
 ---
+🙏 Make donnation with 'cake wallet' to : kerlann.xmr
 
 Made with ❤️ by [KerlannXmr](https://github.com/kerlannXmr)
 
