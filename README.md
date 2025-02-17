@@ -1,3 +1,4 @@
+<img src="picture/titre.png" alt="Monero EasyNode top">
 <div align="center">
 
 ## 'EASYNODE' for MONERO 
