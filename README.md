@@ -63,23 +63,21 @@ Enjoy.
 ## 🚀 Installation
 
 ### Linux :
+Download this script and then open a terminal:
 ```bash
 wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_linux
 
-or download this script here and then in a terminal do:
-
 chmod +x easynode_linux
-./easynode_linux
+sudo ./easynode_linux
 ```
 
 ### Windows (WSL) :
+Download this script and then open a terminal:
 ```bash
 wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_wsl
 
-or download this script here and then in a terminal do:
-
 chmod +x easynode_wsl
-./easynode_wsl
+sudo ./easynode_wsl
 ```
 
 ## ⚡ Features
