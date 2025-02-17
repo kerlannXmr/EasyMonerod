@@ -15,7 +15,7 @@ Finally, start your adventure, you are sovereign...
 You can use it in 🐧Linux versions or 🪟 windows  10/11 in wsl version. 
 
 No knowledge required. Select step 1,2,3,4,5 and you're done. 
-After Boot to your internal drive, 6, or move the blockchain to your external disk, 8..
+After Boot to your internal drive, 6, or move the blockchain to your external disk, 8.
 
 The node is protected by Tor and an onion address allows you to connect to a mobile wallet.
 An SSH onion address is available to access the node remotely.
