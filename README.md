@@ -19,8 +19,9 @@
 
 ## 🖥️ Interface:
 <div align="center">
+<img src="picture/linux-interface.png" alt="Linux Interface" style="max-width: 800px;">
 <img src="picture/wsl_interface.png" alt="Linux Interface" style="max-width: 800px;">
-<img src="picture/linux_interface.png" alt="Linux Interface" style="max-width: 800px;">
+
 </div>
 
 
