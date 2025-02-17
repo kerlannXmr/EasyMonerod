@@ -1,32 +1,67 @@
-# ✨ MONERO_easynode
-
 <div align="center">
-  <img src="https://via.placeholder.com/1000x100/FFA500/FFFFFF?text=Bienvenue+sur+ma+page" alt="Banner" style="max-width: 100%;">
-</div>
-
-## 📥 Téléchargements
-
-Vous pouvez télécharger mes scripts directement ici :
-
-<div align="center">
-  <a href="monero_all30.sh" style="background: #FFA500; color: white; padding: 10px 20px; text-decoration: none; margin: 10px; border-radius: 5px;">
-    ⬇️ monero_all30.sh
-  </a>
+  <h1 style="color: #FF8C00; border-bottom: 4px solid #FF8C00; padding-bottom: 10px;">
+    🌟 Monero_EasyNode
+  </h1>
   
-  <a href="monero_wsl20.sh" style="background: #FFA500; color: white; padding: 10px 20px; text-decoration: none; margin: 10px; border-radius: 5px;">
-    ⬇️ monero_wsl20.sh
+  <div style="background: linear-gradient(135deg, #FF8C00, #FFA500); padding: 20px; border-radius: 10px; margin: 20px 0;">
+    <h2 style="color: white; margin: 0;">Téléchargement des Scripts</h2>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 20px; margin: 40px 0;">
+  <a href="raw/main/script1.py" download style="
+    background: #FF8C00;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;">
+    📥 Télécharger Script 1
+  </a>
+
+  <a href="raw/main/script2.py" download style="
+    background: #FF8C00;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;">
+    📥 Télécharger Script 2
   </a>
 </div>
 
-## 🎨 Style
-
-Cette page utilise un thème orange pour plus de visibilité et d'élégance.
-
-<div align="center" style="background: #FFE4B5; padding: 20px; border-radius: 10px;">
-  <h3 style="color: #FF8C00;">Merci de votre visite! 🌟</h3>
+<div style="
+  background: #FFF3E0;
+  border-left: 5px solid #FF8C00;
+  padding: 20px;
+  margin: 40px 0;
+  border-radius: 0 10px 10px 0;">
+  
+  <h2 style="color: #FF8C00; margin-top: 0;">📋 Contenu du Repository</h2>
+  
+  * **Script 1**: [Voir le code](./script1.py) | [Télécharger directement](raw/main/script1.py)
+  * **Script 2**: [Voir le code](./script2.py) | [Télécharger directement](raw/main/script2.py)
 </div>
 
-## 🔗 Liens rapides
+<div style="
+  background: linear-gradient(135deg, #FF8C00, #FFA500);
+  padding: 2px;
+  border-radius: 10px;
+  margin: 40px 0;">
+  <div style="
+    background: white;
+    padding: 20px;
+    border-radius: 8px;">
+    <h2 style="color: #FF8C00; margin-top: 0;">🔥 Style Orange</h2>
+    <p>Cette page utilise un thème orange personnalisé pour une meilleure visibilité et une expérience utilisateur améliorée.</p>
+  </div>
+</div>
 
-[![Download](https://img.shields.io/badge/Download-Scripts-orange?style=for-the-badge)](#monero_all30.sh)
-[![Style](https://img.shields.io/badge/Style-Orange-orange?style=for-the-badge)]()
+<div align="center" style="margin-top: 40px;">
+  <img src="https://img.shields.io/badge/Style-Orange-FF8C00?style=for-the-badge" alt="Style Orange">
+  <img src="https://img.shields.io/badge/Téléchargement-Facile-FF8C00?style=for-the-badge" alt="Téléchargement Facile">
+</div>
