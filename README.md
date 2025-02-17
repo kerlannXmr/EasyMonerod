@@ -112,7 +112,7 @@ chmod +x easynode_wsl
 ## 📞 Support
 
 For any questions or assistance :
-- Emai : lkerlann.xmr@ud.me
+- Emai : kerlann.xmr@ud.me
 - Consult the [Documentation](https://tinyurl.com/kerlann)
 
 <div align="center">
