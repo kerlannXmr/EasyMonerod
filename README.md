@@ -21,7 +21,7 @@
 
 ## 🖥️ Interface:
 <div align="center">
-<img src="https://raw.githubusercontent.com/kerlannXmr/Monero_EasyNode/main/wl_interface.png" style="max-width: 800px;">
+<img src="https://raw.githubusercontent.com/kerlannXmr/Monero_EasyNode/main/linux_interface.png" alt="Linux Interface" style="max-width: 800px;">
 <img src="linux_interface.png" alt="Linux Interface" style="max-width: 800px;">
 </div>
 
