@@ -19,9 +19,9 @@
 
 </div>
 
-## 🖥️ Interface Linux
+## 🖥️ Interface:
 <div align="center">
-<img src="linux_interface.png" alt="[Linux Interface](https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/wsl_interface.png)" style="max-width: 800px;">
+<img src="linux_interface.png" alt="https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/wsl_interface.png" style="max-width: 800px;">
 <img src="linux_interface.png" alt="Linux Interface" style="max-width: 800px;">
 </div>
 
