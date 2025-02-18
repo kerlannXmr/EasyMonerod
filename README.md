@@ -122,7 +122,7 @@ sudo ./easynode_wsl.sh
   
 -➡🟧 Stop the Blockchain : CTRL+C (1 times)
 
-## ⚡ HOW TO
+## 📝 HOW TO
 
 ### Internal disk :
 - Follow the stape 1➡️2➡️3➡️4➡️5
