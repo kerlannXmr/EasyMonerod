@@ -110,7 +110,7 @@ sudo ./easynode_wsl
 
 ## ⚠️ Important
 
--➡🟧 REDIRECT port 22 and 18080 from your internet router to your 'local ip' of your PC.
+-➡🟧 REDIRECT port 22 and 18080 from your internet router to your ' local ip ' of your PC.
 
 -➡🟧 Remote access wallet:
   
@@ -118,7 +118,7 @@ sudo ./easynode_wsl
   
 -➡🟧  Remote access ssh:
   
-  Take 'Termux':' ssh username@local_ip_pc' . Or ' ssh username@onion_ssh_address '.
+  Open terminal pc or take 'Termux' on android: ' ssh username@local_ip_pc ' . Or ' ssh username@onion_ssh_address '.
   
 -➡🟧 Stop the Blockchain : CTRL+C (1 times)
 
