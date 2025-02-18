@@ -96,8 +96,17 @@ sudo ./easynode_wsl
 
 ## ⚠️ Important
 
-- REDIRECT port 22 and 18080 from your internet router to your 'local ip' of your PC
-- Stop the Blockchain : CTRL+C (1 times)
+-➡🟧 REDIRECT port 22 and 18080 from your internet router to your 'local ip' of your PC.
+
+-➡🟧 Remote access wallet:
+  
+  Take 'cake wallet', settings, connect and sync, manage nodes, add +, node address= onion Tor, node port= 18089, save. Close and open. Wait the sync.
+  
+-➡🟧  Remote access ssh:
+  
+  Take 'Termux':' ssh username@local_ip_pc' . Or ' ssh username@onion_ssh_address '.
+  
+-➡🟧 Stop the Blockchain : CTRL+C (1 times)
 
 ## 🔧 Configuration
 
