@@ -1,7 +1,7 @@
 <img src="picture/titre6.png" alt="Monero EasyNode top">
 <div align="center">
 
-## 'EASYNODE' for MONERO 
+## Make easy a Node 
 
 <img src="picture/logo2.png" width="300" height="300" alt="Monero EasyNode Logo">
 </div>
