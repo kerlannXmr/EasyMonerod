@@ -63,8 +63,8 @@ Enjoy.
 
 ## 🚀 Installation
 
-### Linux :
-Download this script and then open a terminal:
+### 🐧 Linux :
+⮕ Download this script, then open a terminal and make it executable:
 ```bash
 wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_linux
 
@@ -72,8 +72,22 @@ chmod +x easynode_linux
 sudo ./easynode_linux
 ```
 
-### Windows (WSL) :
-Download this script and then open a terminal:
+### 🪟 Windows (WSL) :
+WSL Ubuntu in widows 10/11:
+
+-🔹 Go to Microsoft Store, then in search type Ubuntu, click on Ubuntu 24.
+
+Other:
+
+-🔸 In powershell administrator:
+```bash
+wsl --install
+```
+https://learn.microsoft.com/fr-fr/windows/wsl/install
+
+https://learn.microsoft.com/en-us/windows/wsl/install
+
+⮕ Download this script, then open a terminal and make it executable:
 ```bash
 wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_wsl
 
