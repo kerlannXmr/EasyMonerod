@@ -128,7 +128,7 @@ For any questions or assistance :
 
 ---
 🙏 <b>Make donnation with 'cake wallet' to : ' kerlann.xmr '</b>
-
+---
 Made with ❤️ by [KerlannXmr](https://github.com/kerlannXmr)
 
 </div>
