@@ -121,13 +121,13 @@ sudo ./easynode_wsl
 ## 📞 Support
 
 For any questions or assistance :
-- Emai : kerlann.xmr@ud.me
+- Email : kerlann.xmr@ud.me
 - Consult the [Documentation](https://tinyurl.com/kerlann)
 
 <div align="center">
 
 ---
-🙏 <b>Make donnation with 'cake wallet' to : ' kerlann.xmr '</b>
+🙏 <b>Make donnation with 'cake wallet' to : ' kerlann.xmr '</b>🙏
 ---
 Made with ❤️ by [KerlannXmr](https://github.com/kerlannXmr)
 
