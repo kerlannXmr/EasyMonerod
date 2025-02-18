@@ -68,8 +68,8 @@ Enjoy.
 ```bash
 wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_linux
 
-chmod +x easynode_linux
-sudo ./easynode_linux
+chmod +x easynode_linux.sh
+sudo ./easynode_linux.sh
 ```
 
 ### 🪟 Windows (WSL) :
@@ -91,8 +91,8 @@ https://learn.microsoft.com/en-us/windows/wsl/install
 ```bash
 wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_wsl
 
-chmod +x easynode_wsl
-sudo ./easynode_wsl
+chmod +x easynode_wsl.sh
+sudo ./easynode_wsl.sh
 ```
 
 ## ⚡ Features
