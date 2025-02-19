@@ -80,7 +80,7 @@ learn.microsoft.com/fr-fr/windows/wsl/install
 
 learn.microsoft.com/en-us/windows/wsl/install
 
-⮕ Download this script, then open a terminal and make it executable:
+⮕ Download this script, open a terminal and make it executable:
 ```bash
 wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_wsl
 
