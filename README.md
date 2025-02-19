@@ -132,6 +132,44 @@ sudo ./easynode_wsl.sh
 - Follow the stape 1➡️2➡️3➡️4➡️5
 - Then do : Stape 8 and 6
 
+## 🔄 Compatibility
+| Distribution | Compatibilité | Notes |
+|--------------|---------------|--------|
+| Debian | ✅ | Distribution de base |
+| Ubuntu et dérivés |✅||
+| Lubuntu | ✅ | LXDE/LXQt |
+| Kubuntu | ✅ | KDE |
+| Xubuntu | ✅ | XFCE |
+| Ubuntu Budgie | ✅ | Budgie |
+| Ubuntu MATE | ✅ | MATE |
+| Ubuntu Studio | ✅ | Multimédia |
+| Mint et dérivés |✅||
+| Linux Mint | ✅ | Basé sur Ubuntu |
+| LMDE | ✅ | Basé sur Debian |
+| Tails |✅ | Nécessite configuration supplémentaire |
+| Parrot OS | ✅ | OS Sécurisé |
+| PureOS | ✅ | OS Sécurisé |
+| Kali Linux | ✅ | OS Sécurisé |
+| BackBox | ✅ | OS Sécurisé |
+| Fedora |❌||
+| Gnome | ✅ | Environment de bureau |
+| KDE Plasma | ✅ | Environment de bureau |
+| Linux Lite | ✅ | Léger |
+| Elementary OS | ✅ | Basé sur Ubuntu |
+| MX Linux | ✅ | Basé sur Debian |
+| Zorin OS | ✅ | Basé sur Ubuntu |
+| AntiX | ✅ | Léger |
+| Bodhi Linux | ✅ | Léger |
+| Deepin | ✅ | Basé sur Debian |
+| KDE neon | ✅ | Basé sur Ubuntu |
+| Voyager | ✅ | Basé sur Debian |
+| Watttos | ✅ | Basé sur Debian |
+
+Légende :
+- ✅ Compatible
+- ⚠️ Compatible avec configuration supplémentaire
+- ❌ Non compatible
+
 ## 📞 Support
 
 For any questions or assistance :
