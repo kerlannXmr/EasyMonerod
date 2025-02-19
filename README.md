@@ -44,22 +44,15 @@ Enjoy.
 <img src="picture/wsl_interface.png" width="316" alt="wsl Interface">
 </div>
 
+## 📝 HOW TO
 
-## 📋 Main Menu
+### Internal disk :
+- Follow the stape 1➡️2➡️3➡️4➡️5
+- Then do : Stape 6
 
-1. Update system
-2. Install Monero CLI
-3. Install Tor
-4. Configure bitmonero
-5. Configure anonymous DNS
-6. START
-7. STOP (ctrl+c)
-8. Blockchain on External disk
-9. Blockchain on Internal disk
-10. Change language
-11. FEATURES
-12. READ
-13. EXIT
+### External Disk :
+- Follow the stape 1➡️2➡️3➡️4➡️5
+- Then do : Stape 8 and 6
 
 ## 🚀 Installation
 
@@ -83,9 +76,9 @@ Other:
 ```bash
 wsl --install
 ```
-https://learn.microsoft.com/fr-fr/windows/wsl/install
+learn.microsoft.com/fr-fr/windows/wsl/install
 
-https://learn.microsoft.com/en-us/windows/wsl/install
+learn.microsoft.com/en-us/windows/wsl/install
 
 ⮕ Download this script, then open a terminal and make it executable:
 ```bash
@@ -112,25 +105,15 @@ sudo ./easynode_wsl.sh
 
 -➡🟧 REDIRECT port 22 and 18080 from your internet router to your ' local ip ' of your PC.
 
--➡🟧 Remote access wallet:
+-➡📗  Remote access wallet:
   
   Take 'cake wallet', settings, connect and sync, manage nodes, add +, node address= onion Tor, node port= 18089, save. Close and open. Wait the sync.
   
--➡🟧  Remote access ssh:
+-➡📗  Remote access ssh:
   
   Open terminal pc or take 'Termux' on android: ' ssh username@local_ip_pc ' . Or ' ssh username@onion_ssh_address '.
   
 -➡🟧 Stop the Blockchain : CTRL+C (1 times)
-
-## 📝 HOW TO
-
-### Internal disk :
-- Follow the stape 1➡️2➡️3➡️4➡️5
-- Then do : Stape 6
-
-### External Disk :
-- Follow the stape 1➡️2➡️3➡️4➡️5
-- Then do : Stape 8 and 6
 
 ## 🔄 Compatibility
 | Distribution | Compatibilité | Notes |
@@ -152,9 +135,11 @@ sudo ./easynode_wsl.sh
 | Kali Linux | ✅ | OS Sécurisé |
 | BackBox | ✅ | OS Sécurisé |
 | Fedora |❌||
+| SUSE |❌ ||
 | Gnome | ✅ | Environment de bureau |
 | KDE Plasma | ✅ | Environment de bureau |
 | Linux Lite | ✅ | Léger |
+| Gentoo |❌ ||
 | Elementary OS | ✅ | Basé sur Ubuntu |
 | MX Linux | ✅ | Basé sur Debian |
 | Zorin OS | ✅ | Basé sur Ubuntu |
@@ -164,16 +149,47 @@ sudo ./easynode_wsl.sh
 | KDE neon | ✅ | Basé sur Ubuntu |
 | Voyager | ✅ | Basé sur Debian |
 | Watttos | ✅ | Basé sur Debian |
+|Arch Linux |❌ ||
 
-Légende :
-- ✅ Compatible
-- ⚠️ Compatible avec configuration supplémentaire
-- ❌ Non compatible
+These distributions must be 64-bit, as the script is designed for x86_64 architecture.
+
+
+
+# Paquets installés par EASYNODE
+
+| Catégorie | Paquets | Description |
+|-----------|---------|-------------|
+| **Outils Système** | build-essential | Outils de compilation et build |
+| | software-properties-common | Gestion des dépôts APT |
+| | apt-transport-https | Support HTTPS pour APT |
+| | curl | Transfert de données |
+| | wget | Téléchargement de fichiers |
+| | git | Système de contrôle de version |
+| | gnupg | Chiffrement et signatures |
+| | lsb-release | Informations sur la distribution |
+| **Compression** | bzip2 | Compression bzip2 |
+| | libbz2-dev | Bibliothèques bzip2 |
+| | zip | Compression zip |
+| | unzip | Décompression zip |
+| | tar | Archivage tar |
+| | gzip | Compression gzip |
+| **Réseau** | net-tools | Outils réseau basiques |
+| | openssh-server | Serveur SSH |
+| | ufw | Pare-feu simple |
+| | fail2ban | Protection contre les attaques |
+| | nmap | Scanner de ports |
+| | tcpdump | Analyseur de paquets |
+| | htop | Moniteur de processus |
+| | iftop | Moniteur de bande passante |
+| | iotop | Moniteur d'I/O |
+| **Python** | python3 | Interpréteur Python 3 |
+| | python3-pip | Gestionnaire de paquets Python |
+| | python3-dev | Headers et libs Python |
+| **Éditeurs** | vim | Éditeur de texte avancé |
+| | nano | Éditeur de texte simple |
 
 ## 📞 Support
 
-For any questions or assistance :
-- Email : kerlann.xmr@ud.me
 - Consult the [Documentation](https://tinyurl.com/kerlann)
 
 <div align="center">
