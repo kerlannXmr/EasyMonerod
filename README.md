@@ -155,7 +155,7 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 
 
 
-# Paquets installés par EASYNODE
+## 🔰 Pakage installed by EASYNODE
 
 | Catégorie | Paquets | Description |
 |-----------|---------|-------------|
