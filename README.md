@@ -155,38 +155,39 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 
 
 
-## 🔰 Pakage installed by EASYNODE
+## 🔰 Pakages installed by EASYNODE
 
-| Catégorie | Paquets | Description |
-|-----------|---------|-------------|
-| **Outils Système** | build-essential | Outils de compilation et build |
-| | software-properties-common | Gestion des dépôts APT |
-| | apt-transport-https | Support HTTPS pour APT |
-| | curl | Transfert de données |
-| | wget | Téléchargement de fichiers |
-| | git | Système de contrôle de version |
-| | gnupg | Chiffrement et signatures |
-| | lsb-release | Informations sur la distribution |
-| **Compression** | bzip2 | Compression bzip2 |
-| | libbz2-dev | Bibliothèques bzip2 |
-| | zip | Compression zip |
-| | unzip | Décompression zip |
-| | tar | Archivage tar |
-| | gzip | Compression gzip |
-| **Réseau** | net-tools | Outils réseau basiques |
-| | openssh-server | Serveur SSH |
-| | ufw | Pare-feu simple |
-| | fail2ban | Protection contre les attaques |
-| | nmap | Scanner de ports |
-| | tcpdump | Analyseur de paquets |
-| | htop | Moniteur de processus |
-| | iftop | Moniteur de bande passante |
-| | iotop | Moniteur d'I/O |
-| **Python** | python3 | Interpréteur Python 3 |
-| | python3-pip | Gestionnaire de paquets Python |
-| | python3-dev | Headers et libs Python |
-| **Éditeurs** | vim | Éditeur de texte avancé |
-| | nano | Éditeur de texte simple |
+| Category | Packages | Description |
+|----------|----------|-------------|
+| **System Tools** | build-essential | Compilation and build tools |
+| | software-properties-common | APT repository management |
+| | apt-transport-https | HTTPS support for APT |
+| | ca-certificates | Certificate Authority certificates |
+| | curl | Data transfer tool |
+| | wget | File download utility |
+| | git | Version control system |
+| | gnupg | Encryption and signing |
+| | lsb-release | Distribution information |
+| **Compression** | bzip2 | bzip2 compression |
+| | libbz2-dev | bzip2 libraries |
+| | zip | ZIP compression |
+| | unzip | ZIP decompression |
+| | tar | TAR archiving |
+| | gzip | GZIP compression |
+| **Network** | net-tools | Basic network tools |
+| | openssh-server | SSH server |
+| | ufw | Simple firewall |
+| | fail2ban | Protection against attacks |
+| | nmap | Port scanner |
+| | tcpdump | Packet analyzer |
+| | htop | Process monitor |
+| | iftop | Bandwidth monitor |
+| | iotop | I/O monitor |
+| **Python** | python3 | Python 3 interpreter |
+| | python3-pip | Python package manager |
+| | python3-dev | Python headers and libs |
+| **Editors** | vim | Advanced text editor |
+| | nano | Simple text editor |
 
 ## ♠️ Support
 - getmonero.dev
