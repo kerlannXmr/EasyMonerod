@@ -75,7 +75,7 @@ sudo ./easynode_linux.sh
 ### 🪟 Windows (WSL) :
 WSL Ubuntu in widows 10/11:
 
--🔹 Go to Microsoft Store, then in search type Ubuntu, click on Ubuntu 24.
+-🔹 Go to Microsoft Store, then in search type Ubuntu, click on Ubuntu 24LTS.
 
 Other:
 
