@@ -162,7 +162,6 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 | **System Tools** | build-essential | Compilation and build tools |
 | | software-properties-common | APT repository management |
 | | apt-transport-https | HTTPS support for APT |
-| | ca-certificates | Certificate Authority certificates |
 | | curl | Data transfer tool |
 | | wget | File download utility |
 | | git | Version control system |
