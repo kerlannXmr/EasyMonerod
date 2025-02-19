@@ -188,8 +188,8 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 | **Éditeurs** | vim | Éditeur de texte avancé |
 | | nano | Éditeur de texte simple |
 
-## 📞 Support
-
+## ♠️ Support
+- getmonero.dev
 - Consult the [Documentation](https://tinyurl.com/kerlann)
 
 <div align="center">
