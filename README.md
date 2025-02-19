@@ -47,12 +47,12 @@ Enjoy.
 ## 📝 HOW TO
 
 ### Internal disk :
-- Follow the stape 1➡️2➡️3➡️4➡️5
-- Then do : Stape 6
+- Follow the stap 1➡️2➡️3➡️4➡️5
+- Then do : Stap 6
 
 ### External Disk :
-- Follow the stape 1➡️2➡️3➡️4➡️5
-- Then do : Stape 8 and 6
+- Follow the stap 1➡️2➡️3➡️4➡️5
+- Then do : Stap 8 and 6
 
 ## 🚀 Installation
 
