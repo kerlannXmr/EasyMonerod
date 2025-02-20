@@ -31,9 +31,7 @@ Enjoy.
 <img src="picture/linux-interface.png" width="310" alt="Linux Interface">
 <img src="picture/wsl_interface.png" width="316" alt="wsl Interface">
 </div>
-https://user-images.githubusercontent.com/[votre_id]/[votre_repo]/assets/[ID]/[nom_video].mp4
 
-https://user-images.githubusercontent.com/kerlannXmr/EasyMonerod/releases/download/v1.0/easynode.mp4
 
 ## 📝 HOW TO
 
