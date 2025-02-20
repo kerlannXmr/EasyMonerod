@@ -35,12 +35,12 @@ Enjoy.
 ## 📝 HOW TO
 
 ### Internal disk :
-- Follow the stap 1➡️2➡️3➡️4➡️5
-- Then do : Stap 6
+- Follow the step 1➡️2➡️3➡️4➡️5
+- Then do : Step 6
 
 ### External Disk :
-- Follow the stap 1➡️2➡️3➡️4➡️5
-- Then do : Stap 8 and 6
+- Follow the step 1➡️2➡️3➡️4➡️5
+- Then do : Step 8 and 6
 
 ## 📥 Download:
 
