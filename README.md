@@ -26,18 +26,6 @@ Added the 'MRL' IP bann list of 'boog900'.
 
 Enjoy.
 
-
-## 📥 Download:
-
-<div align="center">
-
-| Version | Links |
-|---------|------|
-| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/easynode_linux.sh) |
-| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/easynode_wsl.sh) |
-
-</div>
-
 ## 🖥️ Interface:
 <div align="center">
 <img src="picture/linux-interface.png" width="310" alt="Linux Interface">
@@ -53,6 +41,18 @@ Enjoy.
 ### External Disk :
 - Follow the stap 1➡️2➡️3➡️4➡️5
 - Then do : Stap 8 and 6
+
+## 📥 Download:
+
+<div align="center">
+
+| Version | Links |
+|---------|------|
+| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/easynode_linux.sh) |
+| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/Monero_EasyNode/releases/download/v1.0/easynode_wsl.sh) |
+
+</div>
+
 
 ## 🚀 Installation
 
