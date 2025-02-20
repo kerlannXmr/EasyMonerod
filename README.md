@@ -68,6 +68,10 @@ sudo ./easynode_linux.sh
 ### 🪟 Windows (WSL) :
 WSL Ubuntu in widows 10/11:
 
+-🔺 Make sure virtualization is enabled in bios: Tape in powershell Administrator :
+
+` Get-ComputerInfo -Property "HyperV*" ` = True ✅
+
 -🔹 Go to Microsoft Store, then in search type Ubuntu, click on Ubuntu 24LTS.
 
 Other:
