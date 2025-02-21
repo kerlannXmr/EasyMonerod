@@ -32,6 +32,7 @@ Enjoy.
 <img src="picture/wsl_interface.png" width="316" alt="wsl Interface">
 </div>
 
+[👉 Voir la vidéo de démonstration](https://video.liberta.vip/w/8XtfBTvwD4c1U7rdWUw5f1)
 
 ## 📝 HOW TO
 
