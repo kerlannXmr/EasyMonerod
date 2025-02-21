@@ -35,11 +35,8 @@ Enjoy.
 [👉 Voir la vidéo de démonstration](https://video.liberta.vip/w/8XtfBTvwD4c1U7rdWUw5f1)
 
 
-<a href="https://video.liberta.vip/w/8XtfBTvwD4c1U7rdWUw5f1" target="_blank">👉 Voir la vidéo de démonstration</a>
+[👉 Voir la vidéo de démonstration](https://video.liberta.vip/w/8XtfBTvwD4c1U7rdWUw5f1|new)
 
-<a href="https://video.liberta.vip/w/8XtfBTvwD4c1U7rdWUw5f1" target="_blank">
-  ![Demo preview](chemin_vers_image_preview)
-</a>
 
 ## 📝 HOW TO
 
