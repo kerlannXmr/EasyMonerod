@@ -1328,7 +1328,7 @@ show_notes() {
                 echo
                 print_styled "MONERO" "\e]8;;https://mega.nz/file/gjNWgL5B#itd6yCJJk_-1QbP2NbGWIm5DI1CC_MbTr8L6TeDqESI\e\\  PDF Documentations point 5 (CTRL+click)\e]8;;\e\\"
                 echo
-    print_styled "MONERO" "$(get_message "- Questions: kerlann.xmr@ud.me" "- Questions: kerlann.xmr@ud.me")"
+   
     echo
     print_styled "PRIMARY" "$(get_message "-🙏 Gacieux Dons MONERO(Xmr) pour le dur labeur: " "-🙏 Send MONERO(Xmr) donation for hard work")" 
     print_styled "PRIMARY" "$(get_message "    avec 'cake wallet' à:    kerlann.xmr" "    with 'cake wallet' to:   kerlann.xmr")"
