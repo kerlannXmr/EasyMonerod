@@ -110,7 +110,7 @@ sudo ./easynode_wsl.sh
 - ✅ Disk management (internal/external)
 - ✅ Built-in Tor (Tor/SSH onion address)
 - ✅ Anonymous DNS
-- 👍 Block IP 'ban listed' (MRL)
+- 🔒 Block IP 'ban listed' (MRL)
 - ✅ SSH remote access
 - ✅ Intuitive user interface
 - ✅ no knowledge required
