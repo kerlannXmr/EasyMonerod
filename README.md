@@ -53,12 +53,18 @@ Enjoy.
 |---------|------|
 | 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_linux.sh) |
 | 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_wsl.sh) |
-|🚩 IP ban_list | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/ban_list.txt) |
+|🔒IP ban_list | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/ban_list.txt) |
 
 </div>
 
 
 ## 🚀 Installation
+### 🔒 IP ban_list:
+
+◇  Download and install IP ban-list in this folder :
+-  `/home/$user/.bitmonero`
+
+( Updated: github.com/Boog900/monero-ban-list/blob/main/ban_list.txt )
 
 ### 🐧 Linux :
 ↪️ Download this script, then open a terminal and make it executable:
@@ -104,7 +110,7 @@ sudo ./easynode_wsl.sh
 - ✅ Disk management (internal/external)
 - ✅ Built-in Tor (Tor/SSH onion address)
 - ✅ Anonymous DNS
-- ✅ Block IP 'ban listed' (MRL)
+- 👍 Block IP 'ban listed' (MRL)
 - ✅ SSH remote access
 - ✅ Intuitive user interface
 - ✅ no knowledge required
