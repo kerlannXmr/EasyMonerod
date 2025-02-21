@@ -30,13 +30,10 @@ Enjoy.
 <div align="center">
 <img src="picture/linux-interface.png" width="310" alt="Linux Interface">
 <img src="picture/wsl_interface.png" width="316" alt="wsl Interface">
+
+
+[👉 Watch the demo video](https://video.liberta.vip/w/8XtfBTvwD4c1U7rdWUw5f1) *(right click + "Open in new tab")*
 </div>
-
-[👉 Voir la vidéo de démonstration](https://video.liberta.vip/w/8XtfBTvwD4c1U7rdWUw5f1)
-
-
-[👉 Voir la vidéo de démonstration](https://video.liberta.vip/w/8XtfBTvwD4c1U7rdWUw5f1|new)
-
 
 ## 📝 HOW TO
 
