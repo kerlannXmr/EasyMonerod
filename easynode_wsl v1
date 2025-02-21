@@ -1715,7 +1715,7 @@ show_notes() {
     print_styled "PRIMARY" "$(get_message "  PDF Documentations point 5:" "  PDF Documentations point 5:")"
     print_styled "PRIMARY" "$(get_message "  https://tinyurl.com/kerlann" "  https://tinyurl.com/kerlann")"
     echo
-    print_styled "TITLE" "$(get_message "- Questions: kerlann.xmr@ud.me" "- Questions: kerlann.xmr@ud.me")"
+  
     echo
    print_styled "PRIMARY" "$(get_message "+ Gacieux Dons MONERO(Xmr) pour le dur labeur: " "+ Send MONERO Xmr donation for hard work")"
     print_styled "PRIMARY" "$(get_message "  avec 'cake wallet' à:   kerlann.xmr" " with 'cake wallet' to:   kerlann.xmr")"
