@@ -114,7 +114,7 @@ sudo ./easynode_wsl.sh
 - ✅ Built-in Tor (Tor/SSH onion address)
 - ✅ Anonymous DNS
 - 🔒 Block IP 'ban listed' (MRL)
-- ✅ SSH remote access : https://github.com/kerlannXmr/EasyMonerod/issues/2#issue-2870954425
+- ✅ SSH remote access :  [👉Issue](https://github.com/kerlannXmr/EasyMonerod/issues/2#issue-2870954425)*(right click + "Open in new tab")*                              
 - ✅ Intuitive user interface
 - ✅ no knowledge required
 
