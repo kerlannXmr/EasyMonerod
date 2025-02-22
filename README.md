@@ -32,7 +32,7 @@ Enjoy.
 <img src="picture/wsl_interface.png" width="316" alt="wsl Interface">
 
 
-[👉 Watch the demo video](https://mega.nz/file/tjl2kYIY#A3c9teuAb7r7B_z43gu5CjVz5TaQsP-g8BuPzEM7A7s) *(right click + "Open in new tab")*
+[👉 Watch the demo video](https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q) *(right click + "Open in new tab")*
 </div>
 
 ## 📝 HOW TO
