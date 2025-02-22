@@ -206,6 +206,7 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 | | nano | Simple text editor |
 
 ## ♠️ Support
+- monero.how
 - getmonero.dev
 - Consult the [Documentation](https://tinyurl.com/kerlann)
 
