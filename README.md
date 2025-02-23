@@ -10,7 +10,7 @@
 </div>
 
 <hr style="border-top: 3px solid orange;">
-<b>'EasyNode'</b> turns installing a <b>'MONERO node'</b> into a quick and easy blockchain process, perform all staps in less than 10 minutes!
+<b>'EasyNode'</b> simplifies the installation of a <b> 'MONERO node' </b> , allowing you to configure your blockchain in just a few clicks. A complete setup in less than 10 minutes!
 
 Then download its blockchain...
 
