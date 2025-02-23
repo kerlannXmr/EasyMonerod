@@ -72,7 +72,7 @@ Enjoy.
 ### 🐧 Linux :
 ↪️ Download this script, then open a terminal and make it executable:
 ```bash
-wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_linux
+wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_linux.sh
 
 chmod +x easynode_linux.sh
 sudo ./easynode_linux.sh
@@ -99,7 +99,7 @@ learn.microsoft.com/en-us/windows/wsl/install
 
  ↪️ Download this script, open a terminal and make it executable:
 ```bash
-wget https://github.com/kerlannXmr/Monero_EasyNode/releases/latest/download/easynode_wsl
+wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_wsl.sh
 
 chmod +x easynode_wsl.sh
 sudo ./easynode_wsl.sh
