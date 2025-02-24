@@ -91,11 +91,11 @@ sudo ./easynode_linux.sh
 ↳ `wsl --list --verbose` [👉 View issue](https://github.com/kerlannXmr/EasyMonerod/issues/4#issue-2873484919) *(right click + "Open in new tab")*
 
 ### ⚫ 2) Install Ubuntu:
--🔷 Go to Microsoft Store, then in search type Ubuntu, click on Ubuntu 24LTS.
+-🔷 Go to <b>Microsoft Store</b>, then in search type Ubuntu, click on Ubuntu 24LTS.
 
 Other:
 
--🔶  In powershell administrator:
+-🔶  <b>In powershell administrator:</b>
 ```bash
 wsl --install
 ```
