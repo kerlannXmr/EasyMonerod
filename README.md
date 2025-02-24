@@ -54,9 +54,9 @@ Enjoy.
 
 | Version | Links |
 |---------|------|
-| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_linux.sh) |
-| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_wsl.sh) |
-|🔒IP ban_list | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/ban_list.txt) |
+| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh) |
+| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh) |
+|🔒IP ban_list | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/Boog900/monero-ban-list/blob/main/ban_list.txt) |
 
 </div>
 
@@ -72,7 +72,7 @@ Enjoy.
 ## 🐧 Linux :
 ↪️ Download this script, then open a terminal and make it executable:
 ```bash
-sudo wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_linux.sh
+sudo wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh
 ```
 ```bash
 sudo chmod +x easynode_linux.sh
@@ -105,7 +105,7 @@ learn.microsoft.com/en-us/windows/wsl/install
 
 ### ⚫ 3) Download & Install <b>script</b> :
 ```bash
-sudo wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_wsl.sh
+sudo wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh
 ```
 Make it executable
 ```bash
