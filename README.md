@@ -56,7 +56,7 @@ Enjoy.
 |---------|------|
 | 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh) |
 | 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh) |
-|🔒IP ban_list | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/Boog900/monero-ban-list/blob/main/ban_list.txt) |
+
 
 </div>
 
@@ -64,7 +64,7 @@ Enjoy.
 ## <div align="center">🚀 Installation</div>
 ### 🔒 IP ban_list:
 
-◇  Download and install IP ban-list in this folder :
+◇  Automatic updated 'IP ban-list' in this folder :
 -  `/home/$user/.bitmonero`
 
 ( Updated: github.com/Boog900/monero-ban-list/blob/main/ban_list.txt )
