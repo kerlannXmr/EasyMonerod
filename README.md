@@ -86,9 +86,9 @@ WSL Ubuntu in widows 10/11:
 
 ` Get-ComputerInfo -Property "HyperV*" ` = True ✅
 
--🔺 Make sure you already have WSL2:
+-🔺 Make sure you already have <b>WSL2</b>:
 
-[👉 View issue](https://github.com/kerlannXmr/EasyMonerod/issues/4#issue-2873484919) *(right click + "Open in new tab")*
+`wsl --list --verbose` [👉 View issue](https://github.com/kerlannXmr/EasyMonerod/issues/4#issue-2873484919) *(right click + "Open in new tab")*
 
 
 -🔹 Go to Microsoft Store, then in search type Ubuntu, click on Ubuntu 24LTS.
