@@ -29,7 +29,7 @@ Added the 'MRL' IP bann list of 'boog900'.
 
 Enjoy.
 
-## 🖥️ Interface:
+## <div align="center">🖥️ Interface:</div>
 <div align="center">
 <img src="picture/linux-interface.png" width="310" alt="Linux Interface">
 <img src="picture/wsl_interface.png" width="316" alt="wsl Interface">
@@ -38,7 +38,7 @@ Enjoy.
 [👉 Watch the demo video](https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q) *(right click + "Open in new tab")*
 </div>
 
-## 📝 HOW TO
+## <div align="center">📝 HOW TO</div>
 
 ### Internal disk :
 - Follow the step 1➡️2➡️3➡️4➡️5
@@ -48,7 +48,7 @@ Enjoy.
 - Follow the step 1➡️2➡️3➡️4➡️5
 - Then do : Step 8 and 6
 
-## 📥 Download:
+## <div align="center">📥 Download:</div>
 
 <div align="center">
 
@@ -61,7 +61,7 @@ Enjoy.
 </div>
 
 
-## 🚀 Installation
+## <div align="center">🚀 Installation</div>
 ### 🔒 IP ban_list:
 
 ◇  Download and install IP ban-list in this folder :
@@ -113,7 +113,7 @@ sudo chmod +x easynode_wsl.sh
 sudo ./easynode_wsl.sh
 ```
 
-## ⚡ Features
+## <div align="center">⚡ Features</div>
 
 - ✅ Automated installation
 - ✅ allow firewall port
@@ -126,7 +126,7 @@ sudo ./easynode_wsl.sh
 - ✅ Intuitive user interface
 - ✅ no knowledge required
 
-## ⚠️ Important
+## <div align="center">⚠️ Important</div>
 
 -➡🟧 REDIRECT port 22 and 18080 from your internet router to your ' local ip ' of your PC.
 
@@ -140,7 +140,10 @@ sudo ./easynode_wsl.sh
   
 -➡🟧 Stop the Blockchain : CTRL+C (1 times)
 
-## 🔄 Compatibility
+## <div align="center">🔄 Compatibility</div>
+
+<div align="center">
+
 | Distribution | Compatibilité | Notes |
 |--------------|---------------|--------|
 | Debian | ✅ | Distribution de base |
@@ -178,10 +181,13 @@ sudo ./easynode_wsl.sh
 
 These distributions must be 64-bit, as the script is designed for x86_64 architecture.
 
+</div>
 
 
-## 🔰 Pakages installed by EASYNODE
+## <div align="center">🔰 Pakages installed by EASYNODE</div>
 
+<div align="center">
+  
 | Category | Packages | Description |
 |----------|----------|-------------|
 | **System Tools** | build-essential | Compilation and build tools |
@@ -212,6 +218,8 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 | | python3-dev | Python headers and libs |
 | **Editors** | vim | Advanced text editor |
 | | nano | Simple text editor |
+  
+</div>
 
 ## ♠️ Support
 - monero.how
