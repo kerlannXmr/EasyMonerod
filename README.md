@@ -69,7 +69,7 @@ Enjoy.
 
 ( Updated: github.com/Boog900/monero-ban-list/blob/main/ban_list.txt )
 
-### 🐧 Linux :
+## 🐧 Linux :
 ↪️ Download this script, then open a terminal and make it executable:
 ```bash
 sudo wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_linux.sh
@@ -79,23 +79,23 @@ sudo chmod +x easynode_linux.sh
 sudo ./easynode_linux.sh
 ```
 
-### 🪟 Windows (WSL2) :
-WSL2 Ubuntu in widows 10/11:
+## 🪟 Windows 10/11 (WSL2) :
+### ⚫ 1) Verify WSL2 :
 
 -🔺 Make sure virtualization is enabled in bios: Tape in powershell Administrator :
 
-` Get-ComputerInfo -Property "HyperV*" ` = True ✅
+↳ ` Get-ComputerInfo -Property "HyperV*" ` = True ✅
 
 -🔺 Make sure you already have <b>WSL2</b>:
 
-`wsl --list --verbose` [👉 View issue](https://github.com/kerlannXmr/EasyMonerod/issues/4#issue-2873484919) *(right click + "Open in new tab")*
+↳ `wsl --list --verbose` [👉 View issue](https://github.com/kerlannXmr/EasyMonerod/issues/4#issue-2873484919) *(right click + "Open in new tab")*
 
-
--🔹 Go to Microsoft Store, then in search type Ubuntu, click on Ubuntu 24LTS.
+### ⚫ 2) Install Ubuntu:
+-🔷 Go to Microsoft Store, then in search type Ubuntu, click on Ubuntu 24LTS.
 
 Other:
 
--🔸 In powershell administrator:
+-🔶  In powershell administrator:
 ```bash
 wsl --install
 ```
@@ -103,7 +103,7 @@ learn.microsoft.com/fr-fr/windows/wsl/install
 
 learn.microsoft.com/en-us/windows/wsl/install
 
- ↪️ Download this script :
+### ⚫ 3) Download & Install <b>script</b> :
 ```bash
 sudo wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v2/easynode_wsl.sh
 ```
