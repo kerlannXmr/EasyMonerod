@@ -79,8 +79,8 @@ sudo chmod +x easynode_linux.sh
 sudo ./easynode_linux.sh
 ```
 
-### 🪟 Windows (WSL) :
-WSL Ubuntu in widows 10/11:
+### 🪟 Windows (WSL2) :
+WSL2 Ubuntu in widows 10/11:
 
 -🔺 Make sure virtualization is enabled in bios: Tape in powershell Administrator :
 
