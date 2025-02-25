@@ -12,14 +12,14 @@
 <hr style="border-top: 3px solid orange;">
 <b>'EasyNode'</b> simplifies the installation of a <b> 'MONERO node' </b> , allowing you to configure your blockchain in just a few clicks. A complete setup in less than 10 minutes!
 
-Then download its blockchain...
+Then download its blockchain ⬇️ ...
 
 Finally, start your adventure, you are sovereign...
 
 You can use it in 🐧Linux versions or 🪟 windows  10/11 in wsl version. 
 
-No knowledge required. Select step 1,2,3,4,5 and you're done. 
-After Boot to your internal drive, 6, or move the blockchain to your external disk, 8.
+No knowledge required. Select step 1➡️2➡️3➡️4➡️5 and you're done. 
+After Boot to your internal drive, 6️⃣, or move the blockchain to your external disk, 8️⃣.
 
 The node is protected by Tor and an onion address allows you to connect to a mobile wallet.
 An SSH onion address is available to access the node remotely.
@@ -42,11 +42,11 @@ Enjoy.
 
 ### Internal disk :
 - Follow the step 1➡️2➡️3➡️4➡️5
-- Then do : Step 6
+- Then do : Step 6️⃣
 
 ### External Disk :
 - Follow the step 1➡️2➡️3➡️4➡️5
-- Then do : Step 8 and 6
+- Then do : Step 8️⃣ and 6️⃣
 
 ## <div align="center">📥 Download:</div>
 
