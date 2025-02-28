@@ -60,7 +60,7 @@ Enjoy.
 
 <div align="center">
   
-⇨ 📂`to path: /home/user`
+⇨ 📂 Into path: `/home/user`
 </div>
 
 ## <div align="center">🚀 Installation</div>
