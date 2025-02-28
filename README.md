@@ -1,11 +1,3 @@
-<head>
-    <!-- Ajoutez ces lignes dans la section <head> de votre HTML -->
-    <link rel="icon" type="image/png" href="chemin/vers/votre/favicon.svg">
-    <!-- Vous pouvez également spécifier différentes tailles -->
-</head>
-
-
-
 
 <img src="picture/titre6.png" alt="Monero EasyNode top">
 <div align="center">
