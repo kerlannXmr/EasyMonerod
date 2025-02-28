@@ -222,9 +222,8 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 </div>
 
 ## ♠️ Support
-- monero.how
-- getmonero.dev
-- Consult the [Documentation](https://tinyurl.com/kerlann)
+
+- Consult the [👉Documentation](https://tinyurl.com/kerlann)*(right click + "Open in new tab")*
 
 <div align="center">
 
