@@ -56,10 +56,12 @@ Enjoy.
 |---------|------|
 | 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh) |
 | 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh) |
-
-
 </div>
 
+<div align="center">
+  
+⇨ 📂`to path: /home/user`
+</div>
 
 ## <div align="center">🚀 Installation</div>
 ### 🔒 IP ban_list:
