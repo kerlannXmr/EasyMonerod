@@ -225,7 +225,8 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 
 ## ♠️ Support
 
-- Consult the [👉Documentation](https://tinyurl.com/kerlann)*(right click + "Open in new tab")*
+- 📝 Consult F.A.Q. [👉Questions](https://github.com/kerlannXmr/EasyMonerod/issues/5)*(right click + "Open in new tab")*
+- 📝 Consult the [👉Documentation](https://tinyurl.com/kerlann)*(right click + "Open in new tab")*
 
 <div align="center">
 
