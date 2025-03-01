@@ -202,7 +202,7 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 
 ## <div align="center">🔰 Packages installed by EASYNODE</div>
 
-- 📝 -->  See the list of packages at this issue [👉PACKAGES list pre-installed ](https://github.com/kerlannXmr/EasyMonerod/issues/6)*(right click + "Open in new tab")*
+- 📝   See the list of packages at this issue [👉PACKAGES list pre-installed ](https://github.com/kerlannXmr/EasyMonerod/issues/6)*(right click + "Open in new tab")*
 
 ## ♠️ Support
 
