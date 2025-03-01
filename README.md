@@ -41,7 +41,7 @@ Enjoy.
 <br>
 
 <img src="picture/ssh.jpg" width="285" alt="Démo">
-<img src="picture/SSH.gif" width="230" alt="Démo">
+<img src="picture/SSH.gif" width="227" alt="Démo">
 
 </div>
 
