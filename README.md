@@ -34,7 +34,7 @@ Enjoy.
 <div align="center">
 <!--<img src="picture/linux-interface.png" width="310" alt="Linux Interface">-->
 <img src="picture/wsl_interface.png" width="285" height="430" alt="wsl Interface">
-<img src="picture/wsl.gif" width="520" height="430" alt="wsl Interface">
+<img src="picture/wsl.gif" width="500" height="430" alt="wsl Interface">
 
 
   [👉 Watch the demo video](https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q) *(right click + "Open in new tab")*
@@ -43,7 +43,7 @@ Enjoy.
 <br>
 
 <img src="picture/ssh.jpg" width="285" alt="Démo">
-<img src="picture/SSH.gif" width="227" alt="Démo">
+<img src="picture/SSH.gif" width="430" height="470" alt="Démo">
 
 </div>
 
