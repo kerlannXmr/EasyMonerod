@@ -40,7 +40,7 @@ Enjoy.
   <b> SSH REMOTE:</b>
 <br>
 
-<img src="picture/ssh.jpg" width="295" alt="Démo">
+<img src="picture/ssh.jpg" width="285" alt="Démo">
 <img src="picture/SSH.gif" width="220" alt="Démo">
 
 </div>
