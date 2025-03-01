@@ -198,42 +198,9 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 </div>
 
 
-## <div align="center">🔰 Pakages installed by EASYNODE</div>
+## <div align="center">🔰 Packages installed by EASYNODE</div>
 
-<div align="center">
-  
-| Category | Packages | Description |
-|----------|----------|-------------|
-| **System Tools** | build-essential | Compilation and build tools |
-| | software-properties-common | APT repository management |
-| | apt-transport-https | HTTPS support for APT |
-| | curl | Data transfer tool |
-| | wget | File download utility |
-| | git | Version control system |
-| | gnupg | Encryption and signing |
-| | lsb-release | Distribution information |
-| **Compression** | bzip2 | bzip2 compression |
-| | libbz2-dev | bzip2 libraries |
-| | zip | ZIP compression |
-| | unzip | ZIP decompression |
-| | tar | TAR archiving |
-| | gzip | GZIP compression |
-| **Network** | net-tools | Basic network tools |
-| | openssh-server | SSH server |
-| | ufw | Simple firewall |
-| | fail2ban | Protection against attacks |
-| | nmap | Port scanner |
-| | tcpdump | Packet analyzer |
-| | htop | Process monitor |
-| | iftop | Bandwidth monitor |
-| | iotop | I/O monitor |
-| **Python** | python3 | Python 3 interpreter |
-| | python3-pip | Python package manager |
-| | python3-dev | Python headers and libs |
-| **Editors** | vim | Advanced text editor |
-| | nano | Simple text editor |
-  
-</div>
+ 📗|-->  See the list of packages at this issue [👉PACKAGES list pre-installed ](https://github.com/kerlannXmr/EasyMonerod/issues/6)*(right click + "Open in new tab")*
 
 ## ♠️ Support
 
