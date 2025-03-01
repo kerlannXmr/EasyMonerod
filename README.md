@@ -32,9 +32,11 @@ Enjoy.
 
 ## <div align="center">🖥️ Interface:</div>
 <div align="center">
-<img src="picture/linux-interface.png" width="310" alt="Linux Interface">
-<img src="picture/wsl_interface.png" width="316" alt="wsl Interface">
-  
+<!--<img src="picture/linux-interface.png" width="310" alt="Linux Interface">-->
+<img src="picture/wsl_interface.png" width="285" alt="wsl Interface">
+<img src="picture/wsl.gif" width="720" alt="wsl Interface">
+
+
   [👉 Watch the demo video](https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q) *(right click + "Open in new tab")*
 
   <b> SSH REMOTE:</b>
