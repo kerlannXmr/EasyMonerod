@@ -34,9 +34,15 @@ Enjoy.
 <div align="center">
 <img src="picture/linux-interface.png" width="310" alt="Linux Interface">
 <img src="picture/wsl_interface.png" width="316" alt="wsl Interface">
+  
+  [👉 Watch the demo video](https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q) *(right click + "Open in new tab")*
 
+  <b> SSH REMOTE:</b>
+<br>
 
-[👉 Watch the demo video](https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q) *(right click + "Open in new tab")*
+<img src="picture/ssh.jpg" width="295" alt="Démo">
+<img src="picture/SSH.gif" width="220" alt="Démo">
+
 </div>
 
 ## <div align="center">📝 HOW TO</div>
@@ -52,7 +58,7 @@ Enjoy.
 ## <div align="center">📥 Download:</div>
 <div align="center">
   
-⇨ 📂 Into path: `/home/user`
+⇨ 📂 Into path: `/home/$user`
 </div>
 
 <div align="center">
@@ -72,10 +78,14 @@ Enjoy.
 ( Updated: github.com/Boog900/monero-ban-list/blob/main/ban_list.txt )
 
 ## 🐧 Linux :
-↪️ Download this script, then open a terminal and make it executable:
+### ↪️ Download & Install script: 
+/home/$user
+
 ```bash
-sudo wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh
+sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh
 ```
+Make it executable
+
 ```bash
 sudo chmod +x easynode_linux.sh
 sudo ./easynode_linux.sh
@@ -105,9 +115,11 @@ learn.microsoft.com/fr-fr/windows/wsl/install
 
 learn.microsoft.com/en-us/windows/wsl/install
 
-### ⚫ 3) Download & Install <b>script</b> :
+### ⚫ 3) Download & Install <b>script</b> : 
+/home/$user
+
 ```bash
-sudo wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh
+sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh
 ```
 Make it executable
 ```bash
