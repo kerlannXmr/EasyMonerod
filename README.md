@@ -217,3 +217,4 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 Made with ❤️ by [KerlannXmr](https://github.com/kerlannXmr)
 
 </div>
+<div align="center"><img src="picture/monero.gif" width="300" height="80" alt="wsl Interface"></div>
