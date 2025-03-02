@@ -4,7 +4,7 @@
 
 ## Make easy a MONERO Node 
 
-<img src="picture/logo2.png" width="300" height="300" alt="Monero EasyNode Logo">
+<img src="picture/xxmr.gif" width="300" height="300" alt="Monero EasyNode Logo">
 
 [👉 Watch the demo video](https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q) *(right click + "Open in new tab")*
 
