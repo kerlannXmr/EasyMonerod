@@ -80,6 +80,8 @@ Enjoy.
 ( Updated: github.com/Boog900/monero-ban-list/blob/main/ban_list.txt )
 
 ## 🐧 Linux :
+
+[View issue: Linux for NEWBIE](https://github.com/kerlannXmr/EasyMonerod/issues/7) *(right click + "Open in new tab")*
 ### ↪️ Download & Install script: 
 /home/$user
 
