@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" width="700" height="700" style="background:transparent">
+  <!-- Black Logo -->
+  <circle cx="350" cy="350" r="350" fill="black"/>
+  
+  <!-- Thicker M design but same style -->
+  <path fill="white" d="
+    M155 170 
+    L155 350 
+    L200 350 
+    L200 200 
+    L350 360 
+    L500 200 
+    L500 350 
+    L545 350 
+    L545 170 
+    L490 170 
+    L350 320 
+    L210 170 
+    Z"
+  />
+  
+  <!-- Horizontal extensions - thicker -->
+  <rect x="0" y="325" width="155" height="25" fill="white"/>
+  <rect x="545" y="325" width="155" height="25" fill="white"/>
+  
+  <!-- MONERO Text with Stars -->
+  <text x="350" y="420" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="48" fill="white">★M★O★N★E★R★O★</text>
+  
+  <!-- Underline -->
+  <line x1="125" y1="455" x2="575" y2="455" stroke="white" stroke-width="5"/>
+  
+  <!-- EASYNODE Text -->
+  <text x="350" y="520" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="70" fill="#F26E21">EASYNODE</text>
+</svg>
