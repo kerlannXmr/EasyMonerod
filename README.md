@@ -81,7 +81,7 @@ Enjoy.
 
 ## 🐧 Linux :
 
-[View issue: Linux for débutant FR](https://github.com/kerlannXmr/EasyMonerod/issues/7) *(right click + "Open in new tab")*
+[View issue: Linux pour débutant FR](https://github.com/kerlannXmr/EasyMonerod/issues/7) *(right click + "Open in new tab")*
 ### ↪️ Download & Install script: 
 /home/$user
 
