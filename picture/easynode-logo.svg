@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200">
+  <!-- Rounded rectangle background -->
+  <rect width="1000" height="200" rx="20" ry="20" fill="#000000"/>
+  
+  <!-- Text "EASYNODE MONERO" -->
+  <text x="500" y="120" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#FF6600" text-anchor="middle">EASYNODE MONERO</text>
+  
+  <!-- Horizontal line -->
+  <line x1="65" y1="160" x2="935" y2="160" stroke="#FF6600" stroke-width="4"/>
+</svg>
