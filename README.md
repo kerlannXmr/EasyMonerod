@@ -1,5 +1,5 @@
 
-<img src="picture/titre6.png" alt="Monero EasyNode top">
+<img src="picture/banniere.gif" alt="Monero EasyNode top">
 <div align="center">
 
 ## Make easy a MONERO Node 
