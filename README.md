@@ -215,7 +215,7 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 
 ---
 🙏 <b>Make donnation with 'cake wallet' to : ' kerlann.xmr '</b>🙏
-<div align="center"><img src="picture/qrcode2.png"  alt="wsl Interface"></div>
+<div align="center"><img src="picture/qrcode1.png"  alt="wsl Interface"></div>
 
 ---
 
