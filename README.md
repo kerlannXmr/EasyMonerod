@@ -1,5 +1,6 @@
 
-<img src="picture/banniere.gif" alt="Monero EasyNode top">
+<div align="center"><img src="picture/banniere.gif" width="300" height="100" alt="Monero EasyNode top"></div>
+
 <div align="center">
 
 ## Make easy a MONERO Node 
@@ -231,4 +232,4 @@ or scann
 Made with ❤️ by [KerlannXmr](https://github.com/kerlannXmr)
 
 </div>
-<div align="center"><img src="picture/monero.gif" width="300" height="80" alt="wsl Interface"></div>
+<div align="center"><img src="picture/monero.gif" width="190" height="60" alt="wsl Interface"></div>
