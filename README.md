@@ -1,5 +1,5 @@
 
-<div align="center"><img src="picture/banniere.gif" width="300" height="100" alt="Monero EasyNode top"></div>
+<div align="center"><img src="picture/banniere.gif" width="300" height="60" alt="Monero EasyNode top"></div>
 
 <div align="center">
 
