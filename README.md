@@ -214,11 +214,19 @@ These distributions must be 64-bit, as the script is designed for x86_64 archite
 <div align="center">
 
 ---
-🙏 <b>Make donnation with 'cake wallet' to : ' kerlann.xmr '</b>🙏
+### 🙏 <b>Make donnation with 'cake wallet' to : ' kerlann.xmr '</b>🙏
 <div align="center"><img src="picture/qrcode1.gif"  alt="wsl Interface"></div>
 or scann
 
 ---
+
+ <b>Right click + "Open in new tab" to view scann Scripts </b>
+
+[![Scan EasyNode_linux with VirusTotal](https://img.shields.io/badge/scan%20Easynode_linux%20with-VirusTotal-brightgreen)](https://www.virustotal.com/gui/url/f647e9bd7a152cab3537fe5130d7b57c6112cec021c73c35403fb6936d0b625c?nocache=1)
+[![Scan easyNode_wsl with VirusTotal](https://img.shields.io/badge/scan%20Easynode_wsl%20with-VirusTotal-brightgreen)](https://www.virustotal.com/gui/url/e1621216f4ef4f9a5a1aa0651d1717b9c4047473d9b040cc047341369df3cb46?nocache=1)
+
+[![Scan EasyNode_linux with MetaDefender](https://img.shields.io/badge/scan%20Easynode_linux%20with-MetaDefender-brightgreen)](aHR0cHM6Ly9naXRodWIuY29tL2tlcmxhbm5YbXIvRWFzeU1vbmVyb2QvcmVsZWFzZXMvZG93bmxvYWQvdjMvZWFzeW5vZGVfbGludXguc2g)
+[![Scan EasyNode_wsl with Metadefender](https://img.shields.io/badge/scan%20Easynode_wsl%20with-metaDefender-brightgreen)](https://metadefender.com/results/url/aHR0cHM6Ly9naXRodWIuY29tL2tlcmxhbm5YbXIvRWFzeU1vbmVyb2QvcmVsZWFzZXMvZG93bmxvYWQvdjMvZWFzeW5vZGVfd3NsLnNo)
 
 Made with ❤️ by [KerlannXmr](https://github.com/kerlannXmr)
 
