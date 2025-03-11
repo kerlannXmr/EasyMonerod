@@ -7,7 +7,7 @@
 
 <img src="picture/xxmr.gif" width="300" height="300" alt="Monero EasyNode Logo">
 
-[👉 Watch the demo video](https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q) *(right click + "Open in new tab")*
+[👉 Watch the demo video](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) *(right click + "Open in new tab")*
 
 </div>
 
@@ -38,7 +38,7 @@ Enjoy.
 <img src="picture/wsl.gif" width="500" height="430" alt="wsl Interface">
 
 
-  [👉 Watch the demo video](https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q) *(right click + "Open in new tab")*
+  [👉 Watch the demo video](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) *(right click + "Open in new tab")*
 
   <b> SSH REMOTE:</b>
 <br>
