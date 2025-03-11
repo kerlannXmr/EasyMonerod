@@ -159,15 +159,48 @@
 <p>Enjoy.</p>
 
 <h2 class="center">🖥️ Interface:</h2>
+<style>
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 20px auto;
+        max-width: 900px;
+    }
+    .image-grid img {
+        width: 100%;
+        height: 350px; /* Hauteur fixe pour toutes les images */
+        object-fit: cover; /* Remplit l'espace tout en conservant les proportions */
+        border: 1px solid #3d3d3d;
+        box-shadow: 0 0 10px rgba(181, 232, 83, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .image-grid img:hover {
+        transform: scale(1.02); /* Léger effet de zoom au survol */
+        box-shadow: 0 0 15px rgba(181, 232, 83, 0.2);
+    }
+    .video-link {
+        margin: 20px 0;
+        text-align: center;
+    }
+    .section-title {
+        margin-top: 30px;
+        text-align: center;
+        color: #b5e853;
+    }
+</style>
+
 <div class="center">
-    <img src="picture/wsl_interface.png" width="285" height="430" alt="wsl Interface">
-    <img src="picture/wsl.gif" width="500" height="430" alt="wsl Interface">
-
-    <p><a href="https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q" target="_blank">👉 Watch the demo video</a> <em>(right click + "Open in new tab")</em></p>
-
-    <p><b>SSH REMOTE:</b></p>
-    <img src="picture/ssh.jpg" width="285" alt="Démo">
-    <img src="picture/SSH.gif" width="430" height="470" alt="Démo">
+    <div class="image-grid">
+        <img src="picture/wsl_interface.png" alt="WSL Interface">
+        <img src="picture/wsl.gif" alt="WSL Interface Animation">
+        <img src="picture/ssh.jpg" alt="SSH Demo">
+        <img src="picture/SSH.gif" alt="SSH Demo Animation">
+    </div>
+    
+    <div class="video-link">
+        <p><a href="https://mega.nz/file/Vm0WxDCS#4tbb7TST3corL1nvSK6rFE7Da0puOztRmCbLsp--O6Q" target="_blank">👉 Watch the demo video</a> <em>(right click + "Open in new tab")</em></p>
+    </div>
 </div>
 
 <h2 class="center">📝 HOW TO</h2>
