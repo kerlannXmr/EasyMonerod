@@ -220,7 +220,13 @@ Audits are performed using VirusTotal and MetaDefender.
 
 - 📝 Consult F.A.Q. [👉Questions](https://github.com/kerlannXmr/EasyMonerod/issues/5)*(right click + "Open in new tab")*
 - 📝 Consult the [👉Documentation](https://tinyurl.com/kerlann)*(right click + "Open in new tab")*
+
+## ♥️ Thankful
+
 - 🧭 Thanks [👉Monero eco-system](https://monero.eco)*(right click + "Open in new tab")*
+- 🇫🇷 Thanks [👉unbanked0](https://github.com/Unbanked0)*(right click + "Open in new tab")*
+
+
 <div align="center">
 
 ---
