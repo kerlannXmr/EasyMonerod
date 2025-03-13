@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="90" viewBox="0 0 340 90">
+  <!-- Texte "EasyNode" -->
+  <text x="170" y="30" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ff6600" text-anchor="middle">EasyNode</text>
+  
+  <!-- Ligne horizontale -->
+  <line x1="10" y1="40" x2="330" y2="40" stroke="#ff6600" stroke-width="2" />
+  
+  <!-- Texte "make your own node" -->
+  <text x="170" y="70" font-family="Arial, sans-serif" font-size="20" fill="#ff6600" text-anchor="middle">make your own node</text>
+</svg>
