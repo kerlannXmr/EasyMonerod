@@ -1,6 +1,4 @@
-📌 *Available on [github-pages](https://easynode.kerlann.org)*
-
-
+📌 *Available on [github-pages](https://easynode.kerlann.org)* 
 
 <div align="center"><img src="picture/banniere.gif" width="300" height="60" alt="Monero EasyNode top"></div>
 
