@@ -1,5 +1,4 @@
 [![GitHub-page](https://img.shields.io/badge/View_on_GitHub--page-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![Monero-ecosystem](https://img.shields.io/badge/🧭_Monero.ecosystem-FF6600?style=flat&logoColor=white)](https://monero.eco)
 
 <div align="center"><img src="picture/banniere5.svg" width="900" height="100" alt="Monero EasyNode top"></div>
