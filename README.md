@@ -8,6 +8,11 @@
 
 <img src="picture/xxmr.gif" width="300" height="300" alt="Monero EasyNode Logo">
 
+<br>
+<br>
+
+[👉 Watch the demo video](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) *(right click + "Open in new tab")*
+
 </div>
 
 <hr style="border-top: 3px solid orange;">
@@ -41,6 +46,9 @@ Enjoy.
 
 <img src="picture/ssh.jpg" width="285" alt="Démo">
 <img src="picture/SSH.gif" width="430" height="470" alt="Démo">
+
+<br>
+<br>
 
  [👉 Watch the demo video](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) *(right click + "Open in new tab")*
 
