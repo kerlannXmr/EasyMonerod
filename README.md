@@ -50,7 +50,7 @@ Enjoy.
 <br>
 <br>
 
-👉[![EasyNode Monero](picture/monero-button.svg)](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) 
+[![EasyNode Monero](picture/monero-button.svg)](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) 
 <br>
 <a>right click + "Open in new tab"</a>
 
