@@ -11,7 +11,7 @@
 <br>
 <br>
 
-[👉 Watch the demo video](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) *(right click + "Open in new tab")*
+[▶️ Demo video](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) *("Open in new tab")*
 
 </div>
 
@@ -50,7 +50,9 @@ Enjoy.
 <br>
 <br>
 
- [👉 Watch the demo video](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) *(right click + "Open in new tab")*
+👉[![EasyNode Monero](picture/monero-button.svg)](https://mega.nz/file/5uFzVRKR#w2RehS8LNruoM7A1vxnJPIm3ipjif1EYL_hg4MMoYW0) 
+<br>
+<a>right click + "Open in new tab"</a>
 
  <br>
 
