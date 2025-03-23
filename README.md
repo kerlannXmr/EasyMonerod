@@ -161,8 +161,11 @@ sudo ./easynode_wsl.sh
 
 -➡🟧 REDIRECT port 22 and 18080 from your internet router to your ' local ip ' of your PC.
 
+-18080 allows other Monero nodes to connect to your node, increasing the decentralization and resilience of the network. [👉Issue](https://github.com/kerlannXmr/EasyMonerod/issues/10)
+
 -➡🟧 The external hard drive must be formatted in NTFS (classic) or exFat or ext4.
-Because FAT doesn't handle files larger than 4 GB!  [👉Issue](https://github.com/kerlannXmr/EasyMonerod/issues/9)*(right click + "Open in new tab")*     
+
+Because FAT doesn't handle files larger than 4 GB!  [👉Issue](https://github.com/kerlannXmr/EasyMonerod/issues/9)    
 
 -➡📗  Remote access wallet:
   
