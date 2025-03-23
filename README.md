@@ -171,10 +171,10 @@ Because FAT doesn't handle files larger than 4 GB!  [👉Issue](https://github.c
   
   Take 'cake wallet', settings, connect and sync, manage nodes, add +, node address= onion Tor, node port= 18089, save. Close and open. Wait the sync.
   
--➡📗  Remote access ssh:
-  
-  Open terminal pc or take 'Termux' on android: ' ssh username@local_ip_pc ' . Or ' ssh username@onion_ssh_address '.
-  
+-➡📗  Remote access ssh, port 22:
+   
+  Open terminal pc or take 'Termux' on android: ' ssh username@local_ip_pc ' . Or ' ssh username@onion_ssh_address '.[👉Issue](https://github.com/kerlannXmr/EasyMonerod/issues11) 
+    
 -➡🟧 Stop the Blockchain : CTRL+C (1 times)
 
 ## <div align="center">🔄 Compatibility</div>
