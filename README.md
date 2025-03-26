@@ -92,7 +92,7 @@ Enjoy.
 
 ( Updated: github.com/Boog900/monero-ban-list/blob/main/ban_list.txt )
 
-## 🐧 Linux :
+## 🐧 Linux : Debian, Ubuntu derivatives, Others...
 
 [View issue: Linux pour débutant FR](https://github.com/kerlannXmr/EasyMonerod/issues/7) *(right click + "Open in new tab")*
 ### ↪️ Download & Install script: 
