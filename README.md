@@ -35,7 +35,7 @@ The node is protected by Tor and an onion address allows you to connect to a mob
 An SSH onion address is available to access the node remotely.
 Added the 'MRL' IP bann list of 'boog900'.
 
-🇬🇧 English- 🇫🇷French language.
+🇬🇧 English- 🇫🇷French
 
 Enjoy.
 
