@@ -257,7 +257,10 @@ Audits are performed using VirusTotal and MetaDefender.
 ---
 ### 🙏 <b>Make donnation with 'cake wallet' to : ' kerlann.xmr '</b>🙏
 <div align="center"><img src="picture/qrcode1.gif"  alt="wsl Interface"></div>
-or scann
+or fundraiser
+
+[![contact_xmrchat](https://img.shields.io/badge/✨_XmrChat-FF6600?style=flat&logoColor=white)](https://xmrchat.com/easymonerod)
+[![contact_kuno](https://img.shields.io/badge/🔥_Kuno-FF6600?style=flat&logoColor=white)](https://kuno.anne.media/fundraiser/dkbu)
 
 ---
 
