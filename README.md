@@ -99,7 +99,7 @@ Enjoy.
 [View issue: Linux installation FR](https://github.com/kerlannXmr/EasyMonerod/issues/7) *(right click + "Open in new tab")*
 ### ↪️ Download & Install & run script:
 
-- Beginner users: copy&paste in new terminal
+- ⚡Beginner users: copy&paste in new terminal
 
 ```bash
 wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh -O easynode_linux.sh && chmod +x easynode_linux.sh && sudo ./easynode_linux.sh
@@ -112,7 +112,7 @@ sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/ea
 ```
 (script goes in folder) " /home/$user "
 
-### Make it executable
+### ➡️Make it executable
 
 ```bash
 sudo chmod +x easynode_linux.sh
