@@ -49,7 +49,7 @@ draw_banner() {
 USERNAME=""
 LANG_CHOICE=""
 BLOCKCHAIN_TYPE=""
-MONERO_VERSION="0.18.3.4"
+MONERO_VERSION="0.18.4.0"
 
 # Fonction d'affichage stylisé (placée après la déclaration des couleurs)
 print_styled() {
