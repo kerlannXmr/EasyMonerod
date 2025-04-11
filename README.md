@@ -190,7 +190,7 @@ Because FAT doesn't handle files larger than 4 GB!  [👉Issue](https://github.c
    
   Open terminal pc or take 'Termux' on android: ' ssh username@local_ip_pc ' . Or ' ssh username@onion_ssh_address '.[👉Issue](https://github.com/kerlannXmr/EasyMonerod/issues11) 
     
--➡🟧 Stop the Blockchain : CTRL+C (1 times)
+-➡🟧 Stop the Blockchain : CTRL+C 
 
 ## <div align="center">🔄 Compatibility</div>
 
