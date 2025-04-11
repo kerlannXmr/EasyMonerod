@@ -181,6 +181,10 @@ Because FAT doesn't handle files larger than 4 GB!  [👉Issue](https://github.c
 -➡📗  Remote access wallet:
   
   Take 'cake wallet', settings, connect and sync, manage nodes, add +, node address= onion Tor, node port= 18089, save. Close and open. Wait the sync.
+
+  or
+
+  Take "Monero Gui", choose "Distant Mode" then " + add new node " and write 'IP local' or 'IP WEB' and port " 18089 "
   
 -➡📗  Remote access ssh, port 22:
    
