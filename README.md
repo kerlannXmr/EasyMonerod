@@ -1,5 +1,5 @@
 <div align="center">
-  <table style="border: 5px solid #FF6600;">
+  <table style="border: 10px solid #FF6600;">
     <tr>
       <td align="center"  width="400">
         <h3>Would you like a Linux app version?</h3>
