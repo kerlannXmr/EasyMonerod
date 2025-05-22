@@ -20,7 +20,6 @@
 ---
 
 [![contact_Mail](https://img.shields.io/badge/✉️_Email-FF6600?style=flat&logoColor=white)](mailto:easynode@kerlann.org)
-[![GitHub-page](https://img.shields.io/badge/Page--EN-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org)
 [![GitHub-page](https://img.shields.io/badge/Page--FR-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org/fr.html)
 [![Monero-ecosystem](https://img.shields.io/badge/🧭_Monero.eco-FF6600?style=flat&logoColor=white)](https://monero.eco)
 
@@ -154,12 +153,24 @@ sudo ./easynode_wsl.sh
 
 ## <div align="center">⚡ Features</div>
 
+## 📋 Essential Features / Fonctionnalités Essentielles
+
+| **Feature / Fonctionnalité** | **🇺🇸 English** | **🇫🇷 Français** | **Details / Détails** |
+|-------------------------------|------------------|-------------------|------------------------|
+| **🎯 One-Click Installation** | Complete automated setup | Installation complètement automatisée | 13-step guided menu |
+| **🛡️ IP Ban Protection** | Auto-blocks malicious nodes | Blocage automatique nœuds malveillants | 3-month bans from github ban-list |
+| **🔒 Enhanced Security** | Tor + SSH + IP banning | Tor + SSH + blocage IP | `.onion` addresses generated |
+| **💾 Flexible Storage** | Internal/External disk support | Support disque interne/externe | Automatic mounting & UUID config |
+| **📊 Real-time Monitoring** | Live peer connections display | Affichage connexions en temps réel | IN/OUT peers with colors |
+| **🛡️ Automatic Firewall** | Pre-configured ports & UFW | Ports préconfigurés & UFW | All Monero ports opened |
+| **🔧 Zero Configuration** | No Linux expertise needed | Aucune expertise Linux requise | Beginner-friendly interface |
+| **🛑 Safe Shutdown Control** | CTRL+C clean blockchain stop | Arrêt propre blockchain CTRL+C | Prevents corruption & returns to menu |
+| **⚖️ Blockchain Size Options** | Choose Full (220GB) or Pruned (90GB) | Choix Complète (220Go) ou Pruned (90Go) | Flexible storage requirements |
+| **🌐 Anonymous DNS Setup** | Secure DNS auto-configuration | Configuration DNS sécurisés automatique | Privacy-focused DNS servers |
+
 - ✅ Automated installation
-- ✅ allow firewall port
-- ✅ Monero configuration
 - ✅ Disk management (internal/external)
 - ✅ Built-in Tor (Tor/SSH onion address)
-- ✅ Anonymous DNS
 - 🔒 Block IP 'ban listed' (MRL) [👉Issue](https://github.com/kerlannXmr/EasyMonerod/issues/3#issue-2871012436)*(right click + "Open in new tab")*          
 - 🔒 TOR SSH remote access :  [👉Issue](https://github.com/kerlannXmr/EasyMonerod/issues/2#issue-2870954425)*(right click + "Open in new tab")*                              
 - ✅ Intuitive user interface
