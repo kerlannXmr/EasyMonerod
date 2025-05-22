@@ -150,6 +150,9 @@ Make it executable
 sudo chmod +x easynode_wsl.sh
 sudo ./easynode_wsl.sh
 ```
+## <div align="center"> ❔ How it Works ❔
+
+<div align="center"><img src="https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/mermaid2.png"  width="400" height="500" alt="Mermaid"></div>
 
 ## <div align="center">⚡ Features</div>
 
