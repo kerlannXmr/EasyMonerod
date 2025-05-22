@@ -51,7 +51,7 @@ LANG_CHOICE=""
 BLOCKCHAIN_TYPE=""
 MONERO_VERSION="0.18.4.0"
 
-# Fonction d'affichage stylisé (placée après la déclaration des couleurs)
+# Fonction d'affichage stylisé 
 print_styled() {
     local style=$1
     local message=$2
@@ -244,6 +244,7 @@ update_system() {
         iftop \
         iotop
 
+
     # Activation et configuration de SSH
     info "$(get_message "Configuration de SSH..." "Configuring SSH...")"
     sudo systemctl enable ssh
@@ -255,7 +256,7 @@ echo "Port 22" | sudo tee /etc/ssh/sshd_config
 echo "ListenAddress 0.0.0.0" | sudo tee -a /etc/ssh/sshd_config
 echo "PasswordAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
 
-    # Outils de développement Python (utile pour scripts)
+    # Outils de développement Python
     info "$(get_message "Installation des outils Python..." "Installing Python tools...")"
     sudo apt install -y \
         python3 \
@@ -284,22 +285,7 @@ echo "PasswordAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
     sudo ufw allow 53317/tcp #localsend
     sudo ufw allow 53317/udp #localsend
     sudo ufw --force enable
-    #détail des ports
-    #zmq_pub 18083
-    #tor_port 18084
-    #i2p_port 18085
-    #lws_port 18086
-    #monero_port 18080
-    #monero_public_port 18081
-    #monero_rpc_port 18089
-    
-    #ou 
-    #sudo ufw default deny incoming
-    #sudo ufw default allow outgoing
-    #sudo ufw allow ssh
-    #sudo ufw allow 18080/tcp  # Port Monero P2P
-    #sudo ufw allow 18089/tcp  # Port Monero RPC
-    #sudo ufw --force enable
+   
 
     # Configuration de fail2ban
     info "$(get_message "Configuration de fail2ban..." "Configuring fail2ban...")"
@@ -432,7 +418,7 @@ install_monero_cli() {
         return 1
     fi
 
-    # Suite de l'installation si tout est OK
+    # Suite de l'installation 
     sudo mkdir -p "/home/$USERNAME/monero"
     sudo cp -r "monero-x86_64-linux-gnu-v${MONERO_VERSION}"/* "/home/$USERNAME/monero/"
     echo "export PATH=\$PATH:/home/$USERNAME/monero" | sudo tee -a "/home/$USERNAME/.bashrc"
@@ -479,7 +465,7 @@ ControlPort 9051
 HiddenServiceDir /var/lib/tor/ssh/
 HiddenServicePort 22 127.0.0.1:22
 HiddenServiceDir /var/lib/tor/monero-service/
-HiddenServicePort 18089 127.0.0.1:18089
+HiddenServicePort 18081 127.0.0.1:18081
 EOL'
 
     # Créer les répertoires seulement s'ils n'existent pas
@@ -543,19 +529,32 @@ configure_monero() {
 no-igd=1
 no-zmq=1
 rpc-bind-ip=0.0.0.0
-rpc-bind-port=18089
+rpc-bind-port=18081
 p2p-bind-port=18080
-in-peers=64
+p2p-bind-ip=0.0.0.0
+in-peers=32
 out-peers=32
-limit-rate-up=1048576
-limit-rate-down=8388608
+disable-dns-checkpoints=1
 confirm-external-bind=1
 data-dir=/home/$USERNAME/.bitmonero
 EOL
 
     sudo chown "$USERNAME:$USERNAME" "$CONFIG_FILE"
     sudo chmod 644 "$CONFIG_FILE"
-
+    # S'assurer que l'utilisateur a le contrôle total du dossier
+sudo chown -R "$USERNAME:$USERNAME" "/home/$USERNAME/.bitmonero"
+sudo chmod -R u+rw "/home/$USERNAME/.bitmonero"
+# Vérifier si la blockchain est sur un disque externe
+if grep -q "data-dir=" "$CONFIG_FILE" | grep -q "/media"; then
+    # Si la blockchain est sur un disque externe
+    BLOCKCHAIN_PATH=$(grep "data-dir=" "$CONFIG_FILE" | cut -d'=' -f2)
+    
+    # Créer un lien symbolique si nécessaire
+    if [ ! -d "$BLOCKCHAIN_PATH" ]; then
+        mkdir -p "$(dirname "$BLOCKCHAIN_PATH")"
+        ln -sf "/home/$USERNAME/.bitmonero" "$BLOCKCHAIN_PATH"
+    fi
+fi
     success "$(get_message "Configuration créée dans $CONFIG_FILE" "Configuration created in $CONFIG_FILE")"
     read -p "$(print_styled "PRIMARY" "$(get_message "Appuyez sur Entrée pour continuer..." "Press Enter to continue...")")"
 }
@@ -579,10 +578,8 @@ configure_dns() {
 
     cat << EOL | sudo tee /etc/resolv.conf
 # Serveurs DNS pour Monero
-nameserver 9.9.9.9
-nameserver 149.112.112.112
-nameserver 91.239.100.100
-nameserver 89.233.43.71
+nameserver 94.140.14.14
+nameserver 94.140.15.15
 EOL
 
     sudo chmod 644 /etc/resolv.conf
@@ -596,7 +593,7 @@ EOL
 unmount_sdb1() {
     print_header "$(get_message "DÉMONTAGE DU DISQUE" "DISK UNMOUNTING")"
     
-    MOUNT_POINT="/media/monero_external"
+    MOUNT_POINT="/media/$USERNAME"
     
     if mount | grep -q "$MOUNT_POINT"; then
         if lsof "$MOUNT_POINT" > /dev/null 2>&1; then
@@ -618,6 +615,10 @@ unmount_sdb1() {
                     sudo mv "$CONFIG_FILE.tmp" "$CONFIG_FILE"
                     sudo chown "$USERNAME:$USERNAME" "$CONFIG_FILE"
                     sudo chmod 644 "$CONFIG_FILE"
+                    # S'assurer que l'utilisateur a le contrôle total du dossier
+sudo chown -R "$USERNAME:$USERNAME" "/home/$USERNAME/.bitmonero"
+sudo chmod -R u+rw "/home/$USERNAME/.bitmonero"
+                    
                     success "$(get_message "Configuration Monero mise à jour" "Monero configuration updated")"
                 fi
             else
@@ -643,7 +644,8 @@ manage_blockchain() {
     fi
 
     # Définition des chemins
-    EXTERNAL_DRIVE="/media/monero_external"
+    EXTERNAL_DRIVE="/media/$USERNAME"
+    
     BLOCKCHAIN_FOLDER="MoneroBlockchain"
     BLOCKCHAIN_PATH="$EXTERNAL_DRIVE/$BLOCKCHAIN_FOLDER"
 
@@ -665,22 +667,21 @@ manage_blockchain() {
         return 1
     fi
 
-    # Démontage du disque s'il est déjà monté
+           # Démontage du disque s'il est déjà monté
     if mount | grep -q "$DEVICE"; then
         sudo umount "$DEVICE" 2>/dev/null
     fi
 
     # Création et montage du point de montage
     sudo mkdir -p "$EXTERNAL_DRIVE"
-    if ! sudo mount "$DEVICE" "$EXTERNAL_DRIVE"; then
-        error "$(get_message "Échec du montage" "Mount failed")"
-        return 1
-    fi
+if ! sudo mount -o uid=$(id -u $USERNAME),gid=$(id -g $USERNAME) "$DEVICE" "$EXTERNAL_DRIVE"; then
+    error "$(get_message "Échec du montage" "Mount failed")"
+    return 1
+fi
     
     # Création du dossier blockchain et configuration des permissions
     sudo mkdir -p "$BLOCKCHAIN_PATH"
-    sudo chown -R "$USERNAME:$USERNAME" "$EXTERNAL_DRIVE"
-    sudo chmod -R u+rw "$EXTERNAL_DRIVE"
+    
 
     # Sauvegarde de la configuration actuelle si elle existe
     CONFIG_FILE="/home/$USERNAME/.bitmonero/bitmonero.conf"
@@ -700,12 +701,14 @@ manage_blockchain() {
         echo "no-igd=1"
         echo "no-zmq=1"
         echo "rpc-bind-ip=0.0.0.0"
-        echo "rpc-bind-port=18089"
+        echo "rpc-bind-port=18081"
         echo "p2p-bind-port=18080"
-        echo "in-peers=64"
+        echo "p2p-bind-ip=0.0.0.0"
+        echo "in-peers=32"
         echo "out-peers=32"
-        echo "limit-rate-up=1048576"
-        echo "limit-rate-down=8388608"
+        #echo "limit-rate-up=256"
+        #echo "limit-rate-down=2048"
+        echo "disable-dns-checkpoints=1"
         echo "confirm-external-bind=1"
         echo "data-dir=$BLOCKCHAIN_PATH"
         if [ "$BLOCKCHAIN_TYPE" = "pruned" ]; then
@@ -732,13 +735,60 @@ manage_blockchain() {
     # Configuration des permissions du fichier de configuration
     sudo chown "$USERNAME:$USERNAME" "$CONFIG_FILE"
     sudo chmod 644 "$CONFIG_FILE"
+    sudo chown -R "$USERNAME:$USERNAME" "/home/$USERNAME/.bitmonero"
+    sudo chmod -R u+rw "/home/$USERNAME/.bitmonero"
 
-    # Ajout de l'entrée dans fstab pour le montage automatique
-    if ! grep -q "$DEVICE.*$EXTERNAL_DRIVE" /etc/fstab; then
-        DEVICE_UUID=$(sudo blkid -s UUID -o value "$DEVICE")
-        echo "UUID=$DEVICE_UUID $EXTERNAL_DRIVE auto defaults,nofail 0 0" | sudo tee -a /etc/fstab
-        success "$(get_message "Configuration du montage automatique ajoutée" "Automatic mount configuration added")"
+  # 1er changement  
+#if ! grep -q "$DEVICE.*$EXTERNAL_DRIVE" /etc/fstab; then
+ #   DEVICE_UUID=$(sudo blkid -s UUID -o value "$DEVICE")
+  #  echo "UUID=$DEVICE_UUID $EXTERNAL_DRIVE auto defaults,uid=$(id -u $USERNAME),gid=$(id -g $USERNAME),nofail 0 0" | sudo tee -a /etc/fstab
+   # success "$(get_message "Configuration du montage automatique ajoutée" "Automatic mount configuration added")"
+#fi
+
+# Obtenir l'UUID du disque
+DEVICE_UUID=$(sudo blkid -s UUID -o value "$DEVICE")
+if [ -z "$DEVICE_UUID" ]; then
+    error "$(get_message "Impossible d'obtenir l'UUID du disque" "Unable to get disk UUID")"
+    return 1
+fi
+
+# Sauvegarder l'état de montage original
+MOUNTPOINT_BEFORE=$(findmnt -n -o TARGET -S UUID="$DEVICE_UUID" 2>/dev/null || echo "")
+if [ -n "$MOUNTPOINT_BEFORE" ] && [ "$MOUNTPOINT_BEFORE" != "$EXTERNAL_DRIVE" ]; then
+    info "$(get_message "Le disque est actuellement monté sur $MOUNTPOINT_BEFORE" "Disk is currently mounted on $MOUNTPOINT_BEFORE")"
+fi
+
+# Supprimer les entrées existantes pour cet UUID dans fstab
+if grep -q "UUID=$DEVICE_UUID" /etc/fstab; then
+    info "$(get_message "Suppression des entrées existantes pour UUID=$DEVICE_UUID" "Removing existing entries for UUID=$DEVICE_UUID")"
+    sudo sed -i "/UUID=$DEVICE_UUID/d" /etc/fstab
+fi
+
+# Ajouter une nouvelle entrée fstab spéciale pour EasyNode
+USER_ID=$(id -u "$USERNAME")
+GROUP_ID=$(id -g "$USERNAME")
+# Cette entrée permet à la fois le montage spécifique pour EasyNode et le montage automatique normal
+echo "# Entrée pour EasyNode - Ne pas modifier manuellement" | sudo tee -a /etc/fstab > /dev/null
+echo "UUID=$DEVICE_UUID $EXTERNAL_DRIVE auto defaults,users,uid=$USER_ID,gid=$GROUP_ID,umask=022,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab > /dev/null
+success "$(get_message "Configuration du montage automatique ajoutée/mise à jour" "Automatic mount configuration added/updated")"
+
+# Recharger systemd pour prendre en compte les modifications
+info "$(get_message "Rechargement de systemd..." "Reloading systemd...")"
+sudo systemctl daemon-reload
+
+# S'assurer que le disque est monté
+if ! mountpoint -q "$EXTERNAL_DRIVE"; then
+    info "$(get_message "Montage du disque..." "Mounting disk...")"
+    sudo mount -a
+    
+    if ! mountpoint -q "$EXTERNAL_DRIVE"; then
+        warning "$(get_message "Le montage automatique a échoué, tentative de montage direct..." "Automatic mount failed, trying direct mount...")"
+        sudo mount -U "$DEVICE_UUID" "$EXTERNAL_DRIVE"
     fi
+fi
+
+
+
 
     success "$(get_message "Blockchain configurée dans: $BLOCKCHAIN_PATH" "Blockchain configured in: $BLOCKCHAIN_PATH")"
     info "$(get_message "Le disque sera monté automatiquement au démarrage" "The disk will be automatically mounted at boot")"
@@ -752,7 +802,7 @@ apply_ip_bans() {
     
     # Attendre que le service RPC soit disponible
     for i in {1..30}; do
-        if nc -z localhost 18089; then
+        if nc -z localhost 18081; then
             success "$(get_message "Service RPC disponible" "RPC service available")"
             break
         fi
@@ -775,7 +825,7 @@ apply_ip_bans() {
         read -r ip duration <<< "$line"
         
         if [ -n "$ip" ] && [ -n "$duration" ]; then
-            "$MONEROD_PATH" ban "$ip" "$duration" --rpc-bind-port 18089
+            "$MONEROD_PATH" ban "$ip" "$duration" --rpc-bind-port 18081
             info "$(get_message "Ban appliqué: $ip" "Ban applied: $ip")"
         fi
     done < "$BAN_LIST_FILE"
@@ -835,8 +885,8 @@ start_blockchain() {
     download_ban_list
     
     # Vérification du montage du disque externe si nécessaire
-    if [ -n "$BLOCKCHAIN_LOCATION" ] && [[ "$BLOCKCHAIN_LOCATION" == "/media/monero_external"* ]]; then
-        DEVICE=$(mount | grep "/media/monero_external" | awk '{print $1}')
+    if [ -n "$BLOCKCHAIN_LOCATION" ] && [[ "$BLOCKCHAIN_LOCATION" == "/media/$USERNAME"* ]]; then
+        DEVICE=$(mount | grep "/media/$USERNAME" | awk '{print $1}')
         if [ -z "$DEVICE" ]; then
             error "$(get_message "Le disque externe n'est pas monté" "External disk is not mounted")"
             return 1
@@ -908,6 +958,49 @@ start_blockchain() {
             # Installation du gestionnaire SIGINT
             trap handle_sigint SIGINT
             
+            # Corriger les permissions avant de démarrer
+if [ -n "$BLOCKCHAIN_LOCATION" ]; then
+    # Corriger les permissions du dossier de données
+    if [ -d "$BLOCKCHAIN_LOCATION" ]; then
+        sudo chown -R "$USERNAME:$USERNAME" "$BLOCKCHAIN_LOCATION" 2>/dev/null || true
+        sudo chmod -R u+rw "$BLOCKCHAIN_LOCATION" 2>/dev/null || true
+    fi
+    
+    # Corriger les permissions du dossier .bitmonero
+    sudo chown -R "$USERNAME:$USERNAME" "/home/$USERNAME/.bitmonero" 2>/dev/null || true
+    sudo chmod -R u+rw "/home/$USERNAME/.bitmonero" 2>/dev/null || true
+fi
+            
+            # Fonction de monitoring pour Ubuntu
+monitor_peers() {
+    sleep 15  # Attendre que monerod démarre
+    
+    # Définir les couleurs
+    GREEN='\033[0;32m'
+    BLUE='\033[0;34m'
+    RESET='\033[0m'
+    
+    while pgrep -f "monerod" > /dev/null; do
+        # Obtenir les infos via RPC
+        PEER_INFO=$(curl -s -X POST http://localhost:18081/json_rpc \
+            -H "Content-Type: application/json" \
+            -d '{"jsonrpc":"2.0","id":"0","method":"get_info"}' 2>/dev/null)
+        
+        if [ $? -eq 0 ] && echo "$PEER_INFO" | grep -q '"result"'; then
+            IN_PEERS=$(echo "$PEER_INFO" | sed -n 's/.*"incoming_connections_count":\s*\([0-9]*\).*/\1/p')
+            OUT_PEERS=$(echo "$PEER_INFO" | sed -n 's/.*"outgoing_connections_count":\s*\([0-9]*\).*/\1/p')
+            
+            # Affichage simplifié pour Ubuntu
+            echo -ne "\r${GREEN}IN-PEERS: ${IN_PEERS:-0}${RESET} | ${GREEN}OUT-PEERS: ${OUT_PEERS:-0}${RESET}                    "
+        fi
+        
+        sleep 15  # Actualiser toutes les 15 secondes
+    done
+}
+            # APPEL de la fonction (après définition)
+monitor_peers &
+MONITOR_PID=$!
+            
             # Démarrer monerod dans un processus en arrière-plan
             if [ -n "$BLOCKCHAIN_LOCATION" ]; then
                 info "$(get_message "Démarrage de la blockchain avec le fichier de configuration" "Starting blockchain with config file")"
@@ -926,7 +1019,7 @@ start_blockchain() {
                     break
                 fi
                 
-                if nc -z localhost 18089; then
+                if nc -z localhost 18081; then
                     success "$(get_message "Service RPC disponible" "RPC service available")"
                     break
                 fi
@@ -979,7 +1072,7 @@ while IFS=' ' read -r line || [ -n "$line" ]; do
         info "$(get_message "Ban IP $counter/$total_bans: $ip" "Banning IP $counter/$total_bans: $ip")"
         
         # Appliquer le ban avec une durée de 3 mois
-        "$MONEROD_PATH" ban "$ip" "$BAN_DURATION" --rpc-bind-port 18089 &>/dev/null
+        "$MONEROD_PATH" ban "$ip" "$BAN_DURATION" --rpc-bind-port 18081 &>/dev/null
         if [ $? -eq 0 ]; then
             success_count=$((success_count + 1))
         else
@@ -992,7 +1085,7 @@ done < "$BAN_LIST_FILE"
                     
                     # Vérifier l'état des bans
                     info "$(get_message "Vérification de l'état des bans..." "Checking ban status...")"
-                    ban_status=$("$MONEROD_PATH" bans --rpc-bind-port 18089 2>/dev/null)
+                    ban_status=$("$MONEROD_PATH" bans --rpc-bind-port 18081 2>/dev/null)
                     ban_count=$(echo "$ban_status" | grep -c "subnet\|IP")
                     success "$(get_message "Nombre total de bans actifs: $ban_count" "Total active bans: $ban_count")"
                     
@@ -1004,7 +1097,7 @@ done < "$BAN_LIST_FILE"
             fi
             
             # Message pour informer l'utilisateur comment arrêter
-            print_styled "PRIMARY" "$(get_message "Appuyez sur CTRL+C pour arrêter la blockchain et revenir au menu" "Press CTRL+C to stop the blockchain and return to the menu")"
+            print_styled "PRIMARY" "$(get_message "Patientez..." "Wait..")"
             
             # Attendre que monerod se termine ou que CTRL+C soit pressé
             while [ $STOP_MONEROD -eq 0 ]; do
@@ -1015,7 +1108,9 @@ done < "$BAN_LIST_FILE"
                 fi
                 sleep 1
             done
-            
+             if [ -n "$MONITOR_PID" ]; then
+                kill $MONITOR_PID 2>/dev/null
+            fi
             # Nettoyage
             cleanup
             ;;
@@ -1064,6 +1159,49 @@ done < "$BAN_LIST_FILE"
             # Installation du gestionnaire SIGINT
             trap handle_sigint SIGINT
             
+            # Corriger les permissions avant de démarrer
+if [ -n "$BLOCKCHAIN_LOCATION" ]; then
+    # Corriger les permissions du dossier de données
+    if [ -d "$BLOCKCHAIN_LOCATION" ]; then
+        sudo chown -R "$USERNAME:$USERNAME" "$BLOCKCHAIN_LOCATION" 2>/dev/null || true
+        sudo chmod -R u+rw "$BLOCKCHAIN_LOCATION" 2>/dev/null || true
+    fi
+    
+    # Corriger les permissions du dossier .bitmonero
+    sudo chown -R "$USERNAME:$USERNAME" "/home/$USERNAME/.bitmonero" 2>/dev/null || true
+    sudo chmod -R u+rw "/home/$USERNAME/.bitmonero" 2>/dev/null || true
+fi
+                      # Fonction de monitoring pour Ubuntu
+monitor_peers() {
+    sleep 15  # Attendre que monerod démarre
+    
+    # Définir les couleurs
+    GREEN='\033[0;32m'
+    BLUE='\033[0;34m'
+    RESET='\033[0m'
+    
+    while pgrep -f "monerod" > /dev/null; do
+        # Obtenir les infos via RPC
+        PEER_INFO=$(curl -s -X POST http://localhost:18081/json_rpc \
+            -H "Content-Type: application/json" \
+            -d '{"jsonrpc":"2.0","id":"0","method":"get_info"}' 2>/dev/null)
+        
+        if [ $? -eq 0 ] && echo "$PEER_INFO" | grep -q '"result"'; then
+            IN_PEERS=$(echo "$PEER_INFO" | sed -n 's/.*"incoming_connections_count":\s*\([0-9]*\).*/\1/p')
+            OUT_PEERS=$(echo "$PEER_INFO" | sed -n 's/.*"outgoing_connections_count":\s*\([0-9]*\).*/\1/p')
+            
+            # Affichage simplifié pour Ubuntu
+            echo -ne "\r${GREEN}IN-PEERS: ${IN_PEERS:-0}${RESET} | ${GREEN}OUT-PEERS: ${OUT_PEERS:-0}${RESET}                    "
+        fi
+        
+        sleep 15  # Actualiser toutes les 15 secondes
+    done
+}
+            # APPEL de la fonction (après définition)
+monitor_peers &
+MONITOR_PID=$!
+            
+            
             # Démarrer monerod dans un processus en arrière-plan
             if [ -n "$BLOCKCHAIN_LOCATION" ]; then
                 info "$(get_message "Démarrage de la blockchain avec le fichier de configuration" "Starting blockchain with config file")"
@@ -1087,7 +1225,9 @@ done < "$BAN_LIST_FILE"
                 fi
                 sleep 1
             done
-            
+             if [ -n "$MONITOR_PID" ]; then
+                kill $MONITOR_PID 2>/dev/null
+            fi
             # Nettoyage
             cleanup
             ;;
@@ -1152,6 +1292,7 @@ show_notes() {
                 print_styled "PRIMARY" "$(get_message "- Configuration réseau requise :" "- Required network configuration:")"
     print_styled "PRIMARY" "$(get_message "⚠️ REDIRIGER le port 22 et 18080 de votre Box internet" "⚠️ Open port 22 and 18080 of your internet router")"
     print_styled "PRIMARY" "$(get_message "  vers l'IP de votre PC." "  to your PC's IP address.")"
+    print_styled "MONERO" "$(get_message "  https://github.com/kerlannXmr/EasyMonerod/issues/10" "  https://github.com/kerlannXmr/EasyMonerod/issues/10")"
                 echo
     print_styled "MONERO" "$(get_message "- Installer MONERO GUI pour la gestion du wallet" "- Install MONERO GUI for wallet management")"
                 print_styled "MONERO" "$(get_message "  MONERO GUI se synchronisera sur ce noeud" "  MONERO GUI will synch on this node")"
@@ -1165,8 +1306,10 @@ show_notes() {
     print_styled "PRIMARY" "$(get_message "-🙏 Gacieux Dons MONERO(Xmr) pour le dur labeur: " "-🙏 Send MONERO(Xmr) donation for hard work")" 
     print_styled "PRIMARY" "$(get_message "    avec 'cake wallet' à:    kerlann.xmr" "    with 'cake wallet' to:   kerlann.xmr")"
     echo
+    print_styled "MONERO" "$(get_message "- Contact:  easynode@kerlann.org" "- Contact:  easynode@kerlann.org")"
+    echo
     print_styled "MONERO" "$(get_message "- Code source:" "- Source Code:")"
-    print_styled "MONERO" "$(get_message "  https://github.com/kerlannXmr" "  https://github.com/kerlannXmr")"
+    print_styled "MONERO" "$(get_message "  https://github.com/kerlannXmr/easymonerod" "  https://github.com/kerlannXmr/easymonerod")"
                 
                 read -p "$(print_styled "PRIMARY" "$(get_message "Appuyez sur Entrée pour continuer..❤️." "Press Enter to continue..❤️.")")"
 }
@@ -1180,7 +1323,7 @@ show_scripts() {
   print_styled "MONERO" "1) $(get_message "Mise à jour système et installation des paquets" "System update and package installation")"
     print_styled "PRIMARY" "   $(get_message "- Configuration du firewall activé avec ouverture des ports :" "- Firewall configuration Actived with ports opening:")"
     echo -e "${COLORS[GRIS]}    $(get_message "-Ports system: 22(SSH), 80(HTTP), 443(HTTPS), 9050(Tor), 4200(SHELL IN BOX), 4444(i2p-http), 4447(i2p-socks), 53317(localsend)" "-System ports: 22(SSH), 80(HTTP), 443(HTTPS), 9050(Tor), 4200(SHELL IN BOX), 4444(i2p-http), 4447(i2p-socks), 53317(localsend)")${COLORS[RESET]}"
-    echo -e "${COLORS[GRIS]}    $(get_message "-Ports Monero: 18080(P2P), 18081(Public), 18083(ZMQ), 18084(Tor), 18085(I2P), 18086(LWS), 18089(RPC)" "-Monero ports: 18080(P2P), 18081(Public), 18083(ZMQ), 18084(Tor), 18085(I2P), 18086(LWS), 18089(RPC)")${COLORS[RESET]}"
+    echo -e "${COLORS[GRIS]}    $(get_message "-Ports Monero: 18080(P2P), 18081(Public), 18083(ZMQ), 18084(Tor), 18085(I2P), 18086(LWS), 18081(RPC)" "-Monero ports: 18080(P2P), 18081(Public), 18083(ZMQ), 18084(Tor), 18085(I2P), 18086(LWS), 18081(RPC)")${COLORS[RESET]}"
     echo
     print_styled "MONERO" "2) $(get_message "Installation de Monero CLI" "Monero CLI Installation")"
     print_styled "PRIMARY" "   $(get_message "- Installation des fichiers Monero" "- Installing Monero files")"
@@ -1192,7 +1335,7 @@ show_scripts() {
     ONION_ADDRESS=$(sudo cat /var/lib/tor/monero-service/hostname)
     echo -e "${COLORS[SUCCESS]}    -TOR Onion: $ONION_ADDRESS${COLORS[RESET]}"
 fi
-   print_styled "SUCCESS" "     PORT RPC: 18089"
+   print_styled "SUCCESS" "     PORT RPC: 18081"
    if [ -f /var/lib/tor/ssh/hostname ]; then
     SSH_ONION_ADDRESS=$(sudo cat /var/lib/tor/ssh/hostname)
     echo -e "${COLORS[SUCCESS]}    -SSH Onion: $SSH_ONION_ADDRESS${COLORS[RESET]}"
@@ -1203,7 +1346,7 @@ fi
     print_styled "MONERO" "4) $(get_message "Configuration de bitmonero.conf" "bitmonero.conf configuration")"
     print_styled "PRIMARY" "   $(get_message "- Configuration du fichier de démarrage" "- Configuring startup file")"
     print_styled "PRIMARY" "   $(get_message "- Configuration des ports" "- Setting up ports")"
-    print_styled "SUCCESS" "$(get_message "    -rpc-bind-port=18089" "     rpc-bind-port=18089")"
+    print_styled "SUCCESS" "$(get_message "    -rpc-bind-port=18081" "     rpc-bind-port=18081")"
     print_styled "PRIMARY" "   $(get_message "- Configuration des chemins" "- Setting up paths")"
     echo
     print_styled "MONERO" "5) $(get_message "Configuration DNS Anonyme" "Anonymous DNS Configuration")"
@@ -1216,10 +1359,146 @@ fi
     echo
     print_styled "WARNING" "$(get_message " ⚠️  Configurer votre router/Box internet pour REDIRIGER le port 22 et 18080" " ⚠️   Configure your router/internet box to REDIRECT port 22 and 18080")"
    print_styled "WARNING" "$(get_message "    vers l'ADRESSE IP de votre PC" "    to your PC's IP ADDRESS")"
+   print_styled "PRIMARY" "$(get_message "- https://github.com/kerlannXmr/EasyMonerod/issues/10" "- https://github.com/kerlannXmr/EasyMonerod/issues/10")"
                 echo
 
                 read -p "$(print_styled "PRIMARY" "$(get_message "Appuyez sur Entrée pour continuer..." "Press Enter to continue...")")"
 }
+# Fonction d'animation pour la fin du programme
+
+monero_animation() {
+    clear
+    
+    # ASCII Art pour MONERO - en enlevant les espaces au début de chaque ligne
+    local monero_logo="
+███    ███  ██████  ███    ██ ███████ ██████   ██████  
+████  ████ ██    ██ ████   ██ ██      ██   ██ ██    ██ 
+██ ████ ██ ██    ██ ██ ██  ██ █████   ██████  ██    ██ 
+██  ██  ██ ██    ██ ██  ██ ██ ██      ██   ██ ██    ██ 
+██      ██  ██████  ██   ████ ███████ ██   ██  ██████  
+"
+    
+    # Ligne décorative de même largeur que le logo
+    local decoration_line="══════════════════════════════════════════════════════════"
+    
+    # Textes à afficher
+    local message1="$(get_message "TRANSFERTS ANONYMES" "ANONYMOUS TRANSACTIONS")"
+    local message2="$(get_message "PRIVACY MATTERS!" "PRIVACY MATTERS!")"
+    
+    # Pour centrer l'animation
+    local terminal_width=$(tput cols)
+    local terminal_height=$(tput lines)
+    local logo_width=60
+    local center_x=$(( (terminal_width - logo_width) / 2 ))
+    local center_y=10
+    
+    if [ $center_x -lt 0 ]; then
+        center_x=0
+    fi
+    
+    # Animation - alterne entre blanc et orange
+    for ((i=0; i<12; i++)); do
+        # Effacer l'écran à chaque frame
+        clear
+        
+        # Choisir la couleur en alternance (Blanc puis Orange Monero)
+        if ((i % 2 == 0)); then
+            color="${COLORS[PRIMARY]}"  # Blanc
+        else
+            color="${COLORS[MONERO]}"   # Orange Monero
+        fi
+        
+        # Afficher le logo MONERO avec la couleur actuelle
+        tput cup $center_y $center_x
+        echo -e "$color$monero_logo${COLORS[RESET]}"
+        
+        # Ajouter une ligne décorative exactement sous le logo MONERO (même position x)
+        local line_y=$((center_y + 6))
+        tput cup $line_y $center_x
+        echo -e "$color$decoration_line${COLORS[RESET]}"
+        
+        # Afficher les messages qui alternent (en dessous de la ligne)
+        local msg_y=$((center_y + 8))
+        tput cup $msg_y $((center_x + 10))
+        
+        if ((i % 2 == 0)); then
+            echo -e "${COLORS[SUCCESS]}$message1${COLORS[RESET]}"
+        else
+            echo -e "${COLORS[WARNING]}$message2${COLORS[RESET]}"
+        fi
+        
+        # Petite pause entre chaque frame
+        sleep 0.4
+    done
+}
+
+# Fonction alternative utilisant un autre style de texte
+monero_animation() {
+    clear
+
+    # Logo M dans un cercle en ASCII art
+    local logo_frame1="
+      ████████████      
+    ██            ██    
+   ██   ██    ██   ██   
+  ██    ███  ███    ██  
+  ██    ██ ██ ██    ██  
+  ██    ██    ██    ██  
+  ██    ██    ██    ██  
+   ██   ██    ██   ██   
+    ██            ██    
+      ████████████      
+"
+
+    local logo_frame2="
+      ************      
+    **            **    
+   **   **    **   **   
+  **    ***  ***    **  
+  **    ** ** **    **  
+  **    **    **    **  
+  **    **    **    **  
+   **   **    **   **   
+    **            **    
+      ************      
+"
+
+    # Pour centrer horizontalement l'animation, mais la placer en haut
+    local terminal_width=$(tput cols)
+    local logo_width=24
+    local center_x=$(( (terminal_width - logo_width) / 2 ))
+    # Positionnement en haut avec un petit décalage de 3 lignes depuis le haut
+    local top_y=3
+    
+    if [ $center_x -lt 0 ]; then
+        center_x=0
+    fi
+    
+    # Animation - alterne entre différentes couleurs et styles
+    for ((i=0; i<8; i++)); do
+        # Effacer l'écran à chaque frame
+        clear
+        
+        # Choisir la couleur et le style
+        if ((i % 2 == 0)); then
+            # Frame 1 : Logo avec blocks
+            logo="${logo_frame1}"
+            color="${COLORS[MONERO]}"  # Orange Monero
+        else
+            # Frame 2 : Logo avec astérisques
+            logo="${logo_frame2}"
+            color="${COLORS[PRIMARY]}"  # Blanc
+        fi
+        
+        # Afficher le logo avec la couleur actuelle
+        tput cup $top_y $center_x
+        echo -e "$color$logo${COLORS[RESET]}"
+        
+        # Pause entre frames
+        sleep 0.3
+    done
+}
+
 show_menu() {
     while true; do
         setup_terminal
@@ -1293,14 +1572,25 @@ show_menu() {
                 start_blockchain
                 ;;
             7) 
-                echo -n "$(print_styled "INFO" "$(get_message "Voulez-vous vraiment arrêter la blockchain? (o/n): " "Do you really want to stop the blockchain? (y/n): ")")"
-                read -r confirm
-                case $confirm in
-                    [OoYy]*)
-                        pkill -f monerod
-                        success "$(get_message "Blockchain arrêtée" "Blockchain stopped")"
-                        ;;
-                    *)
+        echo -n "$(print_styled "INFO" "$(get_message "Voulez-vous vraiment arrêter la blockchain? (o/n): " "Do you really want to stop the blockchain? (y/n): ")")"
+read -r confirm
+case $confirm in
+    [OoYy]*)
+        pkill -f monerod
+        sudo systemctl stop haproxy-monero
+        sudo systemctl stop monero-decoy
+        sudo systemctl stop monero
+        
+        # Vérification que tout est bien arrêté
+        if pgrep -f monerod > /dev/null; then
+            warning "$(get_message "Certains processus persistent, forçage de l'arrêt..." "Some processes still running, forcing shutdown...")"
+            pkill -9 -f monerod
+        fi
+        
+        success "$(get_message "Blockchain arrêtée" "Blockchain stopped")"
+        ;;
+
+        *)
                         continue
                         ;;
                 esac
@@ -1326,14 +1616,42 @@ show_menu() {
                 show_notes 
                 ;;
             13) 
-                success "$(get_message "Programme d'aide informatique et de liberté. Permet d'installer un noeud MONERO sans aucune connaissance sur linux. Merci d'avoir utilisé ce programme." "Computer assistance and freedom program. Install a MONERO node without any knowledge on Linux. Thankful for today, using this program.")"
-                exit 0
-                ;;
-          *)
-                error "$(get_message "Option invalide" "Invalid option")"
-                sleep 2
-                continue
-                ;;
+                    clear
+                     if ! monero_animation; then
+                    continue
+                fi
+    # Lancer l'animation
+    #monero_animation
+    setup_terminal
+    echo -e "\n\n\n\n\n\n\n\n"  # Espace pour la bannière
+    print_header "$(get_message "MERCI" "THANK YOU")"
+    
+    echo
+    print_styled "SUCCESS" "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+    if [ "$LANG_CHOICE" = "FR" ]; then
+        print_styled "SUCCESS" "┃                                                                             ┃"
+        print_styled "SUCCESS" "┃  Programme d'aide informatique et de liberté.                               ┃"
+        print_styled "SUCCESS" "┃  Permet d'installer un nœud MONERO sans aucune connaissance sur Linux.      ┃"
+        print_styled "SUCCESS" "┃                                                                             ┃"
+        print_styled "SUCCESS" "┃  Merci d'avoir utilisé ce programme.                                        ┃"
+        print_styled "SUCCESS" "┃                                                                             ┃"
+        print_styled "MONERO"  "┃                           🔒 PRIVACY MATTERS 🔒                             ┃"
+    else
+        print_styled "SUCCESS" "┃                                                                             ┃"
+        print_styled "SUCCESS" "┃  Computer assistance and freedom program.                                   ┃"
+        print_styled "SUCCESS" "┃  Helps you install a MONERO node without any knowledge on Linux.            ┃"
+        print_styled "SUCCESS" "┃                                                                             ┃"
+        print_styled "SUCCESS" "┃  Thank you for using this program.                                          ┃"
+        print_styled "SUCCESS" "┃                                                                             ┃"
+        print_styled "MONERO"  "┃                           🔒 PRIVACY MATTERS 🔒                             ┃"
+    fi
+    print_styled "SUCCESS" "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+    echo
+      
+    # Pause de 3 secondes avant de quitter
+    sleep 3
+    exit 0
+    ;;
         esac
     done
 }
