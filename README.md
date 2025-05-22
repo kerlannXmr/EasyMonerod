@@ -138,6 +138,9 @@ sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/ea
 sudo chmod +x easynode_linux.sh
 sudo ./easynode_linux.sh
 ```
+## <div align="center"> ❔ How it Works ❔
+
+<div align="center"><img src="picture/mermaid2.png"  width="400" height="500" alt="Monero EasyNodetop"></div>
 
 
 ## <div align="center">⚡ Features</div>
