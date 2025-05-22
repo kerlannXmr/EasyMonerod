@@ -2,7 +2,8 @@
   <table style="border: 2px solid #FF6600;">
     <tr>
       <td align="center"  width="400">
-        <h3>Would you like a Windows app version?</h3>
+        <h3>LINUX VERSION</h3>
+        <h3>Would you like a Windows version?</h3>
         <h4>See the <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">Windows version</a> of this project</h4>
          <p>🔄change version </p>
   <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">
