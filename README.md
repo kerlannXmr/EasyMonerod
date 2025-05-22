@@ -82,8 +82,8 @@ Enjoy.
 
 | Version | Links |
 |---------|------|
-| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh) |
-| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh) |
+| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_linux.sh) |
+| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_wsl.sh) |
 </div>
 
 ## <div align="center">🚀 Installation</div>
@@ -102,13 +102,13 @@ Enjoy.
 - ⚡Beginner users: copy&paste in new terminal
 
 ```bash
-wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh -O easynode_linux.sh && chmod +x easynode_linux.sh && sudo ./easynode_linux.sh
+wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_linux.sh -O easynode_linux.sh && chmod +x easynode_linux.sh && sudo ./easynode_linux.sh
 ```
 
 - Normal users: copy&paste in new terminal
 
 ```bash
-sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh
+sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_linux.sh
 ```
 (script goes in folder) " /home/$user "
 
@@ -147,7 +147,7 @@ learn.microsoft.com/en-us/windows/wsl/install
 /home/$user
 
 ```bash
-sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh
+sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_wsl.sh
 ```
 Make it executable
 ```bash
