@@ -1,3 +1,23 @@
+<div align="center">
+  <table style="border: 2px solid #FF6600;">
+    <tr>
+      <td align="center"  width="400">
+        <h3>Would you like a Linux app version?</h3>
+        <h4>See the <a href="https://github.com/kerlannXmr/EasyMonerod">Linux version</a> of this project</h4>
+         <p>🔄change version </p>
+  <a href="https://github.com/votre-nom/votre-repo/tree/wsl">
+    <img src="https://img.shields.io/badge/WINDOWS-Version-FF6600?style=for-the-badge&logo=windows&logoColor=white" alt="Version WSL"/>
+  </a>
+  <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">
+    <img src="https://img.shields.io/badge/Linux-Version-4F4F9F?style=for-the-badge&logo=linux&logoColor=white" alt="Version Linux"/>
+  </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
 [![contact_Mail](https://img.shields.io/badge/✉️_Email-FF6600?style=flat&logoColor=white)](mailto:easynode@kerlann.org)
 [![GitHub-page](https://img.shields.io/badge/Page--EN-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org)
 [![GitHub-page](https://img.shields.io/badge/Page--FR-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org/fr.html)
