@@ -1,3 +1,23 @@
+<div align="center">
+  <table style="border: 2px solid #FF6600;">
+    <tr>
+      <td align="center"  width="400">
+        <h3>Would you like a Windows app version?</h3>
+        <h4>See the <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">Windows version</a> of this project</h4>
+         <p>🔄change version </p>
+  <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">
+    <img src="https://img.shields.io/badge/WINDOWS-Version-FF6600?style=for-the-badge&logo=windows&logoColor=white" alt="Version WSL"/>
+  </a>
+  <a href="https://github.com/kerlannXmr/EasyMonerod/">
+    <img src="https://img.shields.io/badge/Linux-Version-4F4F9F?style=for-the-badge&logo=linux&logoColor=white" alt="Version Linux"/>
+  </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
 [![contact_Mail](https://img.shields.io/badge/✉️_Email-FF6600?style=flat&logoColor=white)](mailto:easynode@kerlann.org)
 [![GitHub-page](https://img.shields.io/badge/Page--EN-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org)
 [![GitHub-page](https://img.shields.io/badge/Page--FR-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org/fr.html)
@@ -119,41 +139,6 @@ sudo chmod +x easynode_linux.sh
 sudo ./easynode_linux.sh
 ```
 
-## 🪟 Windows 10/11 (WSL2) :
-### ⚫ 1) Verify WSL2 :
-
--🔺 Make sure virtualization is enabled in bios: Tape in powershell Administrator :
-
-↳ ` Get-ComputerInfo -Property "HyperV*" ` = True ✅
-
--🔺 Make sure you already have <b>WSL2</b>:
-
-↳ `wsl --list --verbose` [👉 View issue](https://github.com/kerlannXmr/EasyMonerod/issues/4#issue-2873484919) *(right click + "Open in new tab")*
-
-### ⚫ 2) Install Ubuntu:
--🔷 Go to <b>Microsoft Store</b>, then in search type Ubuntu, click on Ubuntu 24LTS.
-
-Other:
-
--🔶  <b>In powershell administrator:</b>
-```bash
-wsl --install
-```
-learn.microsoft.com/fr-fr/windows/wsl/install
-
-learn.microsoft.com/en-us/windows/wsl/install
-
-### ⚫ 3) Download & Install <b>script</b> : 
-/home/$user
-
-```bash
-sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_wsl.sh
-```
-Make it executable
-```bash
-sudo chmod +x easynode_wsl.sh
-sudo ./easynode_wsl.sh
-```
 
 ## <div align="center">⚡ Features</div>
 
