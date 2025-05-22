@@ -20,7 +20,6 @@
 ---
 
 [![contact_Mail](https://img.shields.io/badge/✉️_Email-FF6600?style=flat&logoColor=white)](mailto:easynode@kerlann.org)
-[![GitHub-page](https://img.shields.io/badge/Page--EN-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org)
 [![GitHub-page](https://img.shields.io/badge/Page--FR-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org/fr.html)
 [![Monero-ecosystem](https://img.shields.io/badge/🧭_Monero.eco-FF6600?style=flat&logoColor=white)](https://monero.eco)
 
