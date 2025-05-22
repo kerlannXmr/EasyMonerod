@@ -5,10 +5,10 @@
         <h3>Would you like a Linux app version?</h3>
         <h4>See the <a href="https://github.com/kerlannXmr/EasyMonerod">Linux version</a> of this project</h4>
          <p>🔄change version </p>
-  <a href="https://github.com/votre-nom/votre-repo/tree/wsl">
+  <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">
     <img src="https://img.shields.io/badge/WINDOWS-Version-FF6600?style=for-the-badge&logo=windows&logoColor=white" alt="Version WSL"/>
   </a>
-  <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">
+  <a href="https://github.com/kerlannXmr/EasyMonerod/">
     <img src="https://img.shields.io/badge/Linux-Version-4F4F9F?style=for-the-badge&logo=linux&logoColor=white" alt="Version Linux"/>
   </a>
       </td>
