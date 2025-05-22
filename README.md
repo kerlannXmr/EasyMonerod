@@ -154,6 +154,59 @@ sudo ./easynode_wsl.sh
 
 <div align="center"><img src="https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/mermaid2.png"  width="400" height="500" alt="Mermaid"></div>
 
+```mermaid
+
+%%{init: {'theme':'dark', 'themeVariables': {'background': '#0d1117', 'primaryColor': '#21262d', 'primaryTextColor': '#f0f6fc', 'primaryBorderColor': '#30363d', 'lineColor': '#f85149'}}}%%
+
+graph LR
+    START([🚀 EASYNODE<br/>Script])
+    LANG[🌐 Language]
+    
+    STEP1[1️⃣ Update]
+    STEP2[2️⃣ Download<br/>Monero]
+    STEP3[3️⃣ Privacy<br/>Tor]
+    STEP4[4️⃣ Config]
+    STEP5[5️⃣ DNS]
+    
+    STORAGE{💾 Storage?}
+    EXT[🗄️ External]
+    INT[💻 Internal]
+    
+    START_NODE[6️⃣ Start Node]
+    RUNNING[🎉 RUNNING]
+    
+    BENEFITS[✨ Benefits:<br/>🕵️ Privacy<br/>🛡️ Security<br/>🤝 Network<br/>🎮 Control]
+    
+    %% Flux principal horizontal
+    START --> LANG --> STEP1 --> STEP2 --> STEP3 --> STEP4 --> STEP5
+    
+    %% Choix stockage
+    STEP5 --> STORAGE
+    STORAGE --> EXT
+    STORAGE --> INT
+    
+    %% Convergence vers démarrage
+    EXT --> START_NODE
+    INT --> START_NODE
+    
+    %% Node actif
+    START_NODE --> RUNNING --> BENEFITS
+    
+    %% Dark Theme Styling - Plus compact
+    classDef startStyle fill:#f85149,stroke:#ffffff,color:#ffffff,stroke-width:2px,font-size:12px
+    classDef stepStyle fill:#238636,stroke:#ffffff,color:#ffffff,stroke-width:2px,font-size:11px
+    classDef choiceStyle fill:#d29922,stroke:#ffffff,color:#ffffff,stroke-width:2px,font-size:11px
+    classDef runningStyle fill:#ab7df8,stroke:#ffffff,color:#ffffff,stroke-width:3px,font-size:12px
+    classDef benefitStyle fill:#da3633,stroke:#ffffff,color:#ffffff,stroke-width:2px,font-size:10px
+    
+    class START,LANG startStyle
+    class STEP1,STEP2,STEP3,STEP4,STEP5 stepStyle
+    class STORAGE,EXT,INT choiceStyle
+    class START_NODE,RUNNING runningStyle
+    class BENEFITS benefitStyle
+
+```
+
 ## <div align="center">⚡ Features</div>
 
 ## 📋 Essential Features / Fonctionnalités Essentielles
