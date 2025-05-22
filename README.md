@@ -102,8 +102,8 @@ Enjoy.
 
 | Version | Links |
 |---------|------|
-| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh) |
-| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh) |
+| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_linux.sh) |
+| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_wsl.sh) |
 </div>
 
 ## <div align="center">🚀 Installation</div>
@@ -114,30 +114,6 @@ Enjoy.
 
 ( Updated: github.com/Boog900/monero-ban-list/blob/main/ban_list.txt )
 
-## 🐧 Linux : Debian, Ubuntu derivatives, Others...
-
-[View issue: Linux installation FR](https://github.com/kerlannXmr/EasyMonerod/issues/7) *(right click + "Open in new tab")*
-### ↪️ Download & Install & run script:
-
-- ⚡Beginner users: copy&paste in new terminal
-
-```bash
-wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh -O easynode_linux.sh && chmod +x easynode_linux.sh && sudo ./easynode_linux.sh
-```
-
-- Normal users: copy&paste in new terminal
-
-```bash
-sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_linux.sh
-```
-(script goes in folder) " /home/$user "
-
-### ➡️Make it executable
-
-```bash
-sudo chmod +x easynode_linux.sh
-sudo ./easynode_linux.sh
-```
 
 ## 🪟 Windows 10/11 (WSL2) :
 ### ⚫ 1) Verify WSL2 :
@@ -167,7 +143,7 @@ learn.microsoft.com/en-us/windows/wsl/install
 /home/$user
 
 ```bash
-sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v3/easynode_wsl.sh
+sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_wsl.sh
 ```
 Make it executable
 ```bash
@@ -200,13 +176,17 @@ Because FAT doesn't handle files larger than 4 GB!  [👉Issue](https://github.c
 
 -➡📗  Remote access wallet:
   
-  Take 'cake wallet', settings, connect and sync, manage nodes, add +, node address= onion Tor, node port= 18089, save. Close and open. Wait the sync.
+  Take 'cake wallet', settings, connect and sync, manage nodes, add +, node address= onion Tor, node port= 18081, save. Close and open. Wait the sync.
+
+  or
+
+  Take "Monero Gui", choose "Distant Mode" then " + add new node " and write 'IP local' or 'IP WEB' and port " 18081 "
   
 -➡📗  Remote access ssh, port 22:
    
   Open terminal pc or take 'Termux' on android: ' ssh username@local_ip_pc ' . Or ' ssh username@onion_ssh_address '.[👉Issue](https://github.com/kerlannXmr/EasyMonerod/issues11) 
     
--➡🟧 Stop the Blockchain : CTRL+C (1 times)
+-➡🟧 Stop the Blockchain : CTRL+C 
 
 ## <div align="center">🔄 Compatibility</div>
 
