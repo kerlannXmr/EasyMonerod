@@ -63,7 +63,7 @@ Enjoy.
 <div align="center">
 <!--<img src="picture/linux-interface.png" width="310" alt="Linux Interface">-->
 <img src="picture/wsl_interface.png" width="285" height="430" alt="wsl Interface">
-<img src="picture/wsl.gif" width="500" height="430" alt="wsl Interface">
+<img src="picture/linux_video2-.gif" width="500" height="430" alt="wsl Interface">
 
   <b> SSH REMOTE:</b>
 <br>
