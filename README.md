@@ -268,6 +268,10 @@ Audits are performed using VirusTotal and MetaDefender.
 <div align="center">
 
 ---
+### Support Development
+
+**If ' EasyNode ' helped you achieve privacy, consider supporting development:**
+
 ###  <b>Make donnation with 'cake wallet' to : ' kerlann.xmr '</b>
 <div align="center"><img src="picture/qrcode1.gif"  alt="wsl Interface"></div>
 or fundraiser
