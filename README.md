@@ -35,7 +35,7 @@
 <br>
 <br>
 
-[▶️ Demo video](https://mega.nz/file/VnUmELrL#v3_cl436IjI3F5U_LV84rZ9F8Xu1pAP30sUyy5n4YQc) *("Open in new tab")*
+[▶️ Demo video](https://mega.nz/file/9nEHgSbI#QIewZrOS8ETOtRYub1qrDymJbVusxm5RCYiIrfnv-Ks) *("Open in new tab")*
 
 </div>
 
@@ -74,7 +74,7 @@ Enjoy.
 <br>
 <br>
 
-[![EasyNode Monero](picture/play-button.svg)](https://mega.nz/file/VnUmELrL#v3_cl436IjI3F5U_LV84rZ9F8Xu1pAP30sUyy5n4YQc) 
+[![EasyNode Monero](picture/play-button.svg)](https://mega.nz/file/9nEHgSbI#QIewZrOS8ETOtRYub1qrDymJbVusxm5RCYiIrfnv-Ks) 
 
 <a>right click + "Open in new tab"</a>
 
