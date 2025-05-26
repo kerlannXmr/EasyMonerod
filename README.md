@@ -61,7 +61,7 @@ Enjoy.
 
 ### ❕ DISCLAIMER ❕
 
-This script is designed **exclusively for dedicated Monero node PCs** and makes irreversible system modifications (SSH, firewall, DNS, storage) 
+This script is designed **exclusively for dedicated Monero node PCs** with Monero_Gui and makes irreversible system modifications (SSH, firewall, DNS, storage) 
 
 - never use on primary computers or production systems, and by using it you accept full responsibility for any consequences.
 
@@ -258,7 +258,7 @@ Audits are performed using VirusTotal and MetaDefender.
 
 ## ⚠️ SECURITY DISCLAIMER ⚠️
 
-| 💚  **DESIGNED FOR** | 🖥️ **Dedicated PC for Monero Node Only** |
+| 💚  **DESIGNED FOR** | 🖥️ **Dedicated PC for Monero Node Only with Monero_Gui** |
 |:---:|:---|
 | ⚠️ **WARNING** | 🚫 **Never use on primary computers or production systems** |
 | 🚨 **CRITICAL** | This script makes irreversible system modifications |
