@@ -59,6 +59,12 @@ Added the 'MRL' IP bann list of 'boog900'.
 
 Enjoy.
 
+### ❕ DISCLAIMER ❕
+
+This script is designed **exclusively for dedicated Monero node PCs** and makes irreversible system modifications (SSH, firewall, DNS, storage) 
+
+- never use on primary computers or production systems, and by using it you accept full responsibility for any consequences.
+
 ## <div align="center">🖥️ Interface:</div>
 <div align="center">
 <!--<img src="picture/linux-interface.png" width="310" alt="Linux Interface">-->
@@ -246,6 +252,30 @@ Audits are performed using VirusTotal and MetaDefender.
 </div>
 
 <br>
+
+---
+
+
+## ⚠️ SECURITY DISCLAIMER ⚠️
+
+| 💚  **DESIGNED FOR** | 🖥️ **Dedicated PC for Monero Node Only** |
+|:---:|:---|
+| ⚠️ **WARNING** | 🚫 **Never use on primary computers or production systems** |
+| 🚨 **CRITICAL** | This script makes irreversible system modifications |
+
+## **Usage Guidelines**
+
+| ✅ **SAFE FOR** | ❌ **NEVER USE ON** |
+|:---|:---|
+| -Dedicated Monero node machines | -Daily-use computers |
+| -Fresh Linux installations | -Production servers |
+| -Disposable/VM environments | -Systems with important data |
+| -Isolated test systems | -Multi-user environments |
+
+| ⚖️ **LEGAL** | **BY USING THIS SCRIPT, YOU ACCEPT ALL RISKS** |
+|:---:|:---|
+
+---
 
 ## 💬  Contact
 
