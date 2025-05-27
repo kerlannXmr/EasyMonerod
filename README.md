@@ -64,7 +64,7 @@ Enjoy.
 
 This script is designed **exclusively for dedicated Monero node PCs** with Monero_Gui and makes irreversible system modifications (SSH, firewall, DNS, storage) 
 
-- never use on primary computers or production systems, and by using it you accept full responsibility for any consequences.
+- never use on primary computers or production systems, and by using it you accept responsibility.
 
 ## <div align="center">🖥️ Interface:</div>
 <div align="center">
