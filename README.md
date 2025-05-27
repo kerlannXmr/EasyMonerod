@@ -110,7 +110,7 @@ This script is designed **exclusively for dedicated Monero node PCs** with Moner
 | Version | Links |
 |---------|------|
 | 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_linux.sh) |
-| 🪟 WSL | [![WSL](https://img.shields.io/badge/Download-EasyNode_WSL-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v4/easynode_wsl.sh) |
+
 </div>
 
 ## <div align="center">🚀 Installation</div>
