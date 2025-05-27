@@ -257,7 +257,7 @@ Audits are performed using VirusTotal and MetaDefender.
 ---
 
 
-## ⚠️ SECURITY DISCLAIMER ⚠️
+### ⚠️ Security disclamer
 
 | 💚  **DESIGNED FOR** | 🖥️ **Dedicated PC for Monero Node Only with Monero_Gui** |
 |:---:|:---|
@@ -273,7 +273,7 @@ Audits are performed using VirusTotal and MetaDefender.
 | -Disposable/VM environments | -Systems with important data |
 | -Isolated test systems | -Multi-user environments |
 
-| ⚖️ **LEGAL** | **BY USING THIS SCRIPT, YOU ACCEPT ALL RISKS** |
+| ⚖️ **LEGAL** | **by using this script, you accept all responsability** |
 |:---:|:---|
 
 ---
