@@ -262,7 +262,6 @@ Audits are performed using VirusTotal and MetaDefender.
 | 💚  **DESIGNED FOR** | 🖥️ **Dedicated PC for Monero Node Only with Monero_Gui** |
 |:---:|:---|
 | ⚠️ **WARNING** | 🚫 **Never use on primary computers or production systems** |
-| 🚨 **CRITICAL** | This script makes irreversible system modifications |
 
 ## **Usage Guidelines**
 
