@@ -265,7 +265,7 @@ Audits are performed using VirusTotal and MetaDefender.
 
 ## **Usage Guidelines**
 
-| ✅ **SAFE FOR** | ❌ **NEVER USE ON** |
+| ✅ **SAFE FOR** | ❌ **No USE ON** |
 |:---|:---|
 | -Dedicated Monero node machines | -Daily-use computers |
 | -Fresh Linux installations | -Production servers |
