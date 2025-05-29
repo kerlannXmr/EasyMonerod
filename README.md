@@ -101,6 +101,22 @@ This script is designed **for dedicated Monero node PCs** with Monero_Gui and co
 - Follow the step 1➡️2➡️3➡️4➡️5
 - Then do : Step 8️⃣ and 6️⃣
 
+```
+1️⃣ Option 1: System update
+2️⃣ Option 2: Install Monero
+3️⃣ Option 3: Install Tor
+4️⃣ Option 4: Configure bitmonero
+   ├── Choice: With password (secure)
+   │   └── Instructions: Remote → Local after sync
+   └── Choice: Without password (direct)
+       └── Instructions: Local directly
+5️⃣ Option 5: Anonymous DNS
+6️⃣ Option 6: Start blockchain
+8️⃣ Option 8: External disk (PRESERVES option 4 choice)
+9️⃣ Option 9: Return to internal disk (PRESERVES option 4 choice)
+```
+  
+
 ## <div align="center">📥 Download:</div>
 <div align="center">
   
