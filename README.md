@@ -6,7 +6,7 @@
         <h3>Would you like a Windows version?</h3>
         <h4>See the <a href="https://github.com/kerlannXmr/easynode_windows">Windows version</a> of this project</h4>
          <p>🔄change version </p>
-  <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">
+  <a href="https://github.com/kerlannXmr/easynode_windows">
     <img src="https://img.shields.io/badge/WINDOWS-Version-FF6600?style=for-the-badge&logo=windows&logoColor=white" alt="Version WSL"/>
   </a>
   <a href="https://github.com/kerlannXmr/EasyMonerod/">
