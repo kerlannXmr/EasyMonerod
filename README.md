@@ -47,7 +47,9 @@ Then download its blockchain ⬇️ ...
 
 Finally, start your adventure, you are sovereign...
 
-You can use it in 🐧Linux versions or 🪟 windows  10/11 in wsl version. 
+You can use it in 🐧Linux versions. 
+
+Compatible with the entire Ubuntu/Debian ecosystem. 
 
 No knowledge required. Select step 1➡️2➡️3➡️4➡️5 and you're done. 
 After Boot to your internal drive, 6️⃣, or move the blockchain to your external disk, 8️⃣.
