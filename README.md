@@ -263,15 +263,6 @@ Audits are performed using VirusTotal and MetaDefender.
 |:---:|:---|
 | ⚠️ **WARNING** | 🚫 **Don't use on primary computers first** |
 
-## **Usage Guidelines**
-
-| ✅ **SAFE FOR** | ❌ **No USE ON 1st** |
-|:---|:---|
-| -Dedicated Monero node machines | -Daily-use computers |
-| -Fresh Linux installations | -Production servers |
-| -Disposable/VM environments | -Systems with important data |
-| -Isolated test systems | -Multi-user environments |
-
 
 ---
 
