@@ -4,7 +4,7 @@
       <td align="center"  width="400">
         <h3>LINUX VERSION</h3>
         <h3>Would you like a Windows version?</h3>
-        <h4>See the <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">Windows version</a> of this project</h4>
+        <h4>See the <a href="https://github.com/kerlannXmr/easynode_windows">Windows version</a> of this project</h4>
          <p>🔄change version </p>
   <a href="https://github.com/kerlannXmr/EasyMonerod/tree/EasyNode-Windows">
     <img src="https://img.shields.io/badge/WINDOWS-Version-FF6600?style=for-the-badge&logo=windows&logoColor=white" alt="Version WSL"/>
@@ -248,7 +248,7 @@ Audits are performed using VirusTotal and MetaDefender.
 | Script | VirusTotal | MetaDefender |
 |--------|------------|--------------|
 | EasyNode_linux | [![Scan EasyNode_linux with VirusTotal](https://img.shields.io/badge/scan%20Easynode_linux%20with-VirusTotal-brightgreen)](https://www.virustotal.com/gui/url/f647e9bd7a152cab3537fe5130d7b57c6112cec021c73c35403fb6936d0b625c?nocache=1) | [![Scan EasyNode_linux with MetaDefender](https://img.shields.io/badge/scan%20Easynode_linux%20with-MetaDefender-brightgreen)](https://metadefender.com/results/url/aHR0cHM6Ly9naXRodWIuY29tL2tlcmxhbm5YbXIvRWFzeU1vbmVyb2QvcmVsZWFzZXMvZG93bmxvYWQvdjMvZWFzeW5vZGVfbGludXguc2g=) |
-| EasyNode_wsl | [![Scan easyNode_wsl with VirusTotal](https://img.shields.io/badge/scan%20Easynode_wsl%20with-VirusTotal-brightgreen)](https://www.virustotal.com/gui/url/e1621216f4ef4f9a5a1aa0651d1717b9c4047473d9b040cc047341369df3cb46?nocache=1) | [![Scan EasyNode_wsl with Metadefender](https://img.shields.io/badge/scan%20Easynode_wsl%20with-metaDefender-brightgreen)](https://metadefender.com/results/url/aHR0cHM6Ly9naXRodWIuY29tL2tlcmxhbm5YbXIvRWFzeU1vbmVyb2QvcmVsZWFzZXMvZG93bmxvYWQvdjMvZWFzeW5vZGVfd3NsLnNo) |
+
 
 </div>
 
