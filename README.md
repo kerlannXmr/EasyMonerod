@@ -248,8 +248,6 @@ Because FAT doesn't handle files larger than 4 GB!  [👉Issue](https://github.c
 
 ### Security Scan Results
 
-Audits are performed using VirusTotal and MetaDefender.
-
 | Category | Description | Tools | Status |
 |----------|-------------|-------|--------|
 | 🔒 Security | Vulnerabilities, malware detection, backdoors | VirusTotal, MetaDefender | ✅ |
@@ -263,9 +261,9 @@ Audits are performed using VirusTotal and MetaDefender.
   
  <b>Right click + "Open in new tab" to view scann results </b>
 
-| Script | VirusTotal | MetaDefender |
-|--------|------------|--------------|
-| EasyNode_linux | [![Scan EasyNode_linux with VirusTotal](https://img.shields.io/badge/scan%20Easynode_linux%20with-VirusTotal-brightgreen)](https://www.virustotal.com/gui/url/f647e9bd7a152cab3537fe5130d7b57c6112cec021c73c35403fb6936d0b625c?nocache=1) | [![Scan EasyNode_linux with MetaDefender](https://img.shields.io/badge/scan%20Easynode_linux%20with-MetaDefender-brightgreen)](https://metadefender.com/results/url/aHR0cHM6Ly9naXRodWIuY29tL2tlcmxhbm5YbXIvRWFzeU1vbmVyb2QvcmVsZWFzZXMvZG93bmxvYWQvdjMvZWFzeW5vZGVfbGludXguc2g=) |
+| Script | Jotti.org | MetaDefender | virscan |
+|--------|------------|--------------|--------------|
+| EasyNode_linux | [![Scan EasyNode_linux with JOTTI.ORG](https://img.shields.io/badge/scan%20Easynode_linux%20with-Jotti.org-brightgreen)](https://virusscan.jotti.org/en/filescanjob/gr95iybu3r) | [![Scan EasyNode_linux with MetaDefender](https://img.shields.io/badge/scan%20Easynode_linux%20with-MetaDefender-brightgreen)](https://metadefender.com/results/url/aHR0cHM6Ly9naXRodWIuY29tL2tlcmxhbm5YbXIvRWFzeU1vbmVyb2QvcmVsZWFzZXMvZG93bmxvYWQvdjMvZWFzeW5vZGVfbGludXguc2g=) | [![Scan EasyNode_linux with VirScan](https://img.shields.io/badge/scan%20Easynode_linux%20with-VirScan-brightgreen)](https://www.virscan.org/report/544adbfaa7cd148d13f87cbe3bccd7e3be1692bc21b5182555d1285e97b22336)
 
 
 </div>
