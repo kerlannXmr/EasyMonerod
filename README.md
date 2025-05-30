@@ -247,17 +247,6 @@ Because FAT doesn't handle files larger than 4 GB!  [👉Issue](https://github.c
 <div align="center">
 
 ### Security Scan Results
-
-| Category | Description | Tools | Status |
-|----------|-------------|-------|--------|
-| 🔒 Security | Vulnerabilities, malware detection, backdoors | VirusTotal, MetaDefender | ✅ |
-| 🐛 Code Issues | Logic flaws, syntax errors, risky patterns | Static Analysis | ✅ |
-| 🔍 Behavior | Runtime actions, system modifications, network activity | Dynamic Analysis | ✅ |
-| 🔧 Resource Usage | File system access, memory/CPU utilization | MetaDefender | ✅ |
-| 📡 Network | Suspicious connections, data exfiltration attempts | VirusTotal | ✅ |
-| 💾 File Operations | Dangerous file manipulations, unexpected changes | Both Tools | ✅ |
-
-<br>
   
  <b>Right click + "Open in new tab" to view scann results </b>
 
