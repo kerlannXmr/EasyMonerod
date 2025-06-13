@@ -165,7 +165,9 @@ sudo ./easynode_linux.sh
 ```
 ## <div align="center"> ❔ How it Works ❔
 
-<div align="center"><img src="picture/mermaid2.png"  width="400" height="500" alt="Monero EasyNodetop"></div>
+<div align="center"><img src="picture/mermaid2.png"  width="600" height="700" alt="Monero EasyNodetop"></div>
+
+<div align="center"><img src="https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/easynode_linux3.png"></div>
 
 
 ## <div align="center">⚡ Features</div>
