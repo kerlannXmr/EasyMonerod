@@ -64,7 +64,11 @@ sudo bash install.sh
 ### Uninstall
 
 ```bash
-sudo bash uninstall.sh
+
+  • sudo rm -rf /opt/easymonerod-gui
+  • sudo rm /usr/local/bin/easymonerod-gui
+  • sudo rm /usr/share/applications/easymonerod-gui.desktop
+
 ```
 ---
 
@@ -122,7 +126,11 @@ sudo bash install.sh
 ### Désinstallation
 
 ```bash
-sudo bash uninstall.sh
+
+  • sudo rm -rf /opt/easymonerod-gui
+  • sudo rm /usr/local/bin/easymonerod-gui
+  • sudo rm /usr/share/applications/easymonerod-gui.desktop
+
 ```
 ---
 
