@@ -32,6 +32,22 @@ sudo bash install.sh
 
 **That's it!** The app appears in your Applications menu as **EasyMonerod**.
 
+
+## <div align="center">📥 Download:</div>
+<div align="center">
+  
+⇨ 📂 Into path: `/home/$user`
+</div>
+
+<div align="center">
+
+| Version | Links |
+|---------|------|
+| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyMonerod-GUI-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v5/easynode_linux.sh) |
+
+</div>
+
+
 ### Launch
 
 - **Applications Menu** → search "EasyMonerod"
