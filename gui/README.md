@@ -35,7 +35,7 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 ### Launch
 
 - **Applications Menu** → search "EasyMonerod"
-              or
+- or
 - **Terminal** → type `easymonerod-gui`
 
 ### Usage
@@ -97,7 +97,7 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 ### Lancement
 
 - **Menu Applications** → cherchez "EasyMonerod"
-      ou
+- ou
 - **Terminal** → tapez `easymonerod-gui`
 
 ### Utilisation
