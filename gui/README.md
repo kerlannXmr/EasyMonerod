@@ -43,7 +43,7 @@ sudo bash install.sh
 
 | Version | Links |
 |---------|------|
-| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyMonerod_GUI-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/blob/3922f451ad6f61d7b75c54a4f56a1c86814f7aef/gui/install.sh) |
+| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyMonerod_GUI-orange?style=for-the-badge)](gui/install.sh) |
 
 </div>
 
