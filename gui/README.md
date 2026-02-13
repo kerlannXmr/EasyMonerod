@@ -18,36 +18,24 @@ EasyMonerod GUI is a **graphical interface** to install a full Monero node on Li
 
 ### Installation (simple method)
 
+
+ 1. Download install.sh in personnal folder
 ```bash
-# 1. Download install.sh in personnal folder
+wget -qO- https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh | sudo bash
+```
 
-# 2. Open a terminal 
+ 2. Open a terminal 
 
-# 3. Make the script executable
+ 3. Make the script executable
+```bash
 chmod +x install.sh
-
-# 4. Run installation
+```
+ 4. Run installation
+```bash
 sudo bash install.sh
 ```
 
 **That's it!** The app appears in your Applications menu as **EasyMonerod**.
-
-
-## <div align="center">📥 Download:</div>
-<div align="center">
-  
-⇨ 📂 Into path: `/home/$user`
-</div>
-
-<div align="center">
-
-| Version | Links |
-|---------|------|
-| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyMonerod_GUI-orange?style=for-the-badge)](https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh) |
-</div>
-
-curl -fsSL https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh | bash
-
 
 ### Launch
 
