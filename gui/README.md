@@ -35,12 +35,13 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 ### Launch
 
 - **Applications Menu** → search "EasyMonerod"
+              or
 - **Terminal** → type `easymonerod-gui`
 
 ### Usage
 
 1. Choose your language (Français / English)
-2. Follow the steps in order: **1 ➜ 2 ➜ 3 ➜ 4 ➜ 5 ➜ 6**
+2. Follow the steps in order: **1 ➜ 2 ➜ 3 ➜ 4 ➜ 5**
 3. Each step has a **▶ Confirm** button to execute
 4. The integrated terminal shows real-time progress
 
@@ -80,29 +81,29 @@ EasyMonerod GUI est une **interface graphique** qui permet d'installer un nœud 
 
 ### Installation (méthode simple)
 
+ 1. Ouvrir un terminal 
+
+ 2. télécharge et "install.sh" dans ton dossier personnel
+
 ```bash
-# 1. Télécharger install.sh dans ton dossier personnel
-
-# 2. Ouvrir un terminal
-
-# 3. Rendre le script exécutable
-chmod +x install.sh
-
-# 4. Lancer l'installation
-sudo bash install.sh
+wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh -O  install.sh && chmod +x install.sh && sudo ./install.sh
 ```
+ 3. Démarrage de l'installation et fin
+
+ 4. Cherche " Easymonerod " dans ton tirroir d'applications
 
 **C'est tout !** L'application apparaît dans votre menu Applications sous le nom **EasyMonerod**.
 
 ### Lancement
 
 - **Menu Applications** → cherchez "EasyMonerod"
+      ou
 - **Terminal** → tapez `easymonerod-gui`
 
 ### Utilisation
 
 1. Choisissez votre langue (Français / English)
-2. Suivez les étapes dans l'ordre : **1 ➜ 2 ➜ 3 ➜ 4 ➜ 5 ➜ 6**
+2. Suivez les étapes dans l'ordre : **1 ➜ 2 ➜ 3 ➜ 4 ➜ 5**
 3. Chaque étape a un bouton **▶ Confirmer** pour l'exécuter
 4. Le terminal intégré affiche la progression en temps réel
 
