@@ -1,7 +1,7 @@
 # ⬡ EasyMonerod GUI
 
-**Interface graphique pour installer et gérer un nœud Monero sur Linux**  
-*Basé sur [EasyMonerod v5](https://github.com/kerlannXmr/EasyMonerod) par kerlannXmr*
+**Simple GUI interface to install and manage a Monero node on Linux in 5 stape in less than 10 minutes**  
+*Gui mode of [EasyMonerod v5](https://github.com/kerlannXmr/EasyMonerod) by kerlannXmr*
 
 ![Monero](https://img.shields.io/badge/Monero-FF6600?style=for-the-badge&logo=monero&logoColor=white)
 ![GTK4](https://img.shields.io/badge/GTK4-4A86CF?style=for-the-badge&logo=gnome&logoColor=white)
@@ -43,6 +43,23 @@ sudo bash install.sh
 2. Follow the steps in order: **1 ➜ 2 ➜ 3 ➜ 4 ➜ 5 ➜ 6**
 3. Each step has a **▶ Confirm** button to execute
 4. The integrated terminal shows real-time progress
+
+   ### Steps available 
+
+| # | Function | Description | 
+|---|---------|--------| 
+| 0 | Guide | How to use the program | 
+| 1 | System update | Install packages, configure firewall, SSH, fail2ban | 
+| 2 | Install Monero CLI | Download and verify (GPG) Monero v0.18.4.5 | 
+| 3 | Install Tor | Configure Tor hidden services | 
+| 4 | Configure bitmonero | Creates bitmonero.conf with RPC security options | 
+| 5 | Configure DNS | Configure anonymous DNS (AdGuard) | 
+| 6 | START | Launches the blockchain (complete/pruned, with/without IP ban) | 
+| 7 | STOP | Stop the blockchain | 
+| 8 | External disk | Configure blockchain on external drive | 
+| 9 | Internal disk | Returns to internal disk | 
+| 11 | Info | Ports and Configuration Information | 
+| 12 | Notes | Useful links, donations, contact |
 
 ### Uninstall
 
