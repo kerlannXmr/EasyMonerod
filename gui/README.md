@@ -142,12 +142,11 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 
 ## 🙏 Donations
 
-MONERO (XMR) : `kerlann.xmr` (via Cake Wallet)
+MONERO (XMR) : `kerlann.xmr` (via Cake Wallet or Unstoppable wallet)
 
 ## 📧 Contact
 
 - Email: easynode@kerlann.org
-- Source: https://github.com/kerlannXmr/easymonerod
 
 ## 🔒 PRIVACY MATTERS 🔒
 ---
