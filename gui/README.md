@@ -44,9 +44,9 @@ sudo bash install.sh
 | Version | Links |
 |---------|------|
 | 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyMonerod_GUI-orange?style=for-the-badge)](https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh) |
-
-
 </div>
+
+curl -fsSL https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh | bash
 
 
 ### Launch
