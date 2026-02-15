@@ -71,6 +71,16 @@ This script is designed **for dedicated Monero node PCs** with Monero_Gui and co
 
 - Don't use on primary computers first.
 
+
+---
+
+### 🖥️ NEW: Graphical Interface (GUI)
+
+> A full graphical interface is now available. Install in one command
+
+👉 **[See GUI documentation](https://github.com/kerlannXmr/EasyMonerod/tree/main/gui)**
+
+
 ## <div align="center">🖥️ Interface:</div>
 <div align="center">
 <!--<img src="picture/linux-interface.png" width="310" alt="Linux Interface">-->
