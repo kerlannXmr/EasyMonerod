@@ -10,7 +10,7 @@
 
 # 📸 Screenshot
 
-![EasyMonerod GUI](https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/gui.png)
+![EasyMonerod GUI](https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/gui1.png)
 
 ---
 
