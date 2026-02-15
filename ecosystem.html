@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XmrGold ecosystem</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 256 256' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='128' cy='128' r='120' fill='%230d0d0d' stroke='%23f26822' stroke-width='8'/%3E%3Cpath d='M52 176V93L128 157L204 93V176' stroke='%23f26822' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M28 176H76V128' stroke='%23f26822' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M228 176H180V128' stroke='%23f26822' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }      
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            min-height: 100dvh; /* Pour mobile - hauteur dynamique */
+            overflow: hidden;
+        }
+        
+        
+        /* Fond étoilé */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Canvas pour les lignes */
+        #constellationCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 30px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            background: radial-gradient(circle, #FF6600 0%, #CC4400 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #000;
+            box-shadow: 0 0 30px rgba(255,102,0,0.6);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        h1 span {
+            color: #FF6600;
+        }
+
+        /* Breadcrumb / Navigation */
+        .breadcrumb {
+            position: fixed;
+            top: 80px;
+            left: 30px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb-item {
+            color: #666;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb-item:hover {
+            color: #FF6600;
+        }
+
+        .breadcrumb-item.active {
+            color: #fff;
+        }
+
+        .breadcrumb-separator {
+            color: #444;
+        }
+
+        /* Container constellation */
+        .constellation-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh; /* Pour mobile - hauteur dynamique */
+            z-index: 2;
+        }
+
+        /* Vue principale (catégories) */
+        .main-view, .detail-view {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .main-view.hidden {
+            opacity: 0;
+            transform: scale(1.5);
+            pointer-events: none;
+        }
+
+        .detail-view {
+            opacity: 0;
+            transform: scale(0.5);
+            pointer-events: none;
+        }
+
+        .detail-view.visible {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: all;
+        }
+
+        /* Étoile centrale */
+        .central-star {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+        }
+
+        .central-star .star-core {
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, #FF6600 0%, #FF4400 50%, #CC3300 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            color: #000;
+            cursor: pointer;
+            box-shadow: 
+                0 0 50px rgba(255,102,0,0.8),
+                0 0 100px rgba(255,102,0,0.5),
+                0 0 150px rgba(255,102,0,0.3);
+            animation: centralPulse 3s infinite ease-in-out;
+            transition: transform 0.3s;
+        }
+
+        .central-star .star-core:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes centralPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 50px rgba(255,102,0,0.8),
+                    0 0 100px rgba(255,102,0,0.5),
+                    0 0 150px rgba(255,102,0,0.3);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 70px rgba(255,102,0,1),
+                    0 0 120px rgba(255,102,0,0.6),
+                    0 0 180px rgba(255,102,0,0.4);
+            }
+        }
+
+        .central-star .star-label {
+            margin-top: 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #FF6600;
+            text-shadow: 0 0 10px rgba(255,102,0,0.5);
+        }
+
+        .central-star .star-sublabel {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Étoiles catégories */
+        .category-node {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .category-node:hover {
+            transform: translate(-50%, -50%) scale(1.15);
+            z-index: 20;
+        }
+
+        .category-node .node-core {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff 0%, currentColor 100%);
+            box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin: 0 auto;
+            transition: all 0.3s;
+        }
+
+        .category-node:hover .node-core {
+            width: 60px;
+            height: 60px;
+            box-shadow: 0 0 30px currentColor, 0 0 60px currentColor;
+        }
+
+        .category-node .node-label {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        .category-node .node-count {
+            font-size: 0.7rem;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        /* Étoiles liens (vue détail) */
+        .link-node {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .link-node:hover {
+            transform: translate(-50%, -50%) scale(1.2);
+            z-index: 20;
+        }
+
+        .link-node .node-core {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff 0%, currentColor 100%);
+            box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+            margin: 0 auto;
+            transition: all 0.3s;
+            font-size: 0.7rem;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+        }
+
+        .link-node:hover .node-core {
+            width: 32px;
+            height: 32px;
+            box-shadow: 0 0 25px currentColor, 0 0 50px currentColor;
+        }
+
+        .link-node .node-label {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #ccc;
+            white-space: nowrap;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+            transition: color 0.3s;
+        }
+
+        .link-node:hover .node-label {
+            color: #fff;
+        }
+
+        /* Info panel */
+        .info-panel {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(10,10,10,0.95);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 20px 30px;
+            z-index: 200;
+            opacity: 0;
+            transition: all 0.4s ease-out;
+            text-align: center;
+            min-width: 280px;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-panel.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .info-panel .info-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .info-panel .info-category {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .info-panel .info-link {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #FF6600 0%, #CC4400 100%);
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .info-panel .info-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,102,0,0.5);
+        }
+
+        .info-panel .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .info-panel .close-btn:hover {
+            color: #fff;
+        }
+
+        /* Instructions */
+        .instructions {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.7rem;
+            color: #444;
+            text-align: right;
+            z-index: 50;
+        }
+
+        /* Category title in detail view */
+        .category-title {
+            position: fixed;
+            top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-title.visible {
+            opacity: 1;
+        }
+
+        .category-title .icon {
+            font-size: 1.5rem;
+        }
+        
+        /* back home */
+        .back-home {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            z-index: 100;
+            color: #FF6600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            background: rgba(242, 104, 34, 0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(242, 104, 34, 0.4);
+        }
+
+        .back-home:hover {
+            color: #fff;
+            background: rgba(242, 104, 34, 0.3);
+            border-color: #FF6600;
+        }
+   
+        /* Tooltip */
+        .tooltip {
+            position: fixed;
+            background: rgba(10, 10, 10, 0.95);
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 10px 15px;
+            max-width: 250px;
+            font-size: 0.75rem;
+            color: #ccc;
+            z-index: 500;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .tooltip.visible {
+            opacity: 1;
+        }
+
+        .tooltip-title {
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        /* Dual Sun System for Payments */
+        .dual-sun-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .mini-sun {
+            position: absolute;
+            z-index: 10;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .mini-sun:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .mini-sun .sun-core {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto;
+            animation: sunPulse 3s infinite ease-in-out;
+        }
+        
+        @keyframes sunPulse {
+            0%, 100% { 
+                filter: brightness(1);
+            }
+            50% { 
+                filter: brightness(1.2);
+            }
+        }
+        
+        .mini-sun .sun-label {
+            margin-top: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px currentColor;
+            white-space: nowrap;
+        }
+        
+        .orbiting-star {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .orbiting-star:hover {
+            transform: translate(-50%, -50%) scale(1.25);
+            z-index: 25;
+        }
+        
+        .orbiting-star .orbit-core {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff 0%, currentColor 100%);
+            box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .orbiting-star:hover .orbit-core {
+            width: 36px;
+            height: 36px;
+            box-shadow: 0 0 25px currentColor, 0 0 50px currentColor;
+        }
+        
+        .orbiting-star .orbit-label {
+            margin-top: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #ccc;
+            white-space: nowrap;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+            transition: color 0.3s;
+        }
+        
+        .orbiting-star:hover .orbit-label {
+            color: #fff;
+        }
+
+        /* ========== RESPONSIVE MOBILE ========== */
+        @media (max-width: 768px) {
+            /* Repositionner l'étoile centrale */
+            .central-star {
+                top: 43% !important;
+                transform: translate(-50%, -50%) !important;
+            }
+
+            .central-star .star-core {
+                width: 70px;
+                height: 70px;
+                font-size: 24px;
+            }
+
+            .central-star .star-label {
+                font-size: 0.85rem;
+                margin-top: 10px;
+            }
+
+            /* Réduire les étoiles catégories */
+            .category-node .node-core {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .category-node .node-label {
+                font-size: 0.7rem;
+                margin-top: 8px;
+            }
+
+            .category-node .node-count {
+                font-size: 0.6rem;
+            }
+
+            /* Header */
+            header {
+                padding: 15px 20px;
+            }
+
+            h1 {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+
+            .logo {
+                width: 38px;
+                height: 38px;
+            }
+
+            /* Info panel */
+            .info-panel {
+                width: 90%;
+                min-width: auto;
+                padding: 15px 20px;
+                bottom: 20px;
+            }
+
+            /* Back link */
+            .back-home {
+                font-size: 0.85rem;
+                top: auto;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(242, 104, 34, 0.2);
+                padding: 8px 16px;
+                border-radius: 20px;
+                border: 1px solid #f26822;
+            }
+
+            /* Category title */
+            .category-title {
+                top: 110px;
+                font-size: 0.9rem;
+            }
+
+            /* Detail view center */
+            #detailCenter {
+                top: 43% !important;
+                transform: translate(-50%, -50%) !important;
+            }
+
+            /* Dual sun view */
+            .mini-sun .sun-core {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .mini-sun .sun-label {
+                font-size: 0.65rem;
+            }
+
+            .orbiting-star .orbit-core {
+                width: 22px;
+                height: 22px;
+            }
+
+            .orbiting-star .orbit-label {
+                font-size: 0.6rem;
+            }
+
+            /* Link nodes */
+            .link-node .node-core {
+                width: 20px;
+                height: 20px;
+                font-size: 0.6rem;
+            }
+
+            .link-node .node-label {
+                font-size: 0.65rem;
+                margin-top: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Très petits écrans */
+            .central-star {
+                top: 40% !important;
+            }
+
+            .central-star .star-core {
+                width: 60px;
+                height: 60px;
+                font-size: 20px;
+            }
+
+            .central-star .star-label {
+                font-size: 0.75rem;
+            }
+
+            .central-star .star-sublabel {
+                font-size: 0.6rem;
+            }
+
+            .category-node .node-core {
+                width: 35px;
+                height: 35px;
+                font-size: 0.95rem;
+            }
+
+            .category-node .node-label {
+                font-size: 0.6rem;
+            }
+
+            .category-node .node-count {
+                font-size: 0.5rem;
+            }
+
+            h1 {
+                font-size: 0.95rem;
+            }
+
+            #detailCenter {
+                top: 40% !important;
+            }
+
+            .mini-sun .sun-core {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="starfield" id="starfield"></div>
+    <canvas id="constellationCanvas"></canvas>
+
+    <header>
+       <div class="logo" id="homeButton">
+            <img src="https://easynode.kerlann.org/picture/xxmr.gif" alt="M" style="width: 30px; height: 30px; border-radius: 50%;">
+       </div>
+        <div>
+            <h1>XMRGOLD <span>Ecosystem</span></h1>
+        </div>
+    </header>
+    
+    <a href="../" class="back-home">← Back to home</a>
+
+    <div class="category-title" id="categoryTitle">
+        <span class="icon" id="categoryIcon"></span>
+        <span id="categoryName"></span>
+    </div>
+
+    <div class="constellation-container">
+        <!-- VUE PRINCIPALE : Catégories -->
+        <div class="main-view" id="mainView">
+            <div class="central-star">
+                <div class="star-core" style="padding: 0; overflow: hidden;">
+                    <img src="https://imgs.search.brave.com/E_AejIpJgON0VrLyVwxw0TbIWdt3QYjweQ_cqpmR8tQ/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LW1vbmVyby1pY29u/LXN2Zy1kb3dubG9h/ZC1wbmctNjQ1OTc5/LnBuZz9mPXdlYnAm/dz0xMjg" alt="M" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <div class="star-label">MONERO</div>
+                <div class="star-sublabel">select a star</div>
+            </div>
+
+            <!-- Catégories -->
+            <div class="category-node" id="cat-wallets" style="color: #FF6600;" data-category="wallets" data-icon="🪙" data-name="Wallets">
+                <div class="node-core">🪙</div>
+                <div class="node-label">Wallets</div>
+                <div class="node-count">15 links</div>
+            </div>
+
+            <div class="category-node" id="cat-exchanges" style="color: #00D4AA;" data-category="exchanges" data-icon="🔄" data-name="Exchanges">
+                <div class="node-core">🔄</div>
+                <div class="node-label">Exchanges</div>
+                <div class="node-count">20 links</div>
+            </div>
+
+            <div class="category-node" id="cat-nodes" style="color: #7B68EE;" data-category="nodes" data-icon="🌐" data-name="Nodes">
+                <div class="node-core">🌐</div>
+                <div class="node-label">Nodes</div>
+                <div class="node-count">9 links</div>
+            </div>
+
+            <div class="category-node" id="cat-payments" style="color: #FF4081;" data-category="payments" data-icon="💳" data-name="Payments">
+                <div class="node-core">💳</div>
+                <div class="node-label">Payments</div>
+                <div class="node-count">13 links</div>
+            </div>
+
+            <div class="category-node" id="cat-mining" style="color: #FFD700;" data-category="mining" data-icon="⛏️" data-name="Mining">
+                <div class="node-core">⛏️</div>
+                <div class="node-label">Mining</div>
+                <div class="node-count">4 links</div>
+            </div>
+
+            <div class="category-node" id="cat-community" style="color: #00BFFF;" data-category="community" data-icon="👥" data-name="Community">
+                <div class="node-core">👥</div>
+                <div class="node-label">Community</div>
+                <div class="node-count">11 links</div>
+            </div>
+
+            <div class="category-node" id="cat-dev" style="color: #98FB98;" data-category="dev" data-icon="📚" data-name="Dev & Docs">
+                <div class="node-core">📚</div>
+                <div class="node-label">Dev & Docs</div>
+                <div class="node-count">9 links</div>
+            </div>
+
+            <div class="category-node" id="cat-esim" style="color: #FF8C00;" data-category="esim" data-icon="📶💬" data-name="Esim">
+                <div class="node-core">📶💬</div>
+                <div class="node-label">Esim & Sms</div>
+                <div class="node-count">8 links</div>
+            </div>
+
+            <div class="category-node" id="cat-funding" style="color: #FF69B4;" data-category="funding" data-icon="💰" data-name="Funding">
+                <div class="node-core">💰</div>
+                <div class="node-label">Funding</div>
+                <div class="node-count">4 links</div>
+            </div>
+
+            <div class="category-node" id="cat-market" style="color: #9370DB;" data-category="market" data-icon="💵" data-name="Market">
+                <div class="node-core">💵</div>
+                <div class="node-label">Market</div>
+                <div class="node-count">6 links</div>
+            </div>
+            
+            <div class="category-node" id="cat-network" style="color: #0FA0FA;" data-category="network" data-icon="🕸️" data-name="Network">
+                <div class="node-core">🕸️</div>
+                <div class="node-label">Network</div>
+                <div class="node-count">10 links</div>
+            </div>
+            
+            <div class="category-node" id="cat-gift" style="color: #9370DB;" data-category="gift" data-icon="🎁" data-name="Gift">
+                <div class="node-core">🎁</div>
+                <div class="node-label">Gift</div>
+                <div class="node-count">6 links</div>
+            </div>
+            
+            <div class="category-node" id="cat-maps" style="color: #666666;" data-category="maps" data-icon="📊" data-name="Maps">
+                <div class="node-core">🌎</div>
+                <div class="node-label">Maps</div>
+                <div class="node-count">6 links</div>
+            </div>
+            
+        </div>
+
+        <!-- VUE DÉTAIL : Liens d'une catégorie -->
+        <div class="detail-view" id="detailView">
+            <div class="central-star" id="detailCenter" style="cursor: pointer;" title="Back">
+                <div class="star-core" id="detailCenterIcon"></div>
+                <div class="star-label" id="detailCenterLabel"></div>
+                <div class="star-sublabel" style="color: #666; font-size: 0.65rem; margin-top: 5px;">Return</div>
+            </div>
+            <div id="linkNodes"></div>
+        </div>
+    </div>
+
+    <div class="info-panel" id="infoPanel">
+        <button class="close-btn" id="closePanel">✕</button>
+        <div class="info-name" id="infoName"></div>
+        <div class="info-category" id="infoCategory"></div>
+        <a class="info-link" id="infoLink" href="#" target="_blank">Visit →</a>
+    </div>
+
+    <div class="instructions">
+        XMR is GOLD<br>
+    </div>
+
+    <div class="tooltip" id="tooltip">
+        <div class="tooltip-title" id="tooltipTitle"></div>
+        <div class="tooltip-desc" id="tooltipDesc"></div>
+    </div>
+
+    <script>
+        // Données des liens par catégorie
+        const linksData = {
+            wallets: {
+                color: '#FF6600',
+                icon: '🪙',
+                isDualSun: true,
+                subCategories: {
+                    software: {
+                        name: 'Software Wallets',
+                        icon: '📱',
+                        color: '#FF6600',
+                        links: [
+                            { name: 'Monero GUI', url: 'https://www.getmonero.org/downloads/#gui', icon: 'https://icons.duckduckgo.com/ip3/getmonero.org.ico', desc: 'Official Monero wallet with graphical interface' },
+                            { name: 'Cake Wallet', url: 'https://cakewallet.com/', icon: 'https://icons.duckduckgo.com/ip3/cakewallet.com.ico', desc: 'Popular mobile wallet for iOS and Android' },
+                            { name: 'Monero CLI', url: 'https://www.getmonero.org/downloads/#cli', icon: 'https://icons.duckduckgo.com/ip3/getmonero.org.ico', desc: 'Official command-line wallet for advanced users' },
+                            { name: 'Feather', url: 'https://featherwallet.org/', icon: 'https://icons.duckduckgo.com/ip3/featherwallet.org.ico', desc: 'Lightweight desktop wallet with advanced features' },
+                            
+                            { name: 'Monerujo', url: 'https://www.monerujo.app/', icon: 'https://icons.duckduckgo.com/ip3/monerujo.app.ico', desc: 'Android-only wallet with Tor support' },
+                            { name: 'Stack Wallet', url: 'https://stackwallet.com/', icon: 'https://icons.duckduckgo.com/ip3/stackwallet.com.ico', desc: 'Multi-currency wallet with Monero support' },
+                            
+                            
+                            { name: 'Eigenwallet', url: 'https://eigenwallet.org/', icon: 'https://kycnot.me/_image?href=https%3A%2F%2Fkycnot.me%2Ffiles%2Fservices%2Fpictures%2Fd3dd212109.png&w=96&h=96&f=avif', desc: 'Privacy-focused web-based wallet' },
+                            { name: 'Monfluo', url: 'https://codeberg.org/acx/monfluo', icon: 'https://icons.duckduckgo.com/ip3/codeberg.org.ico', desc: 'Open-source mobile wallet project' },
+                            { name: 'Anonero 🧅', url: 'http://anonero5wmhraxqsvzq2ncgptq6gq45qoto6fnkfwughfl4gbt44swad.onion/', icon: 'https://freepngimg.com/thumb/anonymous/36006-5-anonymous.png', desc: 'Tor-only anonymous wallet (onion address)' },
+                            { name: 'Unstoppable', url: 'https://unstoppable.money/', icon: 'https://play-lh.googleusercontent.com/eH0bEWCoW5a5WkmYsrBNX17Rj50-W45-JsDCvku2TEySTFzs_Jw1oQ9LCLuwNDJRa2o=w240-h480', desc: 'Non-custodial multi-coin wallet' }
+                        ]
+                    },
+                    hardware: {
+                        name: 'Hardware Wallets',
+                        icon: '🔐',
+                        color: '#9370DB',
+                        links: [
+                            { name: 'Cupcake', url: 'https://docs.cakewallet.com/cupcake/', icon: 'https://icons.duckduckgo.com/ip3/cupcakewallet.com.ico', desc: 'Your old phone? Becomes your new hardware wallet. Cupcake makes it easy for anyone to secure their crypto by turning any old phone into a powerful air-gapped hardware wallet.' },
+                            { name: 'Keystone', url: 'https://keyst.one/', icon: 'https://icons.duckduckgo.com/ip3/keyst.one.ico', desc: 'Air-gapped hardware wallet' },
+                            
+                            { name: 'Ledger', url: 'https://www.ledger.com/coin/wallet/monero', icon: 'https://icons.duckduckgo.com/ip3/ledger.com.ico', desc: 'Hardware wallet with Monero support' },
+                            { name: 'Trezor', url: 'https://trezor.io/coins/wallet/monero', icon: 'https://icons.duckduckgo.com/ip3/trezor.io.ico', desc: 'Hardware wallet for secure storage' },
+                            
+                            { name: 'Sidekick', url: 'https://sidekick.monerujo.app/', icon: 'https://icons.duckduckgo.com/ip3/sidekick.monerujo.app.ico', desc: 'Air-gapped signing device for Monerujo' }
+                        ]
+                    }
+                },
+                links: [
+                    { name: 'Monero GUI', url: 'https://www.getmonero.org/downloads/#gui', icon: 'https://icons.duckduckgo.com/ip3/getmonero.org.ico', desc: 'Official Monero wallet with graphical interface' },
+                    { name: 'Monero CLI', url: 'https://www.getmonero.org/downloads/#cli', icon: 'https://icons.duckduckgo.com/ip3/getmonero.org.ico', desc: 'Official command-line wallet for advanced users' },
+                    { name: 'Feather', url: 'https://featherwallet.org/', icon: 'https://icons.duckduckgo.com/ip3/featherwallet.org.ico', desc: 'Lightweight desktop wallet with advanced features' },
+                    { name: 'Cake Wallet', url: 'https://cakewallet.com/', icon: 'https://icons.duckduckgo.com/ip3/cakewallet.com.ico', desc: 'Popular mobile wallet for iOS and Android' },
+                    { name: 'Monerujo', url: 'https://www.monerujo.app/', icon: 'https://icons.duckduckgo.com/ip3/monerujo.app.ico', desc: 'Android-only wallet with Tor support' },
+                    { name: 'Sidekick', url: 'https://sidekick.monerujo.app/', icon: 'https://icons.duckduckgo.com/ip3/sidekick.monerujo.app.ico', desc: 'Air-gapped signing device for Monerujo' },
+                    { name: 'Stack Wallet', url: 'https://stackwallet.com/', icon: 'https://icons.duckduckgo.com/ip3/stackwallet.com.ico', desc: 'Multi-currency wallet with Monero support' },
+                    { name: 'Unstoppable', url: 'https://unstoppable.money/', icon: 'https://play-lh.googleusercontent.com/eH0bEWCoW5a5WkmYsrBNX17Rj50-W45-JsDCvku2TEySTFzs_Jw1oQ9LCLuwNDJRa2o=w240-h480', desc: 'Non-custodial multi-coin wallet' },
+                    { name: 'Cupcake', url: 'https://docs.cakewallet.com/cupcake/', icon: 'https://icons.duckduckgo.com/ip3/cupcakewallet.com.ico', desc: 'Simplified version of Cake Wallet' },
+                    { name: 'Eigenwallet', url: 'https://eigenwallet.org/', icon: 'https://kycnot.me/_image?href=https%3A%2F%2Fkycnot.me%2Ffiles%2Fservices%2Fpictures%2Fd3dd212109.png&w=96&h=96&f=avif', desc: 'Privacy-focused web-based wallet' },
+                    { name: 'Monfluo', url: 'https://codeberg.org/acx/monfluo', icon: 'https://icons.duckduckgo.com/ip3/codeberg.org.ico', desc: 'Open-source mobile wallet project' },
+                    { name: 'Anonero 🧅', url: 'http://anonero5wmhraxqsvzq2ncgptq6gq45qoto6fnkfwughfl4gbt44swad.onion/', icon: 'https://freepngimg.com/thumb/anonymous/36006-5-anonymous.png', desc: 'Tor-only anonymous wallet (onion address)' },
+                    { name: 'Ledger', url: 'https://www.ledger.com/coin/wallet/monero', icon: 'https://icons.duckduckgo.com/ip3/ledger.com.ico', desc: 'Hardware wallet with Monero support' },
+                    { name: 'Trezor', url: 'https://trezor.io/coins/wallet/monero', icon: 'https://icons.duckduckgo.com/ip3/trezor.io.ico', desc: 'Hardware wallet for secure storage' },
+                    { name: 'Keystone', url: 'https://keyst.one/', icon: 'https://icons.duckduckgo.com/ip3/keyst.one.ico', desc: 'Air-gapped hardware wallet' }
+                ]
+            },
+            exchanges: {
+                color: '#00D4AA',
+                icon: '🔄',
+                isDualSun: true,
+                subCategories: {
+                    dex: {
+                        name: 'DEX / Swaps',
+                        icon: '🔀',
+                        color: '#00D4AA',
+                        links: [
+                            { name: 'FixedFloat', url: 'https://ff.io/', icon: 'https://icons.duckduckgo.com/ip3/ff.io.ico', desc: 'Instant crypto exchange, no KYC' },
+                            { name: 'Exolix', url: 'https://exolix.com/', icon: 'https://icons.duckduckgo.com/ip3/exolix.com.ico', desc: 'Anonymous crypto swap service' },
+                            { name: 'Trocador', url: 'https://trocador.app/', icon: 'https://trocador.app/static/img/TrocadorShield.png', desc: 'Exchange aggregator for best rates' },
+                            { name: 'WizardSwap', url: 'https://www.wizardswap.io/', icon: 'https://icons.duckduckgo.com/ip3/wizardswap.io.ico', desc: 'Privacy-focused swap service' },
+                            { name: 'PegasusSwap', url: 'https://www.pegasusswap.com/', icon: 'https://icons.duckduckgo.com/ip3/pegasusswap.com.ico', desc: 'Fast and anonymous crypto swaps' },
+                            { name: 'InterCambio', url: 'https://intercambio.app/', icon: 'https://icons.duckduckgo.com/ip3/intercambio.app.ico', desc: 'Simple cryptocurrency exchange' },
+                            { name: 'Haveno', url: 'https://haveno.exchange/', icon: 'https://icons.duckduckgo.com/ip3/haveno.exchange.ico', desc: 'Decentralized P2P exchange (Bisq fork)' },
+                            { name: 'Haveno Markets', url: 'https://haveno.markets/', icon: 'https://icons.duckduckgo.com/ip3/haveno.markets.ico', desc: 'Market data for Haveno DEX' },
+                            { name: 'EigenSwap', url: 'https://eigenwallet.org/eigenswap.html/', icon: 'https://eigenwallet.org/imgs/icon.svg', desc: 'Swap service integrated with Eigenwallet' },
+                            { name: 'BasicSwap', url: 'https://basicswapdex.com/', icon: 'https://icons.duckduckgo.com/ip3/basicswapdex.com.ico', desc: 'Decentralized atomic swap exchange' },
+                            { name: 'Serai', url: 'https://serai.exchange/', icon: 'https://icons.duckduckgo.com/ip3/serai.exchange.ico', desc: 'Cross-chain DEX protocol' },
+                            { name: 'RetoSwap', url: 'https://retoswap.com/', icon: 'https://icons.duckduckgo.com/ip3/retoswap.com.ico', desc: 'Haveno-based exchange platform' },
+                            { name: 'OrangeFren', url: 'https://orangefren.com/', icon: 'https://icons.duckduckgo.com/ip3/orangefren.com.ico', desc: 'Exchange aggregator with Tor support' },
+                            { name: 'CypherGoat', url: 'https://cyphergoat.com/', icon: 'https://avatars.githubusercontent.com/u/177314198?s=200&v=4', desc: 'Privacy-first crypto exchange' },
+                            { name: 'stealthEx', url: 'https://stealthex.io/', icon: 'https://icons.duckduckgo.com/ip3/stealthex.io.ico', desc: 'No-registration crypto exchange' }
+                        ]
+                    },
+                    cex: {
+                        name: 'CEX / Fiat',
+                        icon: '🏦',
+                        color: '#FFD700',
+                        links: [
+                            { name: 'Kraken', url: 'https://www.kraken.com/', icon: 'https://icons.duckduckgo.com/ip3/kraken.com.ico', desc: 'Major exchange still supporting XMR' },
+                            { name: 'Mexc', url: 'https://www.mexc.com/de-DE/tokens/XMR/', icon: 'https://icons.duckduckgo.com/ip3/mexc.com.ico', desc: 'Centralized exchange with XMR trading' },
+                            { name: 'DFX Swiss', url: 'https://dfx.swiss/', icon: 'https://icons.duckduckgo.com/ip3/dfx.swiss.ico', desc: 'Swiss-based fiat to crypto service' },
+                            { name: 'BIM Finance', url: 'https://exchange.bim.finance/en/#tab-buyCrypto', icon: 'https://icons.duckduckgo.com/ip3/exchange.bim.finance.ico', desc: 'Buy crypto with fiat currency' },
+                            { name: 'Monero ATM', url: 'https://atm.monero.is/', icon: 'https://avatars.githubusercontent.com/u/134012183?s=200&v=4', desc: 'Find Monero ATM locations worldwide' }
+                        ]
+                    }
+                },
+                links: [
+                    { name: 'FixedFloat', url: 'https://ff.io/', icon: 'https://icons.duckduckgo.com/ip3/ff.io.ico', desc: 'Instant crypto exchange, no KYC' },
+                    { name: 'Exolix', url: 'https://exolix.com/', icon: 'https://icons.duckduckgo.com/ip3/exolix.com.ico', desc: 'Anonymous crypto swap service' },
+                    { name: 'Trocador', url: 'https://trocador.app/', icon: 'https://trocador.app/static/img/TrocadorShield.png', desc: 'Exchange aggregator for best rates' },
+                    { name: 'WizardSwap', url: 'https://www.wizardswap.io/', icon: 'https://icons.duckduckgo.com/ip3/wizardswap.io.ico', desc: 'Privacy-focused swap service' },
+                    { name: 'PegasusSwap', url: 'https://www.pegasusswap.com/', icon: 'https://icons.duckduckgo.com/ip3/pegasusswap.com.ico', desc: 'Fast and anonymous crypto swaps' },
+                    { name: 'InterCambio', url: 'https://intercambio.app/', icon: 'https://icons.duckduckgo.com/ip3/intercambio.app.ico', desc: 'Simple cryptocurrency exchange' },
+                    { name: 'Mexc', url: 'https://www.mexc.com/de-DE/tokens/XMR/', icon: 'https://icons.duckduckgo.com/ip3/mexc.com.ico', desc: 'Centralized exchange with XMR trading' },
+                    { name: 'Haveno', url: 'https://haveno.exchange/', icon: 'https://icons.duckduckgo.com/ip3/haveno.exchange.ico', desc: 'Decentralized P2P exchange (Bisq fork)' },
+                    { name: 'Haveno Markets', url: 'https://haveno.markets/', icon: 'https://icons.duckduckgo.com/ip3/haveno.markets.ico', desc: 'Market data for Haveno DEX' },
+                    { name: 'EigenSwap', url: 'https://eigenwallet.org/eigenswap.html/', icon: 'https://eigenwallet.org/imgs/icon.svg', desc: 'Swap service integrated with Eigenwallet' },
+                    { name: 'BasicSwap', url: 'https://basicswapdex.com/', icon: 'https://icons.duckduckgo.com/ip3/basicswapdex.com.ico', desc: 'Decentralized atomic swap exchange' },
+                    { name: 'Serai', url: 'https://serai.exchange/', icon: 'https://icons.duckduckgo.com/ip3/serai.exchange.ico', desc: 'Cross-chain DEX protocol' },
+                    { name: 'RetoSwap', url: 'https://retoswap.com/', icon: 'https://icons.duckduckgo.com/ip3/retoswap.com.ico', desc: 'Haveno-based exchange platform' },
+                    { name: 'OrangeFren', url: 'https://orangefren.com/', icon: 'https://icons.duckduckgo.com/ip3/orangefren.com.ico', desc: 'Exchange aggregator with Tor support' },
+                    { name: 'CypherGoat', url: 'https://cyphergoat.com/', icon: 'https://avatars.githubusercontent.com/u/177314198?s=200&v=4', desc: 'Privacy-first crypto exchange' },
+                    { name: 'DFX Swiss', url: 'https://dfx.swiss/', icon: 'https://icons.duckduckgo.com/ip3/dfx.swiss.ico', desc: 'Swiss-based fiat to crypto service' },
+                    { name: 'Monero ATM', url: 'https://atm.monero.is/', icon: 'https://avatars.githubusercontent.com/u/134012183?s=200&v=4', desc: 'Find Monero ATM locations worldwide' },
+                    { name: 'BIM Finance', url: 'https://exchange.bim.finance/en/#tab-buyCrypto', icon: 'https://icons.duckduckgo.com/ip3/exchange.bim.finance.ico', desc: 'Buy crypto with fiat currency' },
+                    { name: 'Kraken', url: 'https://www.kraken.com/', icon: 'https://icons.duckduckgo.com/ip3/kraken.com.ico', desc: 'Major exchange still supporting XMR' },
+                    { name: 'stealthEx', url: 'https://stealthex.io/', icon: 'https://icons.duckduckgo.com/ip3/stealthex.io.ico', desc: 'No-registration crypto exchange' }
+                ]
+            },
+            nodes: {
+                color: '#7B68EE',
+                icon: '🌐',
+                links: [
+                    { name: 'EasyMonerod', url: 'https://github.com/kerlannXmr/EasyMonerod', icon: 'https://easynode.kerlann.org/picture/xxmr.gif', desc: 'Simple script to run your own Monero node' },
+                    { name: 'PiNodeXMR', url: 'https://github.com/shermand100/PiNodeXMR', icon: 'https://img.icons8.com/?size=80&id=5EgftTsjA4av&format=png', desc: 'Run a Monero node on Raspberry Pi' },
+                    { name: 'MoneroDroid', url: 'https://github.com/AtencionEsTodoNecesitas/monerodroid', icon: 'https://github.com/AtencionEsTodoNecesitas/monerodroid/blob/main/app/src/main/ic_launcher-playstore.png?raw=true', desc: 'Run a Monero node on Android device' },
+                    { name: 'Umbrel', url: 'https://apps.umbrel.com/app/monero', icon: 'https://icons.duckduckgo.com/ip3/apps.umbrel.com.ico', desc: 'Monero node app for Umbrel OS' },
+                    { name: 'Start9', url: 'https://start9.com/', icon: 'https://icons.duckduckgo.com/ip3/start9.com.ico', desc: 'Self-hosted server with Monero support' },
+                    { name: 'MoneroNodo', url: 'https://moneronodo.com/', icon: 'https://avatars.githubusercontent.com/u/132764451?s=200&v=4', desc: 'Plug-and-play Monero node hardware' },
+                    { name: 'Monero Suite', url: 'https://monerosuite.org/', icon: 'https://icons.duckduckgo.com/ip3/monerosuite.org.ico', desc: 'Complete Monero node management suite' },
+                    { name: 'Onion Explorer', url: 'https://github.com/moneroexamples/onion-monero-blockchain-explorer', icon: 'https://as1.ftcdn.net/v2/jpg/16/67/89/00/1000_F_1667890012_iZoirIfwJSp4tFbSLSA5dqwRgjp0DUqU.jpg', desc: 'Self-hosted blockchain explorer over Tor' },
+                    { name: 'MoneroBlock', url: 'https://github.com/duggavo/MoneroBlock/tree/main', icon: 'https://as2.ftcdn.net/v2/jpg/17/27/55/51/1000_F_1727555184_UfR8kuOtYHi475y4V683AzbqEzJpQcgb.jpg', desc: 'Lightweight Monero blockchain explorer' }
+                ]
+            },
+            payments: {
+                color: '#FF4081',
+                icon: '💳',
+                isDualSun: true, // Flag pour activer le mode double soleil
+                subCategories: {
+                    solutions: {
+                        name: 'Payment Solutions',
+                        icon: '⚙️',
+                        color: '#FF4081',
+                        links: [
+                            { name: 'BTCPay Plugin', url: 'https://github.com/btcpay-monero/btcpayserver-monero-plugin', icon: 'https://chat.btcpayserver.org/api/v4/brand/image?t=0', desc: 'Accept Monero payments via BTCPay Server' },
+                            { name: 'Bitcart', url: 'https://bitcart.ai/', icon: 'https://icons.duckduckgo.com/ip3/bitcart.ai.ico', desc: 'Self-hosted payment processor' },
+                            { name: 'BitRequest', url: 'https://www.bitrequest.io/', icon: 'https://icons.duckduckgo.com/ip3/bitrequest.io.ico', desc: 'Create payment requests easily' },
+                            { name: 'NOWPayments', url: 'https://nowpayments.io/supported-coins/monero-payments', icon: 'https://icons.duckduckgo.com/ip3/nowpayments.io.ico', desc: 'Payment gateway for businesses' },
+                            { name: 'OpenCryptoPay', url: 'https://opencryptopay.io/', icon: 'https://icons.duckduckgo.com/ip3/opencryptopay.io.ico', desc: 'Open-source payment solution' },
+                            { name: 'MoneroPay', url: 'https://moneropay.eu/', icon: 'https://icons.duckduckgo.com/ip3/moneropay.eu.ico', desc: 'Simple Monero payment processor' },
+                            { name: 'LibreMonero', url: 'https://libremonero.com/', icon: 'https://icons.duckduckgo.com/ip3/libremonero.com.ico', desc: 'The First Monero Payment Detection API with Subaddress Technology' },
+                            { name: 'Metronero', url: 'https://github.com/metronero/', icon: 'https://avatars.githubusercontent.com/u/114605606?s=200&v=4', desc: 'Open-source payment gateway' },
+                            { name: 'MoneroMerchant', url: 'https://moneromerchant.com/', icon: 'https://as1.ftcdn.net/v2/jpg/01/32/03/38/1000_F_132033828_S0zXO1eS5lyyeNZokWQJPdU1NkMKCWTV.jpg', desc: 'Directory of Monero-accepting merchants' }
+                        ]
+                    },
+                    methods: {
+                        name: 'Payment Methods',
+                        icon: '💳',
+                        color: '#00D4FF',
+                        links: [
+                            { name: 'Trocador Cards', url: 'https://trocador.app/fr/prepaidcards/', icon: 'https://trocador.app/static/img/TrocadorShield.png', desc: 'Buy prepaid cards with Monero' },
+                            { name: 'Freedomia Cards', url: 'https://www.freedomia.io/', icon: 'https://icons.duckduckgo.com/ip3/freedomia.io.ico', desc: 'Virtual and physical prepaid cards' },
+                            { name: 'Stealths Cards', url: 'https://stealths.net/store/', icon: 'https://icons.duckduckgo.com/ip3/stealths.net.ico', desc: 'Anonymous prepaid card service' },
+                            { name: 'Bank-exit Checks', url: 'https://bank-exit.org/en/projects/cheque', icon: 'https://icons.duckduckgo.com/ip3/Bank-exit.org.ico', desc: 'Generate printable checks to pay in Bitcoin and Monero' }
+                        ]
+                    }
+                },
+                // Garder links pour compatibilité (toutes les entrées combinées)
+                links: [
+                    { name: 'BTCPay Plugin', url: 'https://github.com/btcpay-monero/btcpayserver-monero-plugin', icon: 'https://chat.btcpayserver.org/api/v4/brand/image?t=0', desc: 'Accept Monero payments via BTCPay Server' },
+                    { name: 'Bitcart', url: 'https://bitcart.ai/', icon: 'https://icons.duckduckgo.com/ip3/bitcart.ai.ico', desc: 'Self-hosted payment processor' },
+                    { name: 'BitRequest', url: 'https://www.bitrequest.io/', icon: 'https://icons.duckduckgo.com/ip3/bitrequest.io.ico', desc: 'Create payment requests easily' },
+                    { name: 'NOWPayments', url: 'https://nowpayments.io/supported-coins/monero-payments', icon: 'https://icons.duckduckgo.com/ip3/nowpayments.io.ico', desc: 'Payment gateway for businesses' },
+                    { name: 'OpenCryptoPay', url: 'https://opencryptopay.io/', icon: 'https://icons.duckduckgo.com/ip3/opencryptopay.io.ico', desc: 'Open-source payment solution' },
+                    { name: 'MoneroPay', url: 'https://moneropay.eu/', icon: 'https://icons.duckduckgo.com/ip3/moneropay.eu.ico', desc: 'Simple Monero payment processor' },
+                    { name: 'LibreMonero', url: 'https://libremonero.com/', icon: 'https://icons.duckduckgo.com/ip3/libremonero.com.ico', desc: 'The First Monero Payment Detection API with Subaddress Technology' },
+                    { name: 'Metronero', url: 'https://github.com/metronero/', icon: 'https://avatars.githubusercontent.com/u/114605606?s=200&v=4', desc: 'Open-source payment gateway' },
+                    { name: 'Bank-exit Checks', url: 'https://bank-exit.org/en/projects/cheque', icon: 'https://icons.duckduckgo.com/ip3/Bank-exit.org.ico', desc: 'Generate printable checks to pay in Bitcoin and Monero' },                  
+                    { name: 'MoneroMerchant', url: 'https://moneromerchant.com/', icon: 'https://as1.ftcdn.net/v2/jpg/01/32/03/38/1000_F_132033828_S0zXO1eS5lyyeNZokWQJPdU1NkMKCWTV.jpg', desc: 'Directory of Monero-accepting merchants' },
+                    { name: 'Trocador Cards', url: 'https://trocador.app/fr/prepaidcards/', icon: 'https://trocador.app/static/img/TrocadorShield.png', desc: 'Buy prepaid cards with Monero' },
+                    { name: 'Freedomia Cards', url: 'https://www.freedomia.io/', icon: 'https://icons.duckduckgo.com/ip3/freedomia.io.ico', desc: 'Virtual and physical prepaid cards' },
+                    { name: 'Stealths Cards', url: 'https://stealths.net/store/', icon: 'https://icons.duckduckgo.com/ip3/stealths.net.ico', desc: 'Anonymous prepaid card service' }
+                ]
+            },
+            mining: {
+                color: '#FFD700',
+                icon: '⛏️',
+                links: [
+                    { name: 'P2Pool', url: 'https://p2pool.io/', icon: 'https://icons.duckduckgo.com/ip3/p2pool.io.ico', desc: 'Decentralized mining pool, no fees' },
+                    { name: 'XMRig', url: 'https://xmrig.com/', icon: 'https://icons.duckduckgo.com/ip3/xmrig.com.ico', desc: 'High-performance Monero miner' },
+                    { name: 'Miningpool', url: 'https://miningpoolstats.stream/monero', icon: 'https://icons.duckduckgo.com/ip3/miningpoolstats.stream.ico', desc: 'Statistics for all Monero mining pools' },
+                    { name: 'Gupax', url: 'https://gupax.io/', icon: 'https://gupax.io/monero_pickaxe_color.webp', desc: 'GUI for P2Pool + XMRig mining' }
+                ]
+            },
+            community: {
+                color: '#00BFFF',
+                icon: '👥',
+                links: [
+                    { name: 'Bank-exit', url: 'https://bank-exit.org/', icon: 'https://icons.duckduckgo.com/ip3/bank-exit.org.ico', desc: 'Resources for financial freedom' },
+                    { name: 'GetMonero', url: 'https://www.getmonero.org/', icon: 'https://icons.duckduckgo.com/ip3/getmonero.org.ico', desc: 'Official Monero website' },
+                    { name: 'Monero Town', url: 'https://monero.town/', icon: 'https://t4.ftcdn.net/jpg/15/36/26/11/240_F_1536261187_qKMs3zo2bOfaBCH27f3nWVWXm10ZLYri.jpg', desc: 'Lemmy community for Monero' },
+                    { name: 'XMR Bazaar', url: 'https://xmrbazaar.com/', icon: 'https://icons.duckduckgo.com/ip3/xmrbazaar.com.ico', desc: 'Marketplace for Monero users' },
+                    { name: 'Monerica', url: 'https://monerica.com/', icon: 'https://icons.duckduckgo.com/ip3/monerica.com.ico', desc: 'Directory of Monero services' },
+                    { name: 'MoneroMoon', url: 'https://www.themoneromoon.com/', icon: 'https://substackcdn.com/image/fetch/$s_!awQX!,w_80,h_80,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F83117e02-dc05-4f8b-b6f5-56065e644b54_1024x1024.png', desc: 'Weekly Monero news digest' },
+                    { name: 'XMR Chat', url: 'https://xmrchat.com/', icon: 'https://icons.duckduckgo.com/ip3/xmrchat.com.ico', desc: 'Monero community chat platform' },
+                    { name: 'Revuo XMR', url: 'https://www.revuo-xmr.com/', icon: 'https://icons.duckduckgo.com/ip3/revuo-xmr.com.ico', desc: 'Weekly Monero news publication' },
+                    { name: 'MoneroKon', url: 'https://www.monerokon.org/', icon: 'https://icons.duckduckgo.com/ip3/monerokon.org.ico', desc: 'Annual Monero conference in Europe' },
+                    { name: 'Monerotopia', url: 'https://monerotopia.com/', icon: 'https://icons.duckduckgo.com/ip3/monerotopia.com.ico', desc: 'Monero conference in Americas' },
+                    { name: 'Events fren', url: 'https://orangefren.com/events/', icon: 'https://icons.duckduckgo.com/ip3/orangefren.com.ico', desc: 'Calendar of Monero events' }
+                ]
+            },
+            dev: {
+                color: '#98FB98',
+                icon: '📚',
+                links: [
+                    { name: 'Monero Docs', url: 'https://docs.getmonero.org/', icon: 'https://icons.duckduckgo.com/ip3/getmonero.org.ico', desc: 'Official Monero documentation' },
+                    { name: 'Cuprate Book', url: 'https://monero-book.cuprate.org/', icon: 'https://cuprate.org/CuprateLogoComplex.svg', desc: 'Technical Monero protocol documentation' },
+                    { name: 'Research', url: 'https://moneroresearch.info/', icon: 'https://moneroresearch.info/components/templates/piaf/images/favicon.ico', desc: 'Monero Research Lab publications' },
+                     { name: 'Ccs', url: 'https://ccs.getmonero.org/', icon: 'https://icons.duckduckgo.com/ip3/getmonero.org.ico', desc: 'Community Crowdfunding System' },                   
+                    { name: 'Bounties', url: 'https://bounties.monero.social/', icon: 'https://icons.duckduckgo.com/ip3/bounties.monero.social.ico', desc: 'Bug bounties and development tasks' },
+                    { name: 'MoneroHow', url: 'https://www.monero.how/', icon: 'https://icons.duckduckgo.com/ip3/monero.how.ico', desc: 'Tutorials and guides for Monero' },
+                    { name: 'UseXmr-flyer', url: 'https://usexmr.com/', icon: 'https://usexmr.com/assets/monero.svg', desc: 'Printable Monero promotional flyers' },
+                    { name: 'Bank-exit-Flyer', url: 'https://bank-exit.org/en/blogs/flyer', icon: 'https://icons.duckduckgo.com/ip3/bank-exit.org.ico', desc: 'Bank Exit promotional flyers' },
+                    
+                    { name: 'Bank-exit-stickers', url: 'https://bank-exit.org/en/projects/sticker', icon: 'https://icons.duckduckgo.com/ip3/bank-exit.org.ico', desc: 'Generate Bitcoin and Monero donation or payment banners' }
+                ]
+            },
+            esim: {
+                color: '#FF8C00',
+                icon: '📶💬',
+                links: [
+                    { name: 'Stealths-sim', url: 'https://stealths.net/esims', icon: 'https://icons.duckduckgo.com/ip3/stealths.net.ico', desc: 'Anonymous eSIM cards for crypto' },
+                    { name: 'Silent.link-sim', url: 'https://silent.link/', icon: 'https://icons.duckduckgo.com/ip3/silent.link.ico', desc: 'Privacy-focused mobile service' },
+                    { name: 'Simxl', url: 'https://simxl.com/', icon: 'https://icons.duckduckgo.com/ip3/simxl.com.ico', desc: 'International eSIM provider' },
+                    { name: 'Simsup', url: 'https://www.simsup.net/', icon: 'https://icons.duckduckgo.com/ip3/simsup.net.ico', desc: 'Virtual SIM card service' },
+                    { name: 'VirtualSim', url: 'https://virtualsim.net/', icon: 'https://icons.duckduckgo.com/ip3/virtualsim.net.ico', desc: 'Virtual phone numbers for crypto' },
+                    { name: 'Smspool', url: 'https://www.smspool.net/', icon: 'https://icons.duckduckgo.com/ip3/smspool.net.ico', desc: 'SMS verification service' },
+                    { name: 'MoneroSms', url: 'https://monerosms.com/', icon: 'https://icons.duckduckgo.com/ip3/monerosms.com.ico', desc: 'SMS service accepting Monero' },
+                    { name: 'Juicysms', url: 'https://juicysms.com/', icon: 'https://icons.duckduckgo.com/ip3/juicysms.com.ico', desc: 'Temporary phone number service' }
+                ]
+            },
+            funding: {
+                color: '#FF69B4',
+                icon: '💰',
+                links: [
+                    { name: 'CCS', url: 'https://ccs.getmonero.org/', icon: 'https://icons.duckduckgo.com/ip3/getmonero.org.ico', desc: 'Community Crowdfunding System for Monero projects' },
+                    { name: 'Bounties', url: 'https://bounties.monero.social/', icon: 'https://icons.duckduckgo.com/ip3/bounties.monero.social.ico', desc: 'Earn XMR by completing development tasks' },
+                    { name: 'XMR Chat', url: 'https://xmrchat.com/', icon: 'https://icons.duckduckgo.com/ip3/xmrchat.com.ico', desc: 'Tip your favorite streamer in cryptocurrency.' },
+                   
+                    { name: 'Kuno', url: 'https://kuno.anne.media/', icon: 'https://kuno.anne.media/assets/kunologo.svg', desc: 'Crowdfunding platform for Monero' }
+                ]
+            },
+            maps: {
+                color: '#666666',
+                icon: '🌎',
+                links: [
+                    { name: 'Bank-exit Map', url: 'https://bank-exit.org/en/map/', icon: 'https://icons.duckduckgo.com/ip3/bank-exit.org.ico', desc: 'Map of crypto-accepting businesses' },
+                    { name: 'ATM', url: 'https://coinatmradar.com/', icon: 'https://icons.duckduckgo.com/ip3/coinatmradar.com.ico', desc: 'Find crypto ATMs worldwide' },
+                    { name: 'Bazaar.map', url: 'https://xmrbazaar.com/map/', icon: 'https://icons.duckduckgo.com/ip3/xmrbazaar.com.ico', desc: 'Map of XMR Bazaar vendors' },
+                    { name: 'Btcmap', url: 'https://btcmap.org/', icon: 'https://icons.duckduckgo.com/ip3/btcmap.org.ico', desc: 'Map of Bitcoin/crypto merchants' },
+                    { name: 'Monero.fail', url: 'https://monero.fail/map', icon: 'https://as1.ftcdn.net/jpg/16/67/89/00/1000_F_1667890012_iZoirIfwJSp4tFbSLSA5dqwRgjp0DUqU.webp', desc: 'Map of public Monero nodes' },
+                    { name: 'monerohash', url: 'https://monerohash.com/nodes-distribution.html', icon: 'https://icons.duckduckgo.com/ip3/monerohash.com.ico', desc: 'Monero node distribution map' }
+                ]
+                },
+          network: {
+                color: '#0FA0FA',
+                icon: '🕸️',
+                links: [
+                    { name: 'Servers.guru', url: 'https://servers.guru/', icon: 'https://icons.duckduckgo.com/ip3/servers.guru.ico', desc: 'Fast, reliable, affordable and Anonymous Hosting' },
+                    { name: 'njal.la', url: 'https://njal.la/', icon: 'https://icons.duckduckgo.com/ip3/njal.la.ico', desc: 'Considered the worlds most notorious "Privacy as a Service" provider for domains, VPS and VPNs. ' },
+                    { name: 'mynymbox.io', url: 'https://mynymbox.io/', icon: 'https://icons.duckduckgo.com/ip3/mynymbox.io.ico', desc: 'Privacy friendly hosting solutions & domain registrations' },
+                    { name: 'grapheneOS', url: 'https://grapheneos.org/', icon: 'https://icons.duckduckgo.com/ip3/grapheneos.org.ico', desc: 'The private and secure mobile operating system with Android app compatibility. Developed as a non-profit open source project. ' },
+                    { name: 'Tutamail', url: 'https://tuta.com/', icon: 'https://icons.duckduckgo.com/ip3/tuta.com.ico', desc: 'Get your data back! With encrypted emails, calendars and contacts from Tuta. pay in Monero with http;//digitalgoods.proxysto.re/en' },
+                    { name: 'Veil.la', url: 'https://veil.la/', icon: 'https://icons.duckduckgo.com/ip3/veil.la.ico', desc: 'A tiny, privacy-first, one-time-payment, free-as-in-freedom email service provider.' },
+                    { name: 'Mullvad.Vpn', url: 'https://mullvad.net/', icon: 'https://icons.duckduckgo.com/ip3/mullvad.net.ico', desc: 'Free the internet. With Mullvad VPN. No logging. Anonymous accounts.Combats AI-guided traffic analysis ' },
+                    { name: 'Nymvpn', url: 'https://nym.com/', icon: 'https://nym.com/_next/image?url=https%3A%2F%2Fassets.nym.com%2Ftoken_6_3_a9b700a8e6.webp&w=1920&q=80', desc: 'Go dark with NymVPN. Anonymous signup, no email required.Privacy with dVPN and mixnet tech. ' },
+                    { name: 'Garnet', url: 'https://github.com/retrnull/garnet', icon: 'https://raw.githubusercontent.com/vitorpamplona/amethyst/main/docs/design/3rd%20Logo%20-%20Zitron/amethyst.svg', desc: 'A fork of Amethyst with Monero tipping support ' },
+                    { name: 'Desec', url: 'https://desec.io', icon: 'https://icons.duckduckgo.com/ip3/desec.io.ico', desc: 'Modern DNS Hosting for Everyone deSEC is a free DNS hosting service, designed with security in mind.Running on open-source software and supported by SSE, deSEC is free for everyone to use. .' }
+                ]
+                                
+            },
+            gift: {
+                color: '#333333',
+                icon: '🎁',
+                links: [
+                    { name: 'Cakepay', url: 'https://cakepay.com/', icon: 'https://icons.duckduckgo.com/ip3/cakepay.com.ico', desc: 'Buy gift cards with Monero' },
+                    { name: 'Coinsbee', url: 'https://www.coinsbee.com/', icon: 'https://icons.duckduckgo.com/ip3/coinsbee.com.ico', desc: 'Gift cards and vouchers for crypto' },
+                    { name: 'XmrCards', url: 'https://xmr.cards/', icon: 'https://icons.duckduckgo.com/ip3/xmr.cards.ico', desc: 'Gift cards specifically for Monero' },
+                    { name: 'Stealth', url: 'https://stealths.net/gift-cards', icon: 'https://icons.duckduckgo.com/ip3/stealths.net.ico', desc: 'Anonymous gift card purchases' },
+                    { name: 'Trocador.gift', url: 'https://trocador.app/en/giftcard/', icon: 'https://trocador.app/static/img/TrocadorShield.png', desc: 'Gift cards via Trocador exchange' },
+                    { name: 'Coinscards', url: 'https://coincards.com/us/', icon: 'https://icons.duckduckgo.com/ip3/coincards.com.ico', desc: 'USA gift cards for cryptocurrency' }
+                ]
+            },
+            market: {
+                color: '#9370DB',
+                icon: '💵',
+                links: [
+                    { name: 'XmrBazaar', url: 'https://xmrbazaar.com/', icon: 'https://icons.duckduckgo.com/ip3/xmrbazaar.com.ico', desc: 'P2P marketplace for Monero' },
+                    { name: 'Bank exit Map', url: 'https://bank-exit.org/en/map/2/2.896282656813092/-10.1953125?coins%5B%5D=monero', icon: 'https://icons.duckduckgo.com/ip3/bank-exit.org.ico', desc: 'Monero-filtered merchant map' },
+                    { name: 'Monerica', url: 'https://monerica.com/', icon: 'https://icons.duckduckgo.com/ip3/monerica.com.ico', desc: 'Comprehensive Monero directory' },
+                    { name: 'Kycnot.me', url: 'https://kycnot.me/', icon: 'https://icons.duckduckgo.com/ip3/kycnot.me.ico', desc: 'List of no-KYC services' },
+                    { name: 'Bank exit grocery', url: 'https://bank-exit.org/en/projects/grocery/', icon: 'https://icons.duckduckgo.com/ip3/bank-exit.org.ico', desc: 'Buy groceries with crypto' },
+                    { name: 'Bank exit directories', url: 'https://bank-exit.org/en/directories/', icon: 'https://icons.duckduckgo.com/ip3/bank-exit.org.ico', desc: 'Curated crypto service directories' }
+                ]
+            }
+        };
+
+        // Générer fond étoilé
+        const starfield = document.getElementById('starfield');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.width = star.style.height = (Math.random() * 2 + 1) + 'px';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starfield.appendChild(star);
+        }
+
+        // Canvas
+        const canvas = document.getElementById('constellationCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Fonction pour calculer le centre Y selon la taille d'écran
+        // Sur mobile, on remonte le centre pour compenser la barre d'adresse du navigateur
+        function getCenterY() {
+            const isMobile = window.innerWidth <= 768;
+            const isSmallMobile = window.innerWidth <= 480;
+            
+            // Utiliser visualViewport si disponible (plus précis sur mobile)
+            const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            
+            if (isSmallMobile) {
+                // Très petit écran : 40% de la hauteur
+                return viewportHeight * 0.40;
+            } else if (isMobile) {
+                // Mobile : 43% de la hauteur
+                return viewportHeight * 0.43;
+            }
+            // Desktop : centré normalement
+            return window.innerHeight / 2;
+        }
+
+        const centerX = window.innerWidth / 2;
+        let centerY = getCenterY();
+
+        // Positionner les catégories
+        const categoryNodes = document.querySelectorAll('.category-node');
+        // Réduire le rayon sur mobile pour que tout tienne à l'écran
+        function getCatRadius() {
+            const isMobile = window.innerWidth <= 768;
+            const isSmallMobile = window.innerWidth <= 480;
+            if (isSmallMobile) {
+                return Math.min(window.innerWidth, window.innerHeight) * 0.28;
+            } else if (isMobile) {
+                return Math.min(window.innerWidth, window.innerHeight) * 0.30;
+            }
+            return Math.min(window.innerWidth, window.innerHeight) * 0.32;
+        }
+        const catRadius = getCatRadius();
+
+        categoryNodes.forEach((node, index) => {
+            const angle = (index / categoryNodes.length) * Math.PI * 2 - Math.PI / 2;
+            const x = centerX + Math.cos(angle) * catRadius;
+            const y = centerY + Math.sin(angle) * catRadius;
+            node.style.left = x + 'px';
+            node.style.top = y + 'px';
+        });
+
+        // Dessiner lignes
+        function drawLines(nodes, color = 'rgba(255,255,255,0.15)') {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            nodes.forEach(node => {
+                const rect = node.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+                
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(x, y);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            });
+        }
+
+        drawLines(categoryNodes);
+
+        // Variables d'état
+        let currentView = 'main';
+        let currentCategory = null;
+
+        const mainView = document.getElementById('mainView');
+        const detailView = document.getElementById('detailView');
+        const categoryTitle = document.getElementById('categoryTitle');
+        const infoPanel = document.getElementById('infoPanel');
+
+        // Clic sur catégorie
+        categoryNodes.forEach(node => {
+            node.addEventListener('click', () => {
+                const category = node.dataset.category;
+                showDetailView(category);
+            });
+        });
+
+        function showDetailView(category) {
+            currentView = 'detail';
+            currentCategory = category;
+            const data = linksData[category];
+
+            // Vérifier si c'est un mode double soleil
+            if (data.isDualSun && data.subCategories) {
+                showDualSunView(category, data);
+                return;
+            }
+
+            // Mise à jour du centre
+            document.getElementById('detailCenterIcon').textContent = data.icon;
+            document.getElementById('detailCenterIcon').style.background = `radial-gradient(circle, #fff 0%, ${data.color} 100%)`;
+            document.getElementById('detailCenterIcon').style.boxShadow = `0 0 50px ${data.color}, 0 0 100px ${data.color}`;
+            document.getElementById('detailCenterLabel').textContent = category.toUpperCase();
+            document.getElementById('detailCenterLabel').style.color = data.color;
+
+            // Créer les étoiles liens
+            const linkNodesContainer = document.getElementById('linkNodes');
+            linkNodesContainer.innerHTML = '';
+
+            const linkRadius = Math.min(window.innerWidth, window.innerHeight) * 0.35;
+            
+            data.links.forEach((link, index) => {
+                const angle = (index / data.links.length) * Math.PI * 2 - Math.PI / 2;
+                const x = centerX + Math.cos(angle) * linkRadius;
+                const y = centerY + Math.sin(angle) * linkRadius;
+
+                const linkNode = document.createElement('div');
+                linkNode.className = 'link-node';
+                linkNode.style.color = data.color;
+                linkNode.style.left = x + 'px';
+                linkNode.style.top = y + 'px';
+                linkNode.dataset.name = link.name;
+                linkNode.dataset.url = link.url;
+                linkNode.dataset.category = category;
+
+                linkNode.innerHTML = `
+                <div class="node-core">
+                ${link.icon ? `<img src="${link.icon}" alt="" style="width: 24px; height: 24px; border-radius: 50%;">` : ''}
+                </div>
+                <div class="node-label">${link.name}</div>
+                `;
+
+                linkNode.addEventListener('click', () => showInfo(link.name, link.url, category, data.color));
+                linkNode.addEventListener('mouseenter', (e) => showTooltip(e, link.name, link.desc));
+                linkNode.addEventListener('mousemove', moveTooltip);
+                linkNode.addEventListener('mouseleave', hideTooltip);
+
+                linkNodesContainer.appendChild(linkNode);
+            });
+
+            // Animation
+            mainView.classList.add('hidden');
+            detailView.classList.add('visible');
+            categoryTitle.classList.add('visible');
+            document.getElementById('categoryIcon').textContent = data.icon;
+            document.getElementById('categoryName').textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            document.getElementById('categoryName').style.color = data.color;
+
+            // Redessiner les lignes
+            setTimeout(() => {
+                const linkNodeElements = document.querySelectorAll('.link-node');
+                drawLines(linkNodeElements, data.color + '40');
+            }, 100);
+        }
+        
+        // Nouvelle fonction pour le mode double soleil
+        function showDualSunView(category, data) {
+            const linkNodesContainer = document.getElementById('linkNodes');
+            linkNodesContainer.innerHTML = '';
+            
+            // Cacher le centre standard
+            document.getElementById('detailCenter').style.display = 'none';
+            
+            // Créer le conteneur double soleil
+            const dualContainer = document.createElement('div');
+            dualContainer.className = 'dual-sun-container';
+            dualContainer.id = 'dualSunContainer';
+            
+            const subCats = Object.entries(data.subCategories);
+            const containerWidth = window.innerWidth;
+            const containerHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            
+            // Calculer le ratio Y pour mobile (cohérent avec getCenterY)
+            const isMobile = window.innerWidth <= 768;
+            const isSmallMobile = window.innerWidth <= 480;
+            const sunYRatio = isSmallMobile ? 0.40 : (isMobile ? 0.43 : 0.5);
+            
+            // Nettoyer le canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            subCats.forEach(([key, subData], subIndex) => {
+                // Position du soleil (gauche ou droite)
+                const sunX = subIndex === 0 ? containerWidth * 0.28 : containerWidth * 0.72;
+                const sunY = containerHeight * sunYRatio;
+                
+                // Créer le soleil
+                const sunEl = document.createElement('div');
+                sunEl.className = 'mini-sun';
+                sunEl.style.position = 'absolute';
+                sunEl.style.left = sunX + 'px';
+                sunEl.style.top = sunY + 'px';
+                sunEl.style.transform = 'translate(-50%, -50%)';
+                sunEl.style.color = subData.color;
+                sunEl.title = 'Back';
+                sunEl.innerHTML = `
+                    <div class="sun-core" style="background: radial-gradient(circle, #fff 0%, ${subData.color} 60%, ${subData.color}88 100%); box-shadow: 0 0 40px ${subData.color}, 0 0 80px ${subData.color}80;">
+                        ${subData.icon}
+                    </div>
+                    <div class="sun-label" style="color: ${subData.color};">${subData.name}</div>
+                    <div class="sun-sublabel" style="color: #666; font-size: 0.65rem; margin-top: 5px;">Return</div>
+                `;
+                sunEl.addEventListener('click', showMainView);
+                dualContainer.appendChild(sunEl);
+                
+                // Rayon de l'orbite
+                const orbitRadius = Math.min(containerWidth * 0.18, containerHeight * 0.3);
+                
+                // Créer les étoiles STATIQUES positionnées en cercle
+                subData.links.forEach((link, linkIndex) => {
+                    // Calculer l'angle pour cette étoile
+                    const angle = (linkIndex / subData.links.length) * Math.PI * 2 - Math.PI / 2;
+                    
+                    // Position absolue de l'étoile
+                    const starX = sunX + Math.cos(angle) * orbitRadius;
+                    const starY = sunY + Math.sin(angle) * orbitRadius;
+                    
+                    // Créer l'étoile
+                    const star = document.createElement('div');
+                    star.className = 'orbiting-star';
+                    star.style.color = subData.color;
+                    star.style.position = 'absolute';
+                    star.style.left = starX + 'px';
+                    star.style.top = starY + 'px';
+                    
+                    star.innerHTML = `
+                        <div class="orbit-core">
+                            ${link.icon ? `<img src="${link.icon}" alt="" style="width: 20px; height: 20px; border-radius: 50%;">` : ''}
+                        </div>
+                        <div class="orbit-label">${link.name}</div>
+                    `;
+                    
+                    star.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        showInfo(link.name, link.url, category + ' - ' + subData.name, subData.color);
+                    });
+                    star.addEventListener('mouseenter', (e) => showTooltip(e, link.name, link.desc));
+                    star.addEventListener('mousemove', moveTooltip);
+                    star.addEventListener('mouseleave', hideTooltip);
+                    
+                    dualContainer.appendChild(star);
+                    
+                    // Dessiner ligne du soleil vers l'étoile
+                    ctx.beginPath();
+                    ctx.moveTo(sunX, sunY);
+                    ctx.lineTo(starX, starY);
+                    ctx.strokeStyle = subData.color + '30';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                });
+                
+                // Dessiner le cercle d'orbite
+                ctx.beginPath();
+                ctx.arc(sunX, sunY, orbitRadius, 0, Math.PI * 2);
+                ctx.strokeStyle = subData.color + '20';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([5, 5]);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            });
+            
+            linkNodesContainer.appendChild(dualContainer);
+            
+            // Animation
+            mainView.classList.add('hidden');
+            detailView.classList.add('visible');
+            categoryTitle.classList.add('visible');
+            document.getElementById('categoryIcon').textContent = data.icon;
+            document.getElementById('categoryName').textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            document.getElementById('categoryName').style.color = data.color;
+        }
+        
+        // Fonction pour dessiner les cercles d'orbite
+        function drawOrbitCircle(x, y, radius, color) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1;
+            ctx.setLineDash([5, 5]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+
+        function showMainView() {
+            currentView = 'main';
+            currentCategory = null;
+
+            // Restaurer le centre standard s'il était caché
+            document.getElementById('detailCenter').style.display = '';
+            
+            // Nettoyer le conteneur dual sun s'il existe
+            const dualContainer = document.getElementById('dualSunContainer');
+            if (dualContainer) {
+                dualContainer.remove();
+            }
+
+            mainView.classList.remove('hidden');
+            detailView.classList.remove('visible');
+            categoryTitle.classList.remove('visible');
+            infoPanel.classList.remove('visible');
+
+            setTimeout(() => {
+                drawLines(categoryNodes);
+            }, 100);
+        }
+
+        document.getElementById('homeButton').addEventListener('click', showMainView);
+        document.getElementById('detailCenter').addEventListener('click', showMainView);
+
+        // Info panel
+        function showInfo(name, url, category, color) {
+            document.getElementById('infoName').textContent = name;
+            document.getElementById('infoName').style.color = color;
+            document.getElementById('infoCategory').textContent = category;
+            document.getElementById('infoCategory').style.color = color;
+            document.getElementById('infoLink').href = url;
+            document.getElementById('infoLink').style.background = `linear-gradient(135deg, ${color} 0%, ${color}aa 100%)`;
+            infoPanel.classList.add('visible');
+        }
+
+        document.getElementById('closePanel').addEventListener('click', () => {
+            infoPanel.classList.remove('visible');
+        });
+
+        // Resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            centerY = getCenterY();
+            
+            if (currentView === 'main') {
+                const newRadius = getCatRadius();
+                const newCenterY = getCenterY();
+                categoryNodes.forEach((node, index) => {
+                    const angle = (index / categoryNodes.length) * Math.PI * 2 - Math.PI / 2;
+                    node.style.left = (window.innerWidth/2 + Math.cos(angle) * newRadius) + 'px';
+                    node.style.top = (newCenterY + Math.sin(angle) * newRadius) + 'px';
+                });
+                drawLines(categoryNodes);
+            } else {
+                showDetailView(currentCategory);
+            }
+        });
+        
+        // Écouter aussi les changements de visualViewport (important pour mobile)
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', () => {
+                centerY = getCenterY();
+                if (currentView === 'main') {
+                    const newRadius = getCatRadius();
+                    const newCenterY = getCenterY();
+                    categoryNodes.forEach((node, index) => {
+                        const angle = (index / categoryNodes.length) * Math.PI * 2 - Math.PI / 2;
+                        node.style.left = (window.innerWidth/2 + Math.cos(angle) * newRadius) + 'px';
+                        node.style.top = (newCenterY + Math.sin(angle) * newRadius) + 'px';
+                    });
+                    drawLines(categoryNodes);
+                }
+            });
+        }
+        
+        // Tooltip functions
+        const tooltip = document.getElementById('tooltip');
+        const tooltipTitle = document.getElementById('tooltipTitle');
+        const tooltipDesc = document.getElementById('tooltipDesc');
+
+        function showTooltip(e, name, desc) {
+            tooltipTitle.textContent = name;
+            tooltipDesc.textContent = desc || '';
+            tooltip.style.left = (e.clientX + 15) + 'px';
+            tooltip.style.top = (e.clientY + 15) + 'px';
+            tooltip.classList.add('visible');
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove('visible');
+        }
+
+        function moveTooltip(e) {
+            tooltip.style.left = (e.clientX + 15) + 'px';
+            tooltip.style.top = (e.clientY + 15) + 'px';
+        }
+        
+    </script>
+</body>
+</html>
