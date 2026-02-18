@@ -14,7 +14,6 @@
 
 <p align="center">
   <a href="https://github.com/kerlannXmr/EasyMonerod/raw/main/picture/EasyMonerod_GUI.mp4">
-    <img src="https://github.com/kerlannXmr/EasyMonerod/raw/main/picture/gui1.png" alt="Watch demo" width="120">
     <br>Click to download the demo video
   </a>
 </p>
