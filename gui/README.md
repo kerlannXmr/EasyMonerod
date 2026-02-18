@@ -12,6 +12,8 @@
 
 ![EasyMonerod GUI](https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/gui1.png)
 
+<video src="./picture/EasyMonerod_GUI.mp4" width="640" controls></video>
+
 ---
 
 ## 🇬🇧 English
