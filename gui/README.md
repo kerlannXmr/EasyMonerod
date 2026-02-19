@@ -72,6 +72,14 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 | 11 | Info | Ports and Configuration Information | 
 | 12 | Notes | Useful links, donations, contact |
 
+
+### check for updates
+
+```bash
+sudo bash install.sh
+```
+
+
 ### Uninstall
 
 ```bash
