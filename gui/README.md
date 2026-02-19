@@ -3,10 +3,11 @@
 **Simple GUI interface to install and manage a Monero node on Linux in 5 stape in less than 10 minutes**  
 *Gui mode of [EasyMonerod v5](https://github.com/kerlannXmr/EasyMonerod) by kerlannXmr*
 
-![Monero](https://img.shields.io/badge/Monero-FF6600?style=for-the-badge&logo=monero&logoColor=white)
-![GTK4](https://img.shields.io/badge/GTK4-4A86CF?style=for-the-badge&logo=gnome&logoColor=white)
-![Python](https://img.shields.io/badge/Python_3-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+[![contact_Mail](https://img.shields.io/badge/✉️_Email-FF6600?style=flat&logoColor=white)](mailto:easynode@kerlann.org)
+[![GitHub-page](https://img.shields.io/badge/Page--FR-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org/fr.html)
+[![Monero-ecosystem](https://img.shields.io/badge/🧭_Ecosystem-FF6600?style=flat&logoColor=white)](https://easynode.kerlann.org/ecosystem.html)
+[![Bank-Exit](https://img.shields.io/badge/🇫🇷_Bank_Exit-FF6600?style=flat&logoColor=white)](https://bank-exit.org/tutoriels/monero-node-easymonerod)
+[![Monerica](https://img.shields.io/badge/≣_Monerica-FF6600?style=flat&logoColor=white)](https://monerica.com/nodes)
 
 # 📸 Screenshot
 
@@ -87,7 +88,17 @@ sudo bash install.sh
 sudo rm -rf /opt/easymonerod-gui /usr/local/bin/easymonerod-gui /usr/share/applications/easymonerod-gui.desktop ~/install.sh
 
 ```
+<img src="https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/gt4.png" alt="Monero">
+
+### ❕ DISCLAIMER ❕
+
+This script is designed **for dedicated Monero node PCs** with Monero_Gui and could makes system modifications.
+
+- Don't use on primary computers first.
+
+
 ---
+
 
 ## 🇫🇷 Français
 
