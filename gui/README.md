@@ -76,9 +76,10 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 
 ```bash
 
-  • sudo rm -rf /opt/easymonerod-gui
-  • sudo rm /usr/local/bin/easymonerod-gui
-  • sudo rm /usr/share/applications/easymonerod-gui.desktop
+sudo rm -rf /opt/easymonerod-gui
+sudo rm /usr/local/bin/easymonerod-gui
+sudo rm /usr/share/applications/easymonerod-gui.desktop
+sudo rm ~/install.sh
 
 ```
 ---
