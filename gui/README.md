@@ -84,10 +84,7 @@ sudo bash install.sh
 
 ```bash
 
-sudo rm -rf /opt/easymonerod-gui
-sudo rm /usr/local/bin/easymonerod-gui
-sudo rm /usr/share/applications/easymonerod-gui.desktop
-sudo rm ~/install.sh
+sudo rm -rf /opt/easymonerod-gui /usr/local/bin/easymonerod-gui /usr/share/applications/easymonerod-gui.desktop ~/install.sh
 
 ```
 ---
@@ -143,15 +140,21 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 | 11 | Infos | Informations sur les ports et la configuration |
 | 12 | Notes | Liens utiles, dons, contact |
 
-### Désinstallation
+### Mise à jour
+
+```bash
+sudo bash install.sh
+```
+
+
+### Désinstaller
 
 ```bash
 
-  • sudo rm -rf /opt/easymonerod-gui
-  • sudo rm /usr/local/bin/easymonerod-gui
-  • sudo rm /usr/share/applications/easymonerod-gui.desktop
+sudo rm -rf /opt/easymonerod-gui /usr/local/bin/easymonerod-gui /usr/share/applications/easymonerod-gui.desktop ~/install.sh
 
 ```
+
 ---
 
 ## ⚠️ Important
