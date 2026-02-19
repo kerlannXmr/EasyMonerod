@@ -33,7 +33,7 @@ EasyMonerod GUI is a **graphical interface** to install a full Monero node on Li
  2. Download install.sh in personnal folder
 
 ```bash
-wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh -O  install.sh && chmod +x install.sh && sudo ./install.sh
+wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh -O  install.sh && sudo bash install.sh
 ```
  3. Run installation
 
