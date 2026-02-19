@@ -38,7 +38,7 @@ import signal
 # ─────────────────────────────────────────────
 APP_ID = "org.easymonerod.gui"
 APP_NAME = "EasyMonerod"
-APP_VERSION = "1.1"
+APP_VERSION = "1.2"
 MONERO_VERSION = "0.18.4.5"
 SCRIPT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
 SCRIPT_PATH = os.path.join(SCRIPT_DIR, "easynode_linux.sh")
@@ -55,7 +55,7 @@ TRANSLATIONS = {
         "language_title": "SÉLECTION DE LA LANGUE",
         "menu_title": "MENU PRINCIPAL",
         "guide": "GUIDE",
-        "update_system": "Mise à jour système",
+        "update_system": "Installer dépendences",
         "install_monero": "Installer Monero CLI",
         "install_tor": "Installer service Tor",
         "configure_bitmonero": "Configurer bitmonero",
@@ -175,7 +175,7 @@ TRANSLATIONS = {
         "language_title": "LANGUAGE SELECTION",
         "menu_title": "MAIN MENU",
         "guide": "HOW TO",
-        "update_system": "Update system",
+        "update_system": "Install dependencies",
         "install_monero": "Install Monero CLI",
         "install_tor": "Install configure Tor",
         "configure_bitmonero": "Configure bitmonero",
