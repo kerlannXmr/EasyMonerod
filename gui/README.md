@@ -11,7 +11,7 @@
 
 # 📸 Screenshot
 
-![EasyMonerod GUI](https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/gui1.png)
+![EasyMonerod GUI](https://github.com/kerlannXmr/EasyMonerod/blob/main/gui/picture/1.3.png)
 
 <p align="center">
   <a href="https://github.com/kerlannXmr/EasyMonerod/raw/main/picture/EasyMonerod_GUI.mp4">
