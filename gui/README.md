@@ -88,7 +88,20 @@ sudo bash install.sh
 sudo rm -rf /opt/easymonerod-gui /usr/local/bin/easymonerod-gui /usr/share/applications/easymonerod-gui.desktop ~/install.sh
 
 ```
-<img src="https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/gt4.png" alt="Monero">
+### Requirements
+
+![GTK4](https://img.shields.io/badge/GTK-4.0-blue?logo=gnome&logoColor=white)
+![Libadwaita](https://img.shields.io/badge/Libadwaita-1.x-4A86CF?logo=gnome&logoColor=white)
+![VTE](https://img.shields.io/badge/VTE-3.91_(GTK4)-green?logo=gnome&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
+
+### Compatible OS
+
+![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04+-E95420?logo=ubuntu&logoColor=white)
+![Linux Mint](https://img.shields.io/badge/Linux_Mint-22+-87CF3E?logo=linuxmint&logoColor=white)
+![Debian](https://img.shields.io/badge/Debian-13+-A81D33?logo=debian&logoColor=white)
+![Fedora](https://img.shields.io/badge/Fedora-39+-51A2DA?logo=fedora&logoColor=white)
+![Arch](https://img.shields.io/badge/Arch_Linux-supported-1793D1?logo=archlinux&logoColor=white)
 
 ### ❕ DISCLAIMER ❕
 
