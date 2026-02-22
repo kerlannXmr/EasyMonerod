@@ -2868,7 +2868,7 @@ class EasyMonerodApp(Adw.Application):
             subprocess.run(["pkexec", "bash", tmp_script])
             self._update_status_lbl.set_markup(
                 "<span foreground='#47a347'>✅ " +
-                ("Renovatio completa!" if self.lang == "FR" else "Update complete!") +
+                ("Mise à jour complète!" if self.lang == "FR" else "Update complete!") +
                 "</span>")
             self._restart_btn.set_visible(True)
             return
@@ -2881,7 +2881,7 @@ class EasyMonerodApp(Adw.Application):
         )
 
     def _on_update_terminal_ready(self, terminal, pid, error, *args):
-        """Revocatio cum terminalis finivit — ostendit tabulam reinitializationis"""
+        """"Le rappel est terminé avec le terminal - il affiche le menu de réinitialisation"""
         # tmp_script transmissum ut user_data
         tmp_script = args[0] if args else None
         if error:
@@ -2901,7 +2901,7 @@ class EasyMonerodApp(Adw.Application):
                 pass
             GLib.idle_add(self._update_status_lbl.set_markup,
                 "<span foreground='#47a347'>✅ " +
-                ("Renovatio completa!" if self.lang == "FR" else "Update complete!") +
+                ("Mise à jour complète!" if self.lang == "FR" else "Update complete!") +
                 "</span>")
             GLib.idle_add(self._restart_btn.set_visible, True)
 
