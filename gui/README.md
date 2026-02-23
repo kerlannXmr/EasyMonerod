@@ -14,7 +14,7 @@
 ![EasyMonerod GUI](https://github.com/kerlannXmr/EasyMonerod/blob/main/gui/picture/1.3.png)
 
 <p align="center">
-  <a href="https://mega.nz/file/N68VAY4L#Wxylx_n5rkcJRQzPm9l1jbP6gwcjBTZZS66eMSEO2Gg">
+  <a href="https://video.liberta.vip/w/xajxJSb2WE5aVqnxUnzPBW?start=3s">
     ⬇️ Right-click → Open in new tab to SEE the demo video
   </a>
   </p>
