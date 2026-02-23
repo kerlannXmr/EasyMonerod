@@ -14,7 +14,7 @@
 ![EasyMonerod GUI](https://github.com/kerlannXmr/EasyMonerod/blob/main/gui/picture/1.3.png)
 
 <p align="center">
-  <a href="https://github.com/kerlannXmr/EasyMonerod/raw/main/picture/EasyMonerod_GUI.mp4">
+  <a href="https://mega.nz/file/ZysTlCTL#kvHjzGJf8qrw81Q5xCjBR3uzcGrvAQnp7LIL5dFkBGc">
     <br>Click to download the demo video
   </a>
 </p>
