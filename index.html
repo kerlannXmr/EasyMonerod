@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyNode — Monero Node</title>
+    <link rel="icon" href="picture/favicon.ico" type="image/x-icon">
+    <style>
+        /* ── base ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: #151515;
+            color: #eaeaea;
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        /* prompt terminal */
+        body.lang-en::before {
+            content: "> Monero EasyNode — Choose your version";
+            display: block;
+            color: #ff6600;
+            margin-bottom: 20px;
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+            align-self: flex-start;
+            width: 100%;
+            max-width: 1000px;
+        }
+        body.lang-fr::before {
+            content: "> Monero EasyNode — Choisissez votre version";
+            display: block;
+            color: #ff6600;
+            margin-bottom: 20px;
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+            align-self: flex-start;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* ── nav ── */
+        #topnav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 20px;
+        }
+
+        #topnav a {
+            display: flex;
+            align-items: center;
+            color: #999999;
+            font-size: 11px;
+            text-decoration: none;
+            font-style: italic;
+            gap: 7px;
+            transition: color 0.2s;
+        }
+        #topnav a:hover { color: #ff6600; }
+
+        /* ── header ── */
+        header {
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+            border-bottom: 1px dashed #ff6600;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        header img { margin: 0 auto 16px; }
+
+        h1 {
+            color: #ff6600;
+            font-size: 1.8em;
+            font-weight: 600;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #999999;
+            font-size: 0.85em;
+            margin-bottom: 6px;
+        }
+
+        .version-badge {
+            display: inline-block;
+            color: #b5e853;
+            border: 1px solid #b5e853;
+            padding: 2px 10px;
+            font-size: 0.75em;
+            border-radius: 2px;
+            margin-top: 6px;
+        }
+
+        /* ── cards grid ── */
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 48px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #3d3d3d;
+            border-top: 3px solid #ff6600;
+            padding: 32px 28px;
+            text-decoration: none;
+            color: #eaeaea;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            transition: border-color 0.25s, background-color 0.25s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* scanline overlay */
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.015) 2px,
+                rgba(255,255,255,0.015) 4px
+            );
+            pointer-events: none;
+        }
+
+        .card:hover {
+            border-color: #ff6600;
+            background-color: #1f1f1f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(255, 102, 0, 0.15);
+            text-decoration: none;
+        }
+
+        .card-mode {
+            font-size: 0.7em;
+            color: #b5e853;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.6em;
+            color: #ff6600;
+            font-weight: 600;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .card-tagline {
+            font-size: 0.8em;
+            color: #63c0f5;
+            border-left: 2px solid #63c0f5;
+            padding-left: 10px;
+            line-height: 1.6;
+        }
+
+        .card-desc {
+            font-size: 0.8em;
+            color: #aaaaaa;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .card-features {
+            list-style: none;
+            padding: 0;
+            font-size: 0.75em;
+            color: #888888;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .card-features li::before { content: "› "; color: #ff6600; }
+        .card-features li span { color: #cccccc; }
+
+        .card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding: 9px 18px;
+            background-color: transparent;
+            border: 1px solid #ff6600;
+            color: #ff6600;
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+            font-size: 0.8em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            align-self: flex-start;
+        }
+        .card:hover .card-cta {
+            background-color: #ff6600;
+            color: #0d0d0d;
+        }
+
+        /* ── OS compatibility row ── */
+        .os-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+        .os-tag {
+            font-size: 0.7em;
+            padding: 2px 8px;
+            border: 1px solid #3d3d3d;
+            color: #888;
+            border-radius: 2px;
+        }
+
+        /* ── divider ── */
+        hr {
+            width: 100%;
+            max-width: 1000px;
+            height: 1px;
+            background-color: #ff6600;
+            border: none;
+            margin: 8px 0 32px;
+        }
+
+        /* ── OR separator between cards ── */
+        .or-sep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            color: #555;
+            position: relative;
+        }
+        .or-sep::before, .or-sep::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #3d3d3d;
+        }
+        .or-sep span {
+            padding: 0 12px;
+            background: #151515;
+        }
+
+        /* ── footer ── */
+        footer {
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+            color: #555555;
+            font-size: 0.75em;
+            padding-top: 16px;
+            border-top: 1px dashed #3d3d3d;
+        }
+        footer a { color: #63c0f5; text-decoration: none; }
+        footer a:hover { color: #ff6600; }
+
+        /* ── common note ── */
+        .common-note {
+            width: 100%;
+            max-width: 1000px;
+            background-color: #0d0d0d;
+            border: 1px solid #3d3d3d;
+            border-left: 3px solid #b5e853;
+            padding: 14px 20px;
+            font-size: 0.78em;
+            color: #aaaaaa;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .common-note strong { color: #b5e853; }
+
+        /* ── lang buttons ── */
+        .lang-btn {
+            background-color: #1a1a1a;
+            border: 1px solid #3d3d3d;
+            color: #eaeaea;
+            padding: 5px 12px;
+            cursor: pointer;
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+            font-size: 11px;
+            border-radius: 2px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .lang-btn:hover { border-color: #ff6600; color: #ff6600; }
+        .lang-btn.active { background-color: #ff6600; border-color: #ff6600; color: #0d0d0d; font-weight: bold; }
+
+        /* ── visibility ── */
+        .i-en, .i-fr { display: none; }
+        body.lang-en .i-en { display: inline; }
+        body.lang-fr .i-fr { display: inline; }
+
+        /* ── responsive ── */
+        @media (max-width: 640px) {
+            .cards { grid-template-columns: 1fr; }
+            h1 { font-size: 1.3em; }
+        }
+
+        /* ── blinking cursor ── */
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        .cursor {
+            display: inline-block;
+            width: 8px; height: 1em;
+            background: #ff6600;
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+        }
+
+        /* ── arrow animate on hover ── */
+        .card:hover .arrow { transform: translateX(4px); }
+        .arrow { display: inline-block; transition: transform 0.2s; }
+    </style>
+</head>
+<body class="lang-en">
+
+<!-- ── nav ── -->
+<nav id="topnav">
+    <a href="https://github.com/kerlannxmr/easymonerod" target="_blank">
+        <svg width="36" height="36" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0C14.32 0 0 14.32 0 32c0 14.16 9.2 26.16 21.92 30.4 1.6.32 2.18-.7 2.18-1.54 0-.78-.03-3.32-.04-6.02-8.92 1.94-10.8-3.8-10.8-3.8-1.46-3.7-3.56-4.68-3.56-4.68-2.9-1.98.22-1.94.22-1.94 3.22.22 4.92 3.3 4.92 3.3 2.86 4.9 7.5 3.48 9.32 2.66.28-2.06 1.12-3.48 2.04-4.28-7.12-.8-14.6-3.56-14.6-15.84 0-3.5 1.26-6.36 3.3-8.6-.34-.8-1.42-4.04.3-8.44 0 0 2.68-.86 8.8 3.28 2.56-.7 5.28-1.06 8-1.06 2.72 0 5.44.36 8 1.06 6.1-4.14 8.78-3.28 8.78-3.28 1.74 4.4.64 7.64.32 8.44 2.06 2.24 3.3 5.1 3.3 8.6 0 12.3-7.5 15.02-14.62 15.82 1.14 1 2.16 2.94 2.16 5.94 0 4.28-.04 7.72-.04 8.78 0 .84.58 1.84 2.2 1.52C54.8 58.12 64 46.14 64 32 64 14.32 49.68 0 32 0z" fill="#ff6600"/>
+        </svg>
+        Github / kerlannXmr
+    </a>
+
+    <a href="https://easynode.kerlann.org/ecosystem.html" target="_blank">
+        <svg width="44" height="44" viewBox="-70 -70 140 140" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="0" cy="0" r="30" fill="none" stroke="#3d3d3d" stroke-width="1.5"/>
+            <circle cx="0" cy="0" r="25" fill="none" stroke="#666666" stroke-width="0.5" stroke-dasharray="1,1"/>
+            <line x1="0" y1="-20" x2="0" y2="-10" stroke="#63c0f5" stroke-width="0.8"/>
+            <line x1="20" y1="0" x2="10" y2="0" stroke="#63c0f5" stroke-width="0.8"/>
+            <line x1="0" y1="20" x2="0" y2="10" stroke="#63c0f5" stroke-width="0.8"/>
+            <line x1="-20" y1="0" x2="-10" y2="0" stroke="#63c0f5" stroke-width="0.8"/>
+            <text x="0" y="-23" fill="#63c0f5" font-family="Monaco, monospace" font-size="10" text-anchor="middle">N</text>
+            <text x="23" y="0" fill="#63c0f5" font-family="Monaco, monospace" font-size="10" text-anchor="middle" alignment-baseline="middle">E</text>
+            <text x="0" y="23" fill="#63c0f5" font-family="Monaco, monospace" font-size="10" text-anchor="middle">S</text>
+            <text x="-23" y="0" fill="#63c0f5" font-family="Monaco, monospace" font-size="10" text-anchor="middle" alignment-baseline="middle">W</text>
+            <path d="M0,0 L-4,-4 L0,-20 L4,-4 Z" fill="#ff6600"/>
+            <path d="M0,0 L4,4 L0,20 L-4,4 Z" fill="#eaeaea"/>
+            <circle cx="0" cy="0" r="2.5" fill="#151515" stroke="#63c0f5" stroke-width="0.8"/>
+        </svg>
+        Monero.ecosystem
+    </a>
+
+    <div style="display:flex;gap:8px;align-items:center;">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+    </div>
+</nav>
+
+<!-- ── header ── -->
+<header>
+    <img src="picture/banniere5.svg" width="380" height="60" alt="Monero EasyNode"
+         onerror="this.style.display='none'">
+    <h1>EasyMonerod<span class="cursor"></span></h1>
+    <p class="subtitle"><span class="i-en">Make easy a MONERO Node — No knowledge required</span><span class="i-fr">Créer facilement un Nœud MONERO — Aucune connaissance requise</span></p>
+    <p class="subtitle"><span class="i-en">Select step 1➡️2➡️3➡️4➡️5 and you're done in &lt;10 min</span><span class="i-fr">Sélectionnez les étapes 1➡️2➡️3➡️4➡️5 — moins de 10 minutes</span></p>
+    <span class="version-badge">v5 — monero_cli v0.18.4.5 — 2026/01/17</span>
+</header>
+
+<!-- ── common note ── -->
+<div class="common-note">
+    <strong><span class="i-en">Both versions share :</span><span class="i-fr">Les deux versions incluent :</span></strong>
+    ✅ <span class="i-en">Automated install</span><span class="i-fr">Installation automatisée</span> &nbsp;·&nbsp;
+    ✅ Tor + SSH onion &nbsp;·&nbsp;
+    ✅ <span class="i-en">Anonymous DNS</span><span class="i-fr">DNS anonyme</span> &nbsp;·&nbsp;
+    ✅ <span class="i-en">IP ban-list (MRL)</span><span class="i-fr">Liste IP bannie (MRL)</span> &nbsp;·&nbsp;
+    ✅ 🐧 Linux &amp; 🪟 WSL Windows 10/11
+</div>
+
+<!-- ── cards ── -->
+<div class="cards">
+
+    <!-- CARD CLI -->
+    <a class="card" href="https://easynode.kerlann.org/cli.html">
+        <div class="card-mode"><span class="i-en">Mode · Script</span><span class="i-fr">Mode · Script</span></div>
+        <div class="card-title">EasyNode<br>CLI</div>
+        <div class="card-tagline">
+            <span class="i-en">Terminal-based script<br>for total control</span>
+            <span class="i-fr">Script en ligne de commande<br>pour un contrôle total</span>
+        </div>
+        <p class="card-desc">
+            <span class="i-en">A shell script that guides you step by step through the terminal.
+            Ideal if you're comfortable with a command line or want to run Monero on a headless machine.</span>
+            <span class="i-fr">Un script shell qui vous guide pas à pas dans le terminal.
+            Idéal si vous êtes à l'aise en ligne de commande ou si vous voulez faire tourner Monero sans interface graphique.</span>
+        </p>
+        <ul class="card-features">
+            <li><span><span class="i-en">Interactive terminal menu</span><span class="i-fr">Menu terminal interactif</span></span></li>
+            <li><span>Linux &amp; WSL Windows 10/11</span></li>
+            <li><span><span class="i-en">SSH remote access via Tor onion</span><span class="i-fr">Accès SSH à distance via Tor onion</span></span></li>
+            <li><span><span class="i-en">Disk management (internal / external)</span><span class="i-fr">Gestion des disques (interne / externe)</span></span></li>
+            <li><span>Monero CLI v0.18.4.5</span></li>
+        </ul>
+        <div class="os-row">
+            <span class="os-tag">🐧 Ubuntu 22/24</span>
+            <span class="os-tag">🐧 Debian</span>
+            <span class="os-tag">🐧 Fedora</span>
+            <span class="os-tag">🪟 WSL2</span>
+        </div>
+        <div class="card-cta">
+            <span class="i-en">Launch CLI version</span><span class="i-fr">Ouvrir la version CLI</span> <span class="arrow">→</span>
+        </div>
+    </a>
+
+    <!-- CARD GUI -->
+    <a class="card" href="https://easynode.kerlann.org/gui.html">
+        <div class="card-mode"><span class="i-en">Mode · Graphical</span><span class="i-fr">Mode · Graphique</span></div>
+        <div class="card-title">EasyNode<br>GUI</div>
+        <div class="card-tagline">
+            <span class="i-en">Graphical interface<br>zero command line needed</span>
+            <span class="i-fr">Interface graphique<br>sans ligne de commande</span>
+        </div>
+        <p class="card-desc">
+            <span class="i-en">A GTK4 graphical application that embeds a terminal inside a window.
+            Click through the same steps without ever opening a terminal yourself.</span>
+            <span class="i-fr">Une application graphique GTK4 qui intègre un terminal dans une fenêtre.
+            Cliquez sur les mêmes étapes sans jamais ouvrir un terminal vous-même.</span>
+        </p>
+        <ul class="card-features">
+            <li><span>GTK 4 + Libadwaita</span></li>
+            <li><span><span class="i-en">Linux desktop (Ubuntu 24+, Mint 22+…)</span><span class="i-fr">Bureau Linux (Ubuntu 24+, Mint 22+…)</span></span></li>
+            <li><span><span class="i-en">Launch from Applications menu</span><span class="i-fr">Lancement depuis le menu Applications</span></span></li>
+            <li><span><span class="i-en">Same 12-step workflow as CLI</span><span class="i-fr">Même workflow en 12 étapes que CLI</span></span></li>
+            <li><span>Monero CLI v0.18.4.5 embedded</span></li>
+        </ul>
+        <div class="os-row">
+            <span class="os-tag">🐧 Ubuntu 24+</span>
+            <span class="os-tag">🐧 Mint 22+</span>
+            <span class="os-tag">🐧 Debian 13+</span>
+            <span class="os-tag">🐧 Arch</span>
+        </div>
+        <div class="card-cta">
+            <span class="i-en">Launch GUI version</span><span class="i-fr">Ouvrir la version GUI</span> <span class="arrow">→</span>
+        </div>
+    </a>
+
+</div>
+
+<!-- ── footer ── -->
+<hr>
+<footer>
+    <p><span class="i-en">Made with ❤️ by</span><span class="i-fr">Fait avec ❤️ par</span>
+    <a href="https://github.com/kerlannXmr" target="_blank">KerlannXmr</a>
+    &nbsp;·&nbsp;
+    <span class="i-en">Donate via Cake Wallet :</span><span class="i-fr">Don via Cake Wallet :</span>
+    <strong style="color:#ff6600;">kerlann.xmr</strong>
+    &nbsp;·&nbsp;
+    <a href="mailto:easynode@kerlann.org">easynode@kerlann.org</a>
+    </p>
+    <br>
+    <img src="picture/monero.gif" width="95" height="30" alt="Monero"
+         style="display:inline-block;margin:0 auto;"
+         onerror="this.style.display='none'">
+</footer>
+
+<script>
+function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.documentElement.lang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.title = lang === 'fr'
+        ? 'EasyNode — Nœud Monero'
+        : 'EasyNode — Monero Node';
+}
+</script>
+</body>
+</html>

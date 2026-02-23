@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make easy a MONERO Node</title>
+    <link rel="icon" href="picture/favicon.ico" type="image/x-icon">
+
+    <style>
+        body {
+            background-color: #151515;
+            color: #eaeaea;
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+            line-height: 1.5;
+            margin: 0 auto;
+            max-width: 1000px;
+            padding: 2rem;
+        }
+        h1, h2, h3, h4 {
+            color: #ff6600;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 1px dashed #ff6600;
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.25em;
+        }
+        code, pre {
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+            background-color: #1a1a1a;
+            border-radius: 2px;
+            border: 1px solid #3d3d3d;
+        }
+        code {
+            padding: 0.2em 0.4em;
+            font-size: 90%;
+            color: #63c0f5;
+        }
+        pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 90%;
+            line-height: 1.45;
+            margin: 16px 0;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            border: none;
+        }
+        a {
+            color: #63c0f5;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #ff6600;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        hr {
+            height: 1px;
+            background-color: #ff6600;
+            border: none;
+            margin: 24px 0;
+        }
+        .center {
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(181, 232, 83, 0.1);
+        }
+        table, th, td {
+            border: 1px solid #3d3d3d;
+        }
+        th {
+            background-color: #0d0d0d;
+            color: #b5e853;
+            padding: 12px 16px;
+            text-align: left;
+        }
+        td {
+            padding: 10px 16px;
+            text-align: left;
+        }
+        tr:hover {
+            background-color: #1a1a1a;
+        }
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #0d0d0d;
+            color: #b5e853;
+            border: 1px solid #b5e853;
+            border-radius: 2px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 5px;
+        }
+        .badge:hover {
+            background-color: #b5e853;
+            color: #0d0d0d;
+            text-decoration: none;
+        }
+        ul, ol {
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        header {
+            border-bottom: 1px dashed #ff6600;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* image grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1100px;
+        }
+        .image-grid img {
+            width: 100%;
+            height: 450px;
+            object-fit: contain;
+            border: 1px solid #3d3d3d;
+            background-color: #0d0d0d;
+            box-shadow: 0 0 10px rgba(181, 232, 83, 0.1);
+            transition: transform 0.3s ease;
+            padding: 10px;
+        }
+        .image-grid img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(181, 232, 83, 0.2);
+        }
+        .video-link {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* ── prompt terminal ── */
+        body.lang-en::before {
+            content: "> Monero EasyNode Terminal v5.0";
+            display: block;
+            color: #ff6600;
+            margin-bottom: 20px;
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+        }
+        body.lang-fr::before {
+            content: "> Terminal Monero EasyNode v5.0";
+            display: block;
+            color: #ff6600;
+            margin-bottom: 20px;
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+        }
+
+        /* ── nav row (github + ecosystem + lang buttons) ── */
+        #topnav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+        #topnav-left {
+            display: flex;
+            align-items: center;
+        }
+        #topnav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* boutons de langue */
+        .lang-btn {
+            background-color: #1a1a1a;
+            border: 1px solid #3d3d3d;
+            color: #eaeaea;
+            padding: 5px 12px;
+            cursor: pointer;
+            font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;
+            font-size: 11px;
+            border-radius: 2px;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .lang-btn:hover {
+            border-color: #ff6600;
+            color: #ff6600;
+            text-decoration: none;
+        }
+        .lang-btn.active {
+            background-color: #ff6600;
+            border-color: #ff6600;
+            color: #0d0d0d;
+            font-weight: bold;
+        }
+
+        /* ── visibilité par langue ── */
+        .en, .fr { display: none; }
+        body.lang-en .en { display: block; }
+        body.lang-fr .fr { display: block; }
+        .both { display: block; }
+
+        .i-en, .i-fr { display: none; }
+        body.lang-en .i-en { display: inline; }
+        body.lang-fr .i-fr { display: inline; }
+
+        .ib-en, .ib-fr { display: none; }
+        body.lang-en .ib-en { display: inline-block; }
+        body.lang-fr .ib-fr { display: inline-block; }
+    </style>
+</head>
+
+<body class="lang-en">
+
+<!-- ══════════════════════════════════════
+     NAV : github | [boussole ecosystem] | [🇬🇧 EN] [🇫🇷 FR]
+══════════════════════════════════════ -->
+<div id="topnav">
+
+    <!-- gauche : lien GitHub -->
+    <div id="topnav-left">
+        <a href="https://github.com/kerlannxmr/easymonerod" target="_blank"
+           style="display: flex; align-items: center; color: #999999; font-size: 11px; text-decoration: none; font-style: italic; font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;">
+            <svg width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="margin-right: 7px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0C14.32 0 0 14.32 0 32c0 14.16 9.2 26.16 21.92 30.4 1.6.32 2.18-.7 2.18-1.54 0-.78-.03-3.32-.04-6.02-8.92 1.94-10.8-3.8-10.8-3.8-1.46-3.7-3.56-4.68-3.56-4.68-2.9-1.98.22-1.94.22-1.94 3.22.22 4.92 3.3 4.92 3.3 2.86 4.9 7.5 3.48 9.32 2.66.28-2.06 1.12-3.48 2.04-4.28-7.12-.8-14.6-3.56-14.6-15.84 0-3.5 1.26-6.36 3.3-8.6-.34-.8-1.42-4.04.3-8.44 0 0 2.68-.86 8.8 3.28 2.56-.7 5.28-1.06 8-1.06 2.72 0 5.44.36 8 1.06 6.1-4.14 8.78-3.28 8.78-3.28 1.74 4.4.64 7.64.32 8.44 2.06 2.24 3.3 5.1 3.3 8.6 0 12.3-7.5 15.02-14.62 15.82 1.14 1 2.16 2.94 2.16 5.94 0 4.28-.04 7.72-.04 8.78 0 .84.58 1.84 2.2 1.52C54.8 58.12 64 46.14 64 32 64 14.32 49.68 0 32 0z" fill="#ff6600"/>
+            </svg>
+            <span class="i-en">Github link</span><span class="i-fr">voir sur GITHUB</span>
+        </a>
+    </div>
+
+    <!-- centre : boussole ecosystem -->
+    <div>
+        <a href="https://easynode.kerlann.org/ecosystem.html" target="_blank"
+           style="display: flex; align-items: center; color: #999999; font-size: 11px; text-decoration: none; font-style: italic; font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;">
+            <svg width="66" height="66" viewBox="-70 -70 140 140" xmlns="http://www.w3.org/2000/svg" style="margin-right: -10px;">
+                <circle cx="0" cy="0" r="30" fill="none" stroke="#3d3d3d" stroke-width="1.5"/>
+                <circle cx="0" cy="0" r="25" fill="none" stroke="#666666" stroke-width="0.5" stroke-dasharray="1,1"/>
+                <line x1="0" y1="-20" x2="0" y2="-10" stroke="#63c0f5" stroke-width="0.8"/>
+                <line x1="20" y1="0" x2="10" y2="0" stroke="#63c0f5" stroke-width="0.8"/>
+                <line x1="0" y1="20" x2="0" y2="10" stroke="#63c0f5" stroke-width="0.8"/>
+                <line x1="-20" y1="0" x2="-10" y2="0" stroke="#63c0f5" stroke-width="0.8"/>
+                <text x="0" y="-23" fill="#63c0f5" font-family="Monaco, monospace" font-size="10" text-anchor="middle">N</text>
+                <text x="23" y="0" fill="#63c0f5" font-family="Monaco, monospace" font-size="10" text-anchor="middle" alignment-baseline="middle">E</text>
+                <text x="0" y="23" fill="#63c0f5" font-family="Monaco, monospace" font-size="10" text-anchor="middle">S</text>
+                <text x="-23" y="0" fill="#63c0f5" font-family="Monaco, monospace" font-size="10" text-anchor="middle" alignment-baseline="middle">W</text>
+                <path d="M0,0 L-4,-4 L0,-20 L4,-4 Z" fill="#ff6600"/>
+                <path d="M0,0 L4,4 L0,20 L-4,4 Z" fill="#eaeaea"/>
+                <circle cx="0" cy="0" r="2.5" fill="#151515" stroke="#63c0f5" stroke-width="0.8"/>
+            </svg>
+            <span class="i-en">Monero.ecosystem</span><span class="i-fr">Écosystème Monero</span>
+        </a>
+    </div>
+
+    <!-- droite : boutons de langue -->
+    <div id="topnav-right">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+    </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     HEADER
+══════════════════════════════════════ -->
+<header class="center">
+    <img src="picture/banniere5.svg" width="380" height="60" alt="Monero EasyNode top">
+    <h1>
+        <span class="i-en">Make easy a MONERO Node</span>
+        <span class="i-fr">Créer facilement un Nœud MONERO</span>
+    </h1>
+    <img src="picture/xxmr.gif" width="300" height="300" alt="Monero EasyNode Logo">
+    <p>
+        <a href="https://mega.nz/file/8nMFlTyZ#n3dMne2a9TgdY57KtZIfLYCkWoJjHgWTiHuh7pvwIbs" target="_blank">
+            <span class="i-en">👉 Watch the demo video</span>
+            <span class="i-fr">👉 Regarder la vidéo de démonstration</span>
+        </a>
+    </p>
+</header>
+
+<!-- ══════════════════════════════════════
+     INTRO
+══════════════════════════════════════ -->
+<div class="en">
+    <p><b>'EasyNode'</b> simplifies the installation of a <b>'MONERO node'</b>, allowing you to configure your blockchain in just a few clicks. A complete setup in less than 10 minutes!</p>
+    <p>Then download its blockchain ...</p>
+    <p>Finally, start your adventure, you are sovereign...</p>
+    <p>You can use it in 🐧Linux versions or 🪟 windows 10/11 in wsl version.</p>
+    <p>No knowledge required. Select step 1➡️2➡️3➡️4➡️5 and you're done. After Boot to your internal drive, 6️⃣, or move the blockchain to your external disk, 8️⃣.</p>
+    <p>The node is protected by Tor and an onion address allows you to connect to a mobile wallet. An SSH onion address is available to access the node remotely. Added the 'MRL' IP bann list of 'boog900'.</p>
+    <p>🇬🇧 English — 🇫🇷 French language.</p>
+    <p>Enjoy.</p>
+    <p>updated to monero_cli v0.18.4.5 in 2026/01/17</p>
+    <p>❕ DISCLAIMER ❕<br>
+    This script is designed <b>for dedicated Monero node PCs</b> with Monero_Gui and could makes system modifications.<br>
+    - Don't use on primary computers first.</p>
+</div>
+
+<div class="fr">
+    <p><b>'EasyNode'</b> simplifie l'installation d'un <b>'nœud MONERO'</b>, vous permettant de configurer votre blockchain en quelques clics. Une installation complète en moins de 10 minutes !</p>
+    <p>Ensuite, téléchargez sa blockchain...</p>
+    <p>Enfin, commencez votre aventure, vous êtes souverain...</p>
+    <p>Vous pouvez l'utiliser dans les versions 🐧Linux ou 🪟 Windows 10/11 en version WSL.</p>
+    <p>Aucune connaissance requise. Sélectionnez les étapes 1➡️2➡️3➡️4➡️5 et c'est fait. Après le démarrage sur votre disque interne, 6️⃣, ou déplacez la blockchain vers votre disque externe, 8️⃣.</p>
+    <p>Le nœud est protégé par Tor et une adresse onion vous permet de vous connecter à un portefeuille mobile. Une adresse SSH onion est disponible pour accéder au nœud à distance. Ajout de la liste de bannissement d'IP 'MRL' de 'boog900'.</p>
+    <p>🇬🇧 Anglais — 🇫🇷 Français.</p>
+    <p>Profitez-en.</p>
+    <p>Mise à jour vers la version de monero CLI v0.18.4.5 le 17/01/2026.</p>
+</div>
+
+<!-- ══════════════════════════════════════
+     INTERFACE
+══════════════════════════════════════ -->
+<h2 class="center both">🖥️ <span class="i-en">Interface:</span><span class="i-fr">Interface :</span></h2>
+
+<div class="center both">
+    <div class="image-grid">
+        <a href="picture/wsl_interface.png" target="_blank"><img src="picture/wsl_interface.png" alt="WSL Interface"></a>
+        <a href="picture/wsl.gif" target="_blank"><img src="picture/wsl.gif" alt="WSL Interface Animation"></a>
+        <a href="picture/ssh.jpg" target="_blank"><img src="picture/ssh.jpg" alt="SSH Demo"></a>
+        <a href="picture/SSH.gif" target="_blank"><img src="picture/SSH.gif" alt="SSH Demo Animation"></a>
+    </div>
+    <br>
+    <div class="video-link">
+        <a href="https://mega.nz/file/8nMFlTyZ#n3dMne2a9TgdY57KtZIfLYCkWoJjHgWTiHuh7pvwIbs" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="240" height="60">
+                <rect width="240" height="60" rx="30" ry="30" fill="#000000" stroke="#FF6600" stroke-width="3"/>
+                <polygon points="20,20 20,40 40,30" fill="#FF6600"/>
+                <text x="55" y="38" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FF6600">
+                    <tspan class="i-en">Watch Demo video</tspan>
+                    <tspan class="i-fr">Voir la vidéo démo</tspan>
+                </text>
+            </svg>
+        </a>
+    </div>
+</div>
+
+<br>
+
+<!-- ══════════════════════════════════════
+     HOW TO
+══════════════════════════════════════ -->
+<h2 class="center both">📝 <span class="i-en">HOW TO</span><span class="i-fr">COMMENT FAIRE</span></h2>
+
+<h3 class="both"><span class="i-en">Internal disk :</span><span class="i-fr">Disque interne :</span></h3>
+<ul class="both">
+    <li><span class="i-en">Follow the step 1➡️2➡️3➡️4➡️5</span><span class="i-fr">Suivez les étapes 1➡️2➡️3➡️4➡️5</span></li>
+    <li><span class="i-en">Then do : Step 6️⃣</span><span class="i-fr">Puis faites : Étape 6️⃣</span></li>
+</ul>
+
+<h3 class="both"><span class="i-en">External Disk :</span><span class="i-fr">Disque externe :</span></h3>
+<ul class="both">
+    <li><span class="i-en">Follow the step 1➡️2➡️3➡️4➡️5</span><span class="i-fr">Suivez les étapes 1➡️2➡️3➡️4➡️5</span></li>
+    <li><span class="i-en">Then do : Step 8️⃣ and 6️⃣</span><span class="i-fr">Puis faites : Étape 8️⃣ et 6️⃣</span></li>
+</ul>
+
+<h3 class="both">Workflow :</h3>
+<pre class="both">
+1️⃣ Option 1: System update
+2️⃣ Option 2: Install Monero
+3️⃣ Option 3: Install Tor
+4️⃣ Option 4: Configure bitmonero
+   ├── Choice: With password (secure)
+   │   └── Instructions: Remote → Local after sync
+   └── Choice: Without password (direct)
+       └── Instructions: Local directly
+5️⃣ Option 5: Anonymous DNS
+6️⃣ Option 6: Start blockchain
+8️⃣ Option 8: External disk (PRESERVES option 4 choice)
+9️⃣ Option 9: Return to internal disk (PRESERVES option 4 choice)
+</pre>
+
+<!-- ══════════════════════════════════════
+     DOWNLOAD
+══════════════════════════════════════ -->
+<h2 class="center both">📥 <span class="i-en">Download:</span><span class="i-fr">Téléchargement :</span></h2>
+<div class="center both">
+    <p>⇨ 📂 <span class="i-en">Into path:</span><span class="i-fr">Dans le chemin :</span> <code>/home/$user</code></p>
+    <table>
+        <tr>
+            <th><span class="i-en">Version</span><span class="i-fr">Version</span></th>
+            <th><span class="i-en">Links</span><span class="i-fr">Liens</span></th>
+        </tr>
+        <tr>
+            <td>🐧 Linux</td>
+            <td>
+                <a class="ib-en badge" href="https://github.com/kerlannXmr/EasyMonerod/releases/download/v5/easynode_linux.sh">Download EasyNode Linux</a>
+                <a class="ib-fr badge" href="https://github.com/kerlannXmr/EasyMonerod/releases/download/v5/easynode_linux.sh">Télécharger EasyNode Linux</a>
+            </td>
+        </tr>
+        <tr>
+            <td>🪟 WSL</td>
+            <td>
+                <a class="ib-en badge" href="https://github.com/kerlannXmr/easynode_windows/releases/download/v4/easynode_wsl.sh">Download EasyNode WSL</a>
+                <a class="ib-fr badge" href="https://github.com/kerlannXmr/easynode_windows/releases/download/v4/easynode_wsl.sh">Télécharger EasyNode WSL</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div style="margin: 20px 0 25px 25px;" class="both">
+    <a href="https://github.com/kerlannXmr/EasyMonerod/releases" target="_blank"
+       style="color: #999999; font-size: 15px; text-decoration: none; font-style: italic; font-family: 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal, monospace;">
+        <span class="i-en">Release link</span><span class="i-fr">Lien de version</span>
+    </a>
+</div>
+
+<!-- ══════════════════════════════════════
+     INSTALLATION
+══════════════════════════════════════ -->
+<h2 class="center both">🚀 Installation</h2>
+
+<h3 class="both">🔒 <span class="i-en">IP ban_list:</span><span class="i-fr">Liste de bannissement d'IP :</span></h3>
+<p class="both">◇ <span class="i-en">Automatic updated 'IP ban-list' in this folder :</span><span class="i-fr">'Liste de bannissement d'IP' mise à jour automatiquement dans ce dossier :</span></p>
+<ul class="both"><li><code>/home/$user/.bitmonero</code></li></ul>
+<p class="both">
+    <span class="i-en">( Updated: github.com/Boog900/monero-ban-list/blob/main/ban_list.txt )</span>
+    <span class="i-fr">(Mise à jour : github.com/Boog900/monero-ban-list/blob/main/ban_list.txt)</span>
+</p>
+
+<h2 class="both">🐧 Linux :</h2>
+<p class="both">
+    <a href="https://github.com/kerlannXmr/EasyMonerod/issues/7" target="_blank">
+        <span class="i-en">View issue: Linux pour débutant FR</span>
+        <span class="i-fr">Voir problème : Linux pour débutant FR</span>
+    </a>
+</p>
+<h3 class="both">↪️ <span class="i-en">Download &amp; Install script:</span><span class="i-fr">Télécharger et installer le script :</span></h3>
+<p class="both">/home/$user</p>
+
+<div class="en">
+    <pre><code>sudo wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v5/easynode_linux.sh -O easynode_linux.sh && chmod +x easynode_linux.sh && sudo ./easynode_linux.sh</code></pre>
+    <p>Make it executable</p>
+    <pre><code>sudo chmod +x easynode_linux.sh
+sudo ./easynode_linux.sh</code></pre>
+</div>
+<div class="fr">
+    <pre><code>sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v5/easynode_linux.sh</code></pre>
+    <p>Rendez-le exécutable</p>
+    <pre><code>sudo chmod +x easynode_linux.sh
+sudo ./easynode_linux.sh</code></pre>
+</div>
+
+<h2 class="both">🪟 Windows 10/11 (WSL2) :</h2>
+
+<h3 class="both">⚫ 1) <span class="i-en">Verify WSL2 :</span><span class="i-fr">Vérifier WSL2 :</span></h3>
+<p class="both">-🔺 <span class="i-en">Make sure virtualization is enabled in bios: Tape in powershell Administrator :</span><span class="i-fr">Assurez-vous que la virtualisation est activée dans le BIOS : Tapez dans PowerShell Administrateur :</span></p>
+<p class="both">↳ <code>Get-ComputerInfo -Property "HyperV*"</code> = True ✅</p>
+<p class="both">-🔺 <span class="i-en">Make sure you already have <b>WSL2</b>:</span><span class="i-fr">Assurez-vous que vous avez déjà <b>WSL2</b> :</span></p>
+<p class="both">↳ <code>wsl --list --verbose</code>
+    <a href="https://github.com/kerlannXmr/EasyMonerod/issues/4#issue-2873484919" target="_blank">
+        <span class="i-en">👉 View issue</span><span class="i-fr">👉 Voir problème</span>
+    </a>
+</p>
+
+<h3 class="both">⚫ 2) <span class="i-en">Install Ubuntu:</span><span class="i-fr">Installer Ubuntu :</span></h3>
+<p class="both">-🔷 <span class="i-en">Go to <b>Microsoft Store</b>, then in search type Ubuntu, click on Ubuntu 24LTS.</span><span class="i-fr">Allez sur le <b>Microsoft Store</b>, puis dans recherche tapez Ubuntu, cliquez sur Ubuntu 24LTS.</span></p>
+<p class="both"><span class="i-en">Other:</span><span class="i-fr">Autre :</span></p>
+<p class="both">-🔶 <b><span class="i-en">In powershell administrator:</span><span class="i-fr">Dans PowerShell administrateur :</span></b></p>
+<pre class="both"><code>wsl --install</code></pre>
+<p class="both">learn.microsoft.com/fr-fr/windows/wsl/install</p>
+<p class="both">learn.microsoft.com/en-us/windows/wsl/install</p>
+
+<h3 class="both">⚫ 3) <span class="i-en">Download &amp; Install <b>script</b> :</span><span class="i-fr">Télécharger et installer le <b>script</b> :</span></h3>
+<p class="both">/home/$user</p>
+<pre class="both"><code>sudo wget -P ~ https://github.com/kerlannXmr/easynode_windows/releases/download/v4/easynode_wsl.sh</code></pre>
+<p class="both"><span class="i-en">Make it executable</span><span class="i-fr">Rendez-le exécutable</span></p>
+<pre class="both"><code>sudo chmod +x easynode_wsl.sh
+sudo ./easynode_wsl.sh</code></pre>
+
+<!-- ══════════════════════════════════════
+     FEATURES
+══════════════════════════════════════ -->
+<h2 class="center both">⚡ <span class="i-en">Features</span><span class="i-fr">Fonctionnalités</span></h2>
+
+<div class="en">
+<ul>
+    <li>✅ Automated installation</li>
+    <li>✅ allow firewall port</li>
+    <li>✅ Monero configuration</li>
+    <li>✅ Disk management (internal/external)</li>
+    <li>✅ Built-in Tor (Tor/SSH onion address)</li>
+    <li>✅ Anonymous DNS</li>
+    <li>🔒 Block IP 'ban listed' (MRL) <a href="https://github.com/kerlannXmr/EasyMonerod/issues/3#issue-2871012436" target="_blank">👉Issue</a></li>
+    <li>🔒 TOR SSH remote access : <a href="https://github.com/kerlannXmr/EasyMonerod/issues/2#issue-2870954425" target="_blank">👉Issue</a></li>
+    <li>✅ Intuitive user interface</li>
+    <li>✅ no knowledge required</li>
+</ul>
+</div>
+<div class="fr">
+<ul>
+    <li>✅ Installation automatisée</li>
+    <li>✅ Ouverture des ports du pare-feu</li>
+    <li>✅ Configuration de Monero</li>
+    <li>✅ Gestion des disques (interne/externe)</li>
+    <li>✅ Tor intégré (adresse onion Tor/SSH)</li>
+    <li>✅ DNS anonyme</li>
+    <li>🔒 Blocage des IP 'bannies' (MRL) <a href="https://github.com/kerlannXmr/EasyMonerod/issues/3#issue-2871012436" target="_blank">👉Problème</a></li>
+    <li>🔒 Accès SSH TOR à distance : <a href="https://github.com/kerlannXmr/EasyMonerod/issues/2#issue-2870954425" target="_blank">👉Problème</a></li>
+    <li>✅ Interface utilisateur intuitive</li>
+    <li>✅ Aucune connaissance requise</li>
+</ul>
+</div>
+
+<!-- ══════════════════════════════════════
+     IMPORTANT
+══════════════════════════════════════ -->
+<h2 class="center both">⚠️ <span class="i-en">Important</span><span class="i-fr">Important</span></h2>
+
+<div class="en">
+    <p>-➡🟧 REDIRECT port 22 and 18080 from your internet router to your ' local ip ' of your PC.</p>
+    <p>-➡📗 Remote access wallet:</p>
+    <p>Take 'cake wallet', settings, connect and sync, manage nodes, add +, node address= onion Tor, node port= 18089, save. Close and open. Wait the sync.</p>
+    <p>-➡📗 Remote access ssh:</p>
+    <p>Open terminal pc or take 'Termux' on android: ' ssh username@local_ip_pc ' . Or ' ssh username@onion_ssh_address '.</p>
+    <p>-➡🟧 Stop the Blockchain : CTRL+C (1 times)</p>
+</div>
+<div class="fr">
+    <p>-➡🟧 REDIRIGER les ports 22 et 18080 depuis votre routeur internet vers l'IP locale de votre PC.</p>
+    <p>-➡📗 Accès portefeuille à distance :</p>
+    <p>Prenez 'cake wallet', paramètres, connexion et synchronisation, gérer les nœuds, ajouter +, adresse du nœud = onion Tor, port du nœud = 18089, enregistrer. Fermez et ouvrez. Attendez la synchronisation.</p>
+    <p>-➡📗 Accès SSH à distance :</p>
+    <p>Ouvrez le terminal du PC ou prenez 'Termux' sur Android : 'ssh utilisateur@ip_locale_pc'. Ou 'ssh utilisateur@adresse_onion_ssh'.</p>
+    <p>-➡🟧 Arrêter la Blockchain : CTRL+C (1 fois)</p>
+</div>
+
+<!-- ══════════════════════════════════════
+     COMPATIBILITY
+══════════════════════════════════════ -->
+<h2 class="center both">🔄 <span class="i-en">Compatibility</span><span class="i-fr">Compatibilité</span></h2>
+
+<div class="center both">
+    <br>
+    <table>
+        <tr>
+            <th>Distribution</th>
+            <th><span class="i-en">Compatibilité</span><span class="i-fr">Compatibilité</span></th>
+            <th>Notes</th>
+        </tr>
+        <tr><td>✅</td><td>✅</td><td>✅</td></tr>
+    </table>
+</div>
+<p class="both"><strong><span class="i-en">Shell scripts ' EasyNode 'use standard commands that are more portable across different Linux distributions.</span><span class="i-fr">Les scripts shell 'EasyNode' utilisent des commandes standard qui sont plus portables entre différentes distributions Linux.</span></strong></p>
+<p class="both">-➡📗
+    <a href="https://github.com/kerlannXmr/EasyMonerod/issues/8" target="_blank">
+        <span class="i-en">👉View Issue Distribution compatibility</span>
+        <span class="i-fr">👉Voir problème Compatibilité des distributions</span>
+    </a>
+</p>
+<br><br>
+
+<!-- ══════════════════════════════════════
+     PACKAGES
+══════════════════════════════════════ -->
+<h2 class="center both">🔰 <span class="i-en">Packages installed by EASYNODE</span><span class="i-fr">Paquets installés par EASYNODE</span></h2>
+<br>
+<p class="both">- 📝
+    <a href="https://github.com/kerlannXmr/EasyMonerod/issues/6" target="_blank">
+        <span class="i-en">👉PACKAGES list pre-installed</span>
+        <span class="i-fr">👉Liste des PAQUETS pré-installés</span>
+    </a>
+</p>
+<br>
+
+<!-- ══════════════════════════════════════
+     SECURITY SCAN
+══════════════════════════════════════ -->
+<h2 class="center both">☣️ <span class="i-en">EasyNode Scripts TEST report</span><span class="i-fr">Rapport de TEST des scripts EasyNode</span></h2>
+
+<div class="center both">
+    <h3><span class="i-en">Security Scan Results</span><span class="i-fr">Résultats de l'analyse de sécurité</span></h3>
+    <p><span class="i-en">Audits are performed using VirusTotal and MetaDefender.</span><span class="i-fr">Les audits sont effectués à l'aide de VirusTotal et MetaDefender.</span></p>
+    <table>
+        <tr>
+            <th><span class="i-en">Category</span><span class="i-fr">Catégorie</span></th>
+            <th><span class="i-en">Description</span><span class="i-fr">Description</span></th>
+            <th><span class="i-en">Tools</span><span class="i-fr">Outils</span></th>
+            <th><span class="i-en">Status</span><span class="i-fr">Statut</span></th>
+        </tr>
+        <tr>
+            <td>🔒 <span class="i-en">Security</span><span class="i-fr">Sécurité</span></td>
+            <td><span class="i-en">Vulnerabilities, malware detection, backdoors</span><span class="i-fr">Vulnérabilités, détection de malware, portes dérobées</span></td>
+            <td>VirusTotal, MetaDefender</td><td>✅</td>
+        </tr>
+        <tr>
+            <td>🐛 <span class="i-en">Code Issues</span><span class="i-fr">Problèmes de code</span></td>
+            <td><span class="i-en">Logic flaws, syntax errors, risky patterns</span><span class="i-fr">Défauts logiques, erreurs de syntaxe, modèles risqués</span></td>
+            <td><span class="i-en">Static Analysis</span><span class="i-fr">Analyse statique</span></td><td>✅</td>
+        </tr>
+        <tr>
+            <td>🔍 <span class="i-en">Behavior</span><span class="i-fr">Comportement</span></td>
+            <td><span class="i-en">Runtime actions, system modifications, network activity</span><span class="i-fr">Actions d'exécution, modifications du système, activité réseau</span></td>
+            <td><span class="i-en">Dynamic Analysis</span><span class="i-fr">Analyse dynamique</span></td><td>✅</td>
+        </tr>
+        <tr>
+            <td>🔧 <span class="i-en">Resource Usage</span><span class="i-fr">Utilisation des ressources</span></td>
+            <td><span class="i-en">File system access, memory/CPU utilization</span><span class="i-fr">Accès au système de fichiers, utilisation mémoire/CPU</span></td>
+            <td>MetaDefender</td><td>✅</td>
+        </tr>
+        <tr>
+            <td>📡 <span class="i-en">Network</span><span class="i-fr">Réseau</span></td>
+            <td><span class="i-en">Suspicious connections, data exfiltration attempts</span><span class="i-fr">Connexions suspectes, tentatives d'exfiltration de données</span></td>
+            <td>VirusTotal</td><td>✅</td>
+        </tr>
+        <tr>
+            <td>💾 <span class="i-en">File Operations</span><span class="i-fr">Opérations sur fichiers</span></td>
+            <td><span class="i-en">Dangerous file manipulations, unexpected changes</span><span class="i-fr">Manipulations dangereuses de fichiers, changements inattendus</span></td>
+            <td><span class="i-en">Both Tools</span><span class="i-fr">Les deux outils</span></td><td>✅</td>
+        </tr>
+    </table>
+    <br>
+    <p><b><span class="i-en">Right click + "Open in new tab" to view scann results</span><span class="i-fr">Clic droit + "Ouvrir dans un nouvel onglet" pour voir les résultats d'analyse</span></b></p>
+    <table>
+        <tr>
+            <th>Script</th>
+            <th>Jotti.org</th>
+            <th>MetaDefender</th>
+            <th>virscan</th>
+        </tr>
+        <tr>
+            <td>EasyNode_linux</td>
+            <td><a href="https://virusscan.jotti.org/en/filescanjob/gr95iybu3r" target="_blank"><span class="i-en">analysis Jotti.org</span><span class="i-fr">Analyse Jotti.org</span></a></td>
+            <td><a href="https://metadefender.com/results/url/aHR0cHM6Ly9naXRodWIuY29tL2tlcmxhbm5YbXIvRWFzeU1vbmVyb2QvcmVsZWFzZXMvZG93bmxvYWQvdjMvZWFzeW5vZGVfbGludXguc2g=" target="_blank"><span class="i-en">analysis MetaDefender</span><span class="i-fr">Analyse MetaDefender</span></a></td>
+            <td><a href="https://www.virscan.org/report/544adbfaa7cd148d13f87cbe3bccd7e3be1692bc21b5182555d1285e97b22336" target="_blank"><span class="i-en">analysis virscan.org</span><span class="i-fr">Analyse virscan.org</span></a></td>
+        </tr>
+        <tr>
+            <td>EasyNode_wsl</td>
+            <td><a href="https://virusscan.jotti.org/en-US/filescanjob/g2cclgh3qj" target="_blank"><span class="i-en">analysis Jotti.orgl</span><span class="i-fr">Analyse Jotti.orgl</span></a></td>
+            <td><a href="https://metadefender.com/results/url/aHR0cHM6Ly9naXRodWIuY29tL2tlcmxhbm5YbXIvZWFzeW5vZGVfd2luZG93cy9yZWxlYXNlcy9kb3dubG9hZC92NC9lYXN5bm9kZV93c2wuc2g=" target="_blank"><span class="i-en">analysis MetaDefender</span><span class="i-fr">Analyse MetaDefender</span></a></td>
+            <td><a href="https://www.virscan.org/report/9fe00be0043c5d0f266d13319e14738f567b9fd4b920fe37ad1d7210b04389b0" target="_blank"><span class="i-en">analysis virscan.org</span><span class="i-fr">Analyse virscan.org</span></a></td>
+        </tr>
+    </table>
+</div>
+
+<br>
+
+<div class="en">
+    ❕ DISCLAIMER ❕<br>
+    This script is designed <b>for dedicated Monero node PCs</b> with Monero_Gui and could makes system modifications.
+    - Don't use on primary computers first.
+</div>
+
+<!-- ══════════════════════════════════════
+     SUPPORT
+══════════════════════════════════════ -->
+<h2 class="both">♠️ Support</h2>
+<ul class="both">
+    <li>📝 <span class="i-en">Consult F.A.Q.</span><span class="i-fr">Consultez la F.A.Q.</span>
+        <a href="https://github.com/kerlannXmr/EasyMonerod/issues/5" target="_blank">👉<span class="i-en">Questions</span><span class="i-fr">Questions</span></a>
+    </li>
+    <li>📝 <span class="i-en">Consult the</span><span class="i-fr">Consultez la</span>
+        <a href="https://tinyurl.com/kerlann" target="_blank">👉<span class="i-en">Documentation</span><span class="i-fr">Documentation</span></a>
+    </li>
+</ul>
+
+<!-- ══════════════════════════════════════
+     DONATION + FOOTER
+══════════════════════════════════════ -->
+<div class="center both">
+    <hr>
+    <h3>
+        <span class="i-en"><b>Make donnation with 'cake wallet' to : ' kerlann.xmr '</b></span>
+        <span class="i-fr">🙏 <b>Faites un don avec 'cake wallet' à : 'kerlann.xmr'</b> 🙏</span>
+    </h3>
+    <div class="center"><img src="picture/qrcode1.gif" alt="QR Code"></div>
+    <p><span class="i-en">or scann</span><span class="i-fr">ou scannez</span></p>
+    <hr>
+    <p>
+        <span class="i-en">Made with ❤️ by</span>
+        <span class="i-fr">Fait avec ❤️ par</span>
+        <a href="https://github.com/kerlannXmr">KerlannXmr</a>
+    </p>
+</div>
+
+<div class="center both"><img src="picture/monero.gif" width="95" height="30" alt="Monero"></div>
+
+<script>
+function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.documentElement.lang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.title = lang === 'fr'
+        ? 'Créer facilement un Nœud MONERO'
+        : 'Make easy a MONERO Node';
+}
+</script>
+
+</body>
+</html>
