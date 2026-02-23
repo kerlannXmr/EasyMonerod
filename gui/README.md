@@ -15,9 +15,9 @@
 
 <p align="center">
   <a href="https://mega.nz/file/ZysTlCTL#kvHjzGJf8qrw81Q5xCjBR3uzcGrvAQnp7LIL5dFkBGc">
-    <br>Click to download the demo video
+    ⬇️ Right-click → Open in new tab to SEE the demo video
   </a>
-</p>
+  </p>
 
 ---
 
