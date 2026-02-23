@@ -31,7 +31,7 @@ EasyMonerod GUI is a **graphical interface** to install a full Monero node on Li
 
  1. Open a terminal 
 
- 2. Download install.sh in personnal folder
+ 2. 🟢 Download install.sh in personnal folder
 
 ```bash
 wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh -O  install.sh && sudo bash install.sh
@@ -74,13 +74,13 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 | 12 | Notes | Useful links, donations, contact |
 
 
-### 🆕 🟢 check for updates
+### 🆕 ✅ check for updates
 
 ```bash
 sudo bash install.sh
 ```
 
-## Do you want to uninstall?
+## 🔴 Do you want to uninstall?
 
 ### Uninstall SSH
 
@@ -133,7 +133,7 @@ EasyMonerod GUI est une **interface graphique** qui permet d'installer un nœud 
 
  1. Ouvrir un terminal 
 
- 2. télécharge et "install.sh" dans ton dossier personnel
+ 2. 🟢 Télécharge et "install.sh" dans ton dossier personnel
 
 ```bash
 wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.sh -O  install.sh && chmod +x install.sh && sudo ./install.sh
@@ -174,12 +174,12 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 | 11 | Infos | Informations sur les ports et la configuration |
 | 12 | Notes | Liens utiles, dons, contact |
 
-### 🆕 🟢 Mise à jour
+### 🆕 ✅ Mise à jour
 
 ```bash
 sudo bash install.sh
 ```
-## Pour Désinstaller?
+## 🔴 Pour Désinstaller?
 
 ### Désinstalle SSH
 
