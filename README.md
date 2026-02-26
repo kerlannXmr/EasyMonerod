@@ -2,7 +2,7 @@
   <table style="border: 2px solid #FF6600;">
     <tr>
       <td align="center"  width="400">
-        <h3>LINUX VERSION</h3>
+        <h3>LINUX VERSION CLI</h3>
         <h3>Would you like change version?</h3>
         <h4>See the <a href="https://github.com/kerlannXmr/easynode_windows">Windows version</a> of this project</h4>
         <h4>See the <a href="https://github.com/kerlannXmr/EasyMonerod/tree/main/gui">GUI version</a> of this project</h4>
