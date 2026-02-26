@@ -12,7 +12,7 @@
   </a> 
          
   <a href="https://github.com/kerlannXmr/easynode_windows">
-    <img src="https://img.shields.io/badge/WINDOWS-Version-FF6600?style=for-the-badge&logo=windows&logoColor=white" alt="Version WSL"/>
+    <img src="https://img.shields.io/badge/WINDOWS-Version-123456?style=for-the-badge&logo=windows&logoColor=white" alt="Version WSL"/>
   </a>
         
   </td>
