@@ -224,7 +224,7 @@ sudo rm -rf /opt/easymonerod-gui /usr/local/bin/easymonerod-gui /usr/share/appli
 
 ## 🙏 Donations
 
-MONERO (XMR) : `kerlann.xmr` (via Cake Wallet or Unstoppable wallet)
+MONERO (XMR) : `kerlann.xmr` (via Cake Wallet or Unstoppable wallet in the address Bar)
 
 
 ## 🔒 PRIVACY MATTERS 🔒
