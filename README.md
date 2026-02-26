@@ -22,7 +22,7 @@
 
 ---
 
-[![contact_Mail](https://img.shields.io/badge/✉️_Email-FF6600?style=flat&logoColor=white)](mailto:easynode@kerlann.org)
+
 [![GitHub-page](https://img.shields.io/badge/Page--WEB-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org)
 [![Monero-ecosystem](https://img.shields.io/badge/🧭_Ecosystem-FF6600?style=flat&logoColor=white)](https://easynode.kerlann.org/ecosystem.html)
 [![Bank-Exit](https://img.shields.io/badge/🇫🇷_Bank_Exit-FF6600?style=flat&logoColor=white)](https://bank-exit.org/tutoriels/monero-node-easymonerod)
