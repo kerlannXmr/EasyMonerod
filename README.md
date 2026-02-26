@@ -33,7 +33,11 @@
 <div align="center">
 
 ## Make easy a MONERO Node 
+
+<a href="https://github.com/kerlannXmr/EasyMonerod/blob/main/README.md">  
 <img src="https://img.shields.io/badge/CLI-Version-650000?style=for-the-badge&logo=windows&logoColor=white" alt="Version WSL"/>
+</a>
+
 <BR>
 
 <img src="picture/xxmr.gif" width="300" height="300" alt="Monero EasyNode Logo">
