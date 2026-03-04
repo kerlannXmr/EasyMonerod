@@ -91,7 +91,7 @@ This script is designed **for dedicated Monero node PCs** with Monero_Gui and co
 
 > A full graphical interface is now available. Install in one command
 
-👉 **[See GUI documentation](https://github.com/kerlannXmr/EasyMonerod/tree/main/gui)**
+👉 **[See GUI VERSION](https://github.com/kerlannXmr/EasyMonerod/tree/main/gui)**
 
 
 ## <div align="center">🖥️ Interface:</div>
