@@ -6,7 +6,9 @@
         <h3>Would you like change version?</h3>
         <h4>See the <a href="https://github.com/kerlannXmr/easynode_windows">Windows version</a> of this project</h4>
         <h4>See the <a href="https://github.com/kerlannXmr/EasyMonerod/tree/main/gui">GUI version</a> of this project</h4>
-
+<a href="https://github.com/kerlannXmr/EasyMonerod/blob/main/gui/README.md">
+  <img src="https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/gui1.png" width="250">
+</a>
    <a href="https://github.com/kerlannXmr/EasyMonerod/tree/main/gui">
     <img src="https://img.shields.io/badge/GUI-Version-8546?style=for-the-badge&logo=windows&logoColor=white" alt="Version linux GUI"/>
   </a> 
