@@ -11,8 +11,7 @@
 </a>
    <a href="https://github.com/kerlannXmr/EasyMonerod/tree/main/gui">
     <img src="https://img.shields.io/badge/GUI-Version-8546?style=for-the-badge&logo=windows&logoColor=white" alt="Version linux GUI"/>
-  </a> 
-         
+  </a>          
   <a href="https://github.com/kerlannXmr/easynode_windows">
     <img src="https://img.shields.io/badge/WINDOWS-Version-123456?style=for-the-badge&logo=windows&logoColor=white" alt="Version WSL"/>
   </a>
