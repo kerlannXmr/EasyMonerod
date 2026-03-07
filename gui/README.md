@@ -226,6 +226,11 @@ sudo rm -rf /opt/easymonerod-gui /usr/local/bin/easymonerod-gui /usr/share/appli
 
 MONERO (XMR) : `kerlann.xmr` (via Cake Wallet or Unstoppable wallet in the address Bar)
 
+```
+85oN3YjxpsbER5fEnDusRr4Gj6jxBaTSSSRZeMDP6Mb1D5qB8m5oR9y5VhAcxE5RXKADMKk7ttQ4yScXwbaSMeqH7vp5AVZ
+```
+
+
 
 ## 🔒 PRIVACY MATTERS 🔒
 
