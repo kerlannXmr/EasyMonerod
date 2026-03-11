@@ -2626,7 +2626,7 @@ class EasyMonerodApp(Adw.Application):
             subprocess.run(["pkexec", "bash", tmp_script])
             self._update_status_lbl.set_markup(
                 "<span foreground='#47a347'>✅ " +
-                ("Renovatio completa!" if self.lang == "FR" else "Update complete!") +
+                ("Update complete!" if self.lang == "FR" else "Update complete!") +
                 "</span>")
             self._restart_btn.set_visible(True)
             return
