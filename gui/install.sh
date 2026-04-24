@@ -16,7 +16,7 @@ set -e
 # ─── URLs GitHub ───
 GITHUB_BASE="https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main"
 GUI_URL="$GITHUB_BASE/gui/easymonerod_gui.py"
-SCRIPT_URL="https://github.com/kerlannXmr/EasyMonerod/releases/download/v5/easynode_linux.sh"
+SCRIPT_URL="https://github.com/kerlannXmr/EasyMonerod/releases/download/v6/easynode_linux.sh"
 LOGO_URL="$GITHUB_BASE/picture/logo2.png"
 GIF_URL="$GITHUB_BASE/picture/xxmr.gif"
 QRCODE_URL="$GITHUB_BASE/picture/qrcode1.png"
