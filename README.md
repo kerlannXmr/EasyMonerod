@@ -152,7 +152,7 @@ This script is designed **for dedicated Monero node PCs** with Monero_Gui and co
 
 | Version | Links |
 |---------|------|
-| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v5/easynode_linux.sh) |
+| 🐧 Linux | [![Linux](https://img.shields.io/badge/Download-EasyNode_Linux-orange?style=for-the-badge)](https://github.com/kerlannXmr/EasyMonerod/releases/download/v6/easynode_linux.sh) |
 
 </div>
 
@@ -172,13 +172,13 @@ This script is designed **for dedicated Monero node PCs** with Monero_Gui and co
 - ⚡Beginner users: copy&paste in new terminal
 
 ```bash
-wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v5/easynode_linux.sh -O easynode_linux.sh && chmod +x easynode_linux.sh && sudo ./easynode_linux.sh
+wget https://github.com/kerlannXmr/EasyMonerod/releases/download/v6/easynode_linux.sh -O easynode_linux.sh && chmod +x easynode_linux.sh && sudo ./easynode_linux.sh
 ```
 
 - Normal users: copy&paste in new terminal
 
 ```bash
-sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v5/easynode_linux.sh
+sudo wget -P ~ https://github.com/kerlannXmr/EasyMonerod/releases/download/v6/easynode_linux.sh
 ```
 (script goes in folder) " /home/$user "
 
