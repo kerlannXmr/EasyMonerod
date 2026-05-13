@@ -54,7 +54,7 @@
 <br>
 -Allowing you to configure your blockchain in just a few clicks. A complete setup in less than 10 minutes!
 
-Then download its blockchain ⬇️ ... (**with 0.18.4.6 Monero CLI and officiel Hash verification**)
+Then download its blockchain ⬇️ ... (**with 0.18.5.0 Monero CLI and officiel Hash verification**)
 
 Finally, start your adventure, you are sovereign...
 
