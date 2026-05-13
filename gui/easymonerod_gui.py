@@ -2860,7 +2860,7 @@ class EasyMonerodApp(Adw.Application):
             f'}}; '
             f'LANG_CHOICE="{self.lang}"; '
             f'USERNAME="{self.username}"; '
-            f'MONERO_VERSION="0.18.4.6"; '
+            f'MONERO_VERSION="0.18.5.0"; '
             f'ask_username() {{ USERNAME="{self.username}"; return 0; }}; '
         )
 
