@@ -1,7 +1,7 @@
 # ⬡ EasyMonerod GUI
 
 **Simple GUI interface to install and manage a Monero node on Linux in 5 stape in less than 10 minutes**  
-*Gui mode of [EasyMonerod v5](https://github.com/kerlannXmr/EasyMonerod) by kerlannXmr*
+*Gui mode of [EasyMonerod v6](https://github.com/kerlannXmr/EasyMonerod) by kerlannXmr*
 
 [![contact_Mail](https://img.shields.io/badge/✉️_Email-FF6600?style=flat&logoColor=white)](mailto:easynode@kerlann.org)
 [![GitHub-page](https://img.shields.io/badge/Page--WEB-FF6600?style=flat&logo=github&logoColor=white)](https://easynode.kerlann.org)
