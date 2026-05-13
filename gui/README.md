@@ -62,7 +62,7 @@ wget https://raw.githubusercontent.com/kerlannXmr/EasyMonerod/main/gui/install.s
 |---|---------|--------| 
 | 0 | Guide | How to use the program | 
 | 1 | System update | Install packages, configure firewall, SSH, fail2ban | 
-| 2 | Install Monero CLI | Download and verify (GPG) Monero v0.18.4.5 | 
+| 2 | Install Monero CLI | Download and verify (GPG) Monero v0.18.5.0 | 
 | 3 | Install Tor | Configure Tor hidden services | 
 | 4 | Configure bitmonero | Creates bitmonero.conf with RPC security options | 
 | 5 | Configure DNS | Configure anonymous DNS (AdGuard) | 
