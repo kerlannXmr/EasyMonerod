@@ -34,8 +34,8 @@ import signal
 # ─────────────────────────────────────────────
 APP_ID = "org.easymonerod.gui"
 APP_NAME = "EasyMonerod"
-APP_VERSION = "1.8.5.0"
-MONERO_VERSION = "0.18.5.0"
+APP_VERSION = "1.8.5.1"
+MONERO_VERSION = "0.18.5.1"
 SCRIPT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
 SCRIPT_PATH = os.path.join(SCRIPT_DIR, "easynode_linux.sh")
 CONFIG_FILE = os.path.expanduser("~/.config/easymonerod/settings.json")
