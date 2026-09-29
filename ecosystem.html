@@ -2077,7 +2077,7 @@ document.getElementById('eurBtn').addEventListener('click', () => {
 
 async function fetchEurPrice() {
     try {
-        const resp = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=eur&include_24hr_change=true');
+        const resp = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=eur&include_24hr_change=true&x_cg_demo_api_key=CG-CrqfRQ5SsczHkfmVrKaVTixM');
         const data = await resp.json();
         const eur = data.monero.eur;
         const change = data.monero.eur_24h_change;
@@ -2091,7 +2091,7 @@ async function fetchEurPrice() {
     }
 }
 fetchEurPrice();
-setInterval(fetchEurPrice, 60000);
+setInterval(fetchEurPrice, 300000);
     </script>
 </body>
 </html>
