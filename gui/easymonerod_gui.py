@@ -34,8 +34,8 @@ import signal
 # ─────────────────────────────────────────────
 APP_ID = "org.easymonerod.gui"
 APP_NAME = "EasyMonerod"
-APP_VERSION = "1.8.5.1"
-MONERO_VERSION = "0.18.5.1"
+APP_VERSION = "1.8.5.3"
+MONERO_VERSION = "0.18.5.3"
 SCRIPT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
 SCRIPT_PATH = os.path.join(SCRIPT_DIR, "easynode_linux.sh")
 CONFIG_FILE = os.path.expanduser("~/.config/easymonerod/settings.json")
@@ -2860,7 +2860,7 @@ class EasyMonerodApp(Adw.Application):
             f'}}; '
             f'LANG_CHOICE="{self.lang}"; '
             f'USERNAME="{self.username}"; '
-            f'MONERO_VERSION="0.18.5.1"; '
+            f'MONERO_VERSION="0.18.5.3"; '
             f'ask_username() {{ USERNAME="{self.username}"; return 0; }}; '
         )
 
