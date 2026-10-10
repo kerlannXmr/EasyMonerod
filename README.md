@@ -2,8 +2,8 @@
   <table style="border: 2px solid #FF6600;">
     <tr>
       <td align="center"  width="450">
-        <h3>Would you like change version?</h3>
-        <h4>See the <a href="https://github.com/kerlannXmr/EasyMonerod/tree/main/gui">GUI version</a> of this project</h4>
+        <h2>Would you like change version?</h3>
+        <h3>See the <a href="https://github.com/kerlannXmr/EasyMonerod/tree/main/gui">GUI version</a> of this project</h4>
 <a href="https://github.com/kerlannXmr/EasyMonerod/blob/main/gui/README.md">
   <img src="https://github.com/kerlannXmr/EasyMonerod/blob/main/picture/gui1.png" width="400">
 </a>
