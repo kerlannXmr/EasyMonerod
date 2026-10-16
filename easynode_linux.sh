@@ -33,7 +33,7 @@ draw_banner() {
 USERNAME=""
 LANG_CHOICE=""
 BLOCKCHAIN_TYPE=""
-MONERO_VERSION="0.18.5.3"
+MONERO_VERSION="0.18.5.4"
 
 print_styled() {
     local style=$1
