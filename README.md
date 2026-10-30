@@ -312,7 +312,6 @@ Because FAT doesn't handle files larger than 4 GB!  [👉Issue](https://github.c
 
 ## 🫶 Thankful
 
-- 🧭 Thanks [👉Monero eco-system](https://monero.eco)*(right click + "Open in new tab")*
 - 🇫🇷 Thanks [👉unbanked0](https://github.com/Unbanked0)*(right click + "Open in new tab")*
 
 
