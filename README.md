@@ -335,7 +335,7 @@ or fundraiser
 
 *Made with ❤️ for the Monero community*
 
-[⭐ Star this repo](https://github.com/[username]/EasyNode-Tunnels) | [🍴 Fork it](https://github.com/[username]/EasyNode-Tunnels/fork) | [📢 Share it](https://twitter.com/intent/tweet?text=Check%20out%20EasyNode-Tunnels%20-%20Privacy-focused%20Monero%20node%20installer%20with%20Tor%20and%20VPN%20support!&url=https://github.com/[username]/EasyNode-Tunnels)
+[⭐ Star this repo](https://github.com/[username]/EasyNode-Tunnels) 
 
 </div>
 <div align="center"><img src="picture/monero.gif" width="190" height="60" alt="wsl Interface"></div>
